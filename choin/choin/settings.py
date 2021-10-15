@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import django_heroku
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-t*bcc5rs17^axx_15dzy$3aq=@^d!#*^ibzjw3a0g9x7r5*mqy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','choin.herokuapp.com']
 
 
 # Application definition
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -48,7 +51,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
 
 ROOT_URLCONF = 'choin.urls'
 
@@ -83,6 +92,8 @@ DATABASES = {
         'PORT': '',
     }
 }
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -122,6 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# location where you will store your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
