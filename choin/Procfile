@@ -1,0 +1,1 @@
+web: gunicorn choin.wsgi --log-file -
