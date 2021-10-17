@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'rewardsystem',
         'USER': 'Miners',
-        'PASSWORD': 'Miners$$04',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
     }
