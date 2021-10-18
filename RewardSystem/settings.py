@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'RewardSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rewardsystem',
-        'USER': 'TheMiners',
-        'PASSWORD': 'miners',
+        'NAME': 'choinproject',
+        'USER': 'minersgroup',
+        'PASSWORD': 'choinersminers',
         'HOST': 'localhost',
         'PORT': '',
     }
