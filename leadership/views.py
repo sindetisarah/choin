@@ -10,7 +10,7 @@ def profile_upload(request):
     data = User.objects.all()
 # prompt is a context variable that can have different values      depending on their context
     prompt = {
-        'order': 'Order of the CSV should be email',
+        'order': 'Order of the CSV should be username,email',
         'profiles': data
               }
     # GET request returns the value of the data with the specified key.
@@ -26,8 +26,8 @@ def profile_upload(request):
     next(io_string)
     for column in csv.reader(io_string, delimiter=',', quotechar="|"):
         _, created = User.objects.update_or_create(
-    
-        email=column[0],
+        username=column[0],
+        email=column[1],
     )
     context = {}
     return render(request, template, context)
