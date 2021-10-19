@@ -45,7 +45,8 @@ def profile_upload(request):
     # send the email to the recipent
     users=User.objects.all()
     for user in users:
-        password = User.objects.make_random_password()
+        password = User.objects.make_random_password(length=10, 
+                        allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')        
         user.set_password(password)
         user.save(update_fields=['password'])
         emails=user.email
