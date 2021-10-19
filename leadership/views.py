@@ -2,7 +2,19 @@ import csv, io
 from django.shortcuts import render
 from django.contrib import messages
 from .models import *
+
+from RewardSystem.settings import EMAIL_HOST_USER
+from django.core import mail
+from django.core.mail import send_mail
+
 # Create your views here.
+
+
+#send mails
+
+
+
+
 # one parameter named request
 def profile_upload(request):
     # declaring template
@@ -29,5 +41,24 @@ def profile_upload(request):
         username=column[0],
         email=column[1],
     )
+
+    # send the email to the recipent
+    users=User.objects.all()
+    for user in users:
+        emails=user.email
+        password=user.password
+
+        subject = "Welcome To The AKiraChix Rewarding System"
+        message = "Hi Welcome to akirachix Choin. Your password is {}".format(password)
+        recipient=emails
+        send_mail(subject, message,EMAIL_HOST_USER,[recipient])
+
     context = {}
+
+    
+    
+
+  
+    
+
     return render(request, template, context)
