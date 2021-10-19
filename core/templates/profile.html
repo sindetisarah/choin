@@ -1,0 +1,29 @@
+{% load static %}{% block title %} {% endblock %} {% block body %}
+
+<head>
+    <link rel="stylesheet" href="{%  static  'css/style.css'  %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<h3>My Profile</h3>
+
+<body>
+    <div id="form">
+        <!-- <img src="{my_profile.profile_img.url }" alt=""> -->
+        <i class="fa fa-edit" style="font-size:48px;color:purple;margin-left:80%"></i>
+        <form enctype="multipart/form-data" method="post">{% csrf_token %}
+            <!-- <img src="{my_profile.profile_img.url }" alt=""> -->
+            <label for="">First name</label>
+            <input type="text">
+            <label for="">Last name</label>
+            <input type="text">
+            <label for="">Email</label>
+            <input type="email">
+            <label for="">Password</label>
+            <input type="password">
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+        {% endblock %}
+    </div>
+</body>

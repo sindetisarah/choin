@@ -57,8 +57,8 @@ class LoginView(FormView):
 # 	form = AuthenticationForm()
 # 	return render(request=request, template_name="home.html", context={"login_form":form})
 def index(request):
-    
-   
     return render(request,'trial.html')
+def Profile(request):
+    return render(request,'profile.html')
 
 

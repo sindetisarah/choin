@@ -1,0 +1,57 @@
+title {
+    color: purple;
+    font-size: 30px;
+}
+
+.password {
+    margin-bottom: 40px;
+}
+
+input {
+    height: 32px;
+    font-size: 20px;
+    outline: none;
+    width: 100%;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: 2px solid black;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+body {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+button {
+    background-color: purple;
+    padding: 5px;
+    color: white;
+    width: 90px;
+    margin-left: 40%;
+    font-size: 20px;
+}
+
+#form {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+i {
+    margin-left: 40%;
+    margin-top: 0;
+}
+
+h3 {
+    color: purple;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+img {
+    margin-top: 0;
+    height: 90px;
+    margin-bottom: 0;
+}
