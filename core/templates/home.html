@@ -14,7 +14,6 @@
     <img id="logo" src="https://bit.ly/3DQvTT5" />
     <hr>
     <h1 id="welcome">WELCOME TO CHOIN</h1>
-    <a href="{% url 'user_profile' %}">profile</a>
     <div class="login-page">
         <div class="how-to-use">
             <h2>How to Use</h2>
@@ -52,7 +51,7 @@
         </div>
         <div class="login-form">
 
-            <form method="POST" class="form-group" style="margin-left: 40%; margin-top: 4%;">
+            <form method="POST">
                 <h3>LOGIN</h3>
                 {%csrf_token%} {{form.as_p}}
                 <button type="submit">Log In</button><br>
