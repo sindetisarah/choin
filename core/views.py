@@ -19,7 +19,7 @@ class LoginView(FormView):
     """login view"""
 
     form_class = forms.LoginForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('user_profile')
     template_name = 'home.html'
 
     def form_valid(self, form):
