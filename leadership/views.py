@@ -45,8 +45,11 @@ def profile_upload(request):
     # send the email to the recipent
     users=User.objects.all()
     for user in users:
+        password = User.objects.make_random_password()
+        user.set_password(password)
+        user.save(update_fields=['password'])
         emails=user.email
-        password=user.password
+        # password=user.password
 
         subject = "Welcome To The AKiraChix Rewarding System"
         message = "Hi Welcome to akirachix Choin. Your password is {}".format(password)

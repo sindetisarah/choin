@@ -8,7 +8,7 @@ from django.db.models.fields import CharField
 class User(AbstractUser):
     user_name = models.CharField(('username'), unique=True,max_length=40),
     email = models.EmailField(('email address'), unique=True)
-    password=models.CharField(('password'),max_length=100,default=uuid.uuid4)
+    # password=models.CharField(('password'),max_length=100,default=uuid.uuid4)
 
 
     USERNAME_FIELD = 'username'
