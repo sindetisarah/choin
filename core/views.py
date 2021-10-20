@@ -60,5 +60,7 @@ def index(request):
     return render(request,'trial.html')
 def Profile(request):
     return render(request,'profile.html')
+def navbar(request):
+    return render(request,'navbar.html')
 
 
