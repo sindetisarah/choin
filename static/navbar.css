@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body{
    margin: 0;
@@ -14,9 +14,9 @@ body{
    top:0;
    left: 0;
    bottom: 0;
-   background:#824290;
+   background:#1405da;
    padding-top: 10px;
-   opacity: 75%;
+   opacity: 0.%;
 }
 
 .sidebar h1{
@@ -24,7 +24,6 @@ body{
    padding: 40px 50px;
    color: #fff;
    text-decoration: none;
-   font-family:'Montserrat', sans-serif;
    letter-spacing: 2px;
    font-weight: 400;
    margin: 0;
