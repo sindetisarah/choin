@@ -6,7 +6,7 @@ body{
     margin-left: 10%;
     margin-bottom: -5%;
     font-size: 50px;
-    color: rgb(109, 104, 104);
+    color: #080707;
 }
 #logo{
     width: 20%;
@@ -45,7 +45,7 @@ h2{
   background: #1f2020;
   top: 0;
   bottom: 0;
-  height: 33.3vh;
+  height: 80%;
   left: 50%;
   /* margin-left: -1px; */
 }
@@ -157,7 +157,7 @@ button {
   @media (max-width: 850px) {
     .timeline::after {
       left: -80px;
-      height: 63vh;
+      height: 83.5%;
       top: 6.5%;
     }
   
@@ -200,7 +200,7 @@ button {
              
     }
     h2{
-        margin-left: 10%;
+        margin-left: 5%;
         color: #561278;
         
     }
