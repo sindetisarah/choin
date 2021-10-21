@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+   margin: 0;
+}
+#logo{
+    width: 250px;
+    height:90px;
+}
+
+.sidebar{
+   position: fixed;
+   width: 250px;
+   top:0;
+   left: 0;
+   bottom: 0;
+   background:#1405da;
+   padding-top: 10px;
+   opacity: 0.%;
+}
+
+.sidebar h1{
+   display: block;
+   padding: 40px 50px;
+   color: #fff;
+   text-decoration: none;
+   letter-spacing: 2px;
+   font-weight: 400;
+   margin: 0;
+   font-size: 25px;
+   text-transform: uppercase;
+}
+
+.sidebar a{
+   display: block;
+   padding: 10px 20px;
+   color: #bbb;
+   text-decoration: none;
+   font-family:'Montserrat', sans-serif;
+   letter-spacing: 2px;
+}
+
+.sidebar a:hover{
+   color: #fff;
+
+  
+   width:210px;
+   height:15px;
+   padding-bottom: 10px;
+   background-color:#DCBEEB;
+}
+hr{
+    background-color:black;
+    height: 0.2px;
+    width:1320px;
+}

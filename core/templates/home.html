@@ -1,1 +1,65 @@
-<h1 style="text-align: center;margin-top: 10%;">Welcome to Choin<br>To be launched soon!!!<br>Stay Tuned</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="logo" src="https://bit.ly/3DQvTT5" />
+    <hr>
+    <h1 id="welcome">WELCOME TO CHOIN</h1>
+    <div class="login-page">
+        <div class="how-to-use">
+            <h2>How to Use</h2>
+            <div class="timeline">
+                <div class="container left">
+                    <div class="content">
+                        <p>
+                            Create Account/ Update Details
+                        </p>
+                    </div>
+                </div>
+                <div class="container right">
+
+                    <div class="content">
+                        <p>
+                            View transactions both individual and general. View leaderboard.
+                        </p>
+                    </div>
+                </div>
+                <div class="container left">
+                    <div class="content">
+                        <p>
+                            Reward a student, set metrics. Activate redeem.
+                        </p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <p>
+                            Redeem Choins
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login-form">
+
+            <form method="POST">
+                <h3>LOGIN</h3>
+                {%csrf_token%} {{form.as_p}}
+                <button type="submit">Log In</button><br>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
