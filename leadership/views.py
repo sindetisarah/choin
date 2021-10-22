@@ -56,7 +56,7 @@ def profile_upload(request):
         # password=user.password
 
         subject = "Welcome To The AkiraChix Rewarding System"
-        message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {} \nVisit this link to sign In : https://choin.herokuapp.com/".format(emails,password)
+        message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {} \nVisit this link to Log In : https://choin.herokuapp.com/".format(emails,password)
         recipient=emails
         send_mail(subject, message,EMAIL_HOST_USER,[recipient])
 
