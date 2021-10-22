@@ -39,7 +39,6 @@ class LoginView(FormView):
             return HttpResponseRedirect(reverse_lazy('login'))
 
 
-	# user = authenticate(username=username, password=password)
 # 			if user is not None:
 # 				login(request, user)
 # 				messages.info(request, f"You are now logged in as {username}.")
