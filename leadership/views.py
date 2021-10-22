@@ -48,14 +48,15 @@ def profile_upload(request):
     for user in users:
         
         password = User.objects.make_random_password(length=10, 
-                        allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')        
+                        allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
+                            
         user.set_password(password)
         user.save(update_fields=['password'])
         emails=user.email
         # password=user.password
 
-        subject = "Welcome To The AKiraChix Rewarding System"
-        message = "Hi Welcome to akirachix Choin. Your password is {}".format(password)
+        subject = "Welcome To The AkiraChix Rewarding System"
+        message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {} \nVisit this link to sign In : https://choin.herokuapp.com/".format(emails,password)
         recipient=emails
         send_mail(subject, message,EMAIL_HOST_USER,[recipient])
 
