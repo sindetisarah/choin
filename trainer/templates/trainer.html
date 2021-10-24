@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+
+    <title>Dashboard</title>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+}
+#Image{
+    border-radius: 50%;
+    width:4%;
+
+}
+     
+#profile{
+    border-radius: 50%;
+    width:4%;
+    bottom: 88%;
+    margin-left: 90%;
+    position: absolute;
+    background-color: #000;
+    
+}
+#choin_balance{
+   margin-left:83%;
+   color:purple;
+   font-size: 20px;
+   margin-top:2%;
+   position: absolute;
+}
+table{
+    width: 900px;
+    margin-left: 25%;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    border-collapse: collapse;
+
+}
+th, caption{
+    text-align: left;
+    color:purple;
+    font-weight: lighter;
+    font-size: 20px;
+
+}
+
+th, td{
+    padding-left: 60px;
+    font-family: 'Poppins', sans-serif;
+    
+
+}
+tr:nth-child(even){
+    background-color:#c4c4c4;
+    opacity: 61%;
+}
+tr:nth-child(odd){
+    background-color:white;
+}
+
+    
+    </style>
+   <h3 id ="heading">Leaderboard</h3>
+
+    <div class="sidebar">
+        <img id="logo" src="/static/images/akira-removebg-preview 8.png" />
+
+
+        <hr>
+        <a href="">Home</a>
+        <a href="">Reward</a>
+        <a href="">Transactions</a>
+        
+     </div>
+     <img id="profile" src="/static/images/me-removebg-preview.png" />
+     <h1 id="choin_balance">Balance:20 Choins</h1>
+
+     <table>
+        <tr>
+            <th>Image
+            </th>
+            <th> Name</th>
+            <th>Choins</th>
+            
+
+        </tr>
+   
+   
+    <tr>
+    <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+    </td>
+    <td>Eunice Atieno</td>
+    <td>100</td>
+   
+
+    </tr>
+    <tr>
+        <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+        </td>
+        <td>Hunter Achieng</td>
+        <td>98</td>
+       
+    
+        </tr>
+   
+</table>
+    
+</body>
+</html>
