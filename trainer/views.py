@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def trainer_dashboard(request):
+    return render(request,'trainer.html')
