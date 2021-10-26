@@ -1,0 +1,39 @@
+{%  load static %}
+{% include 'leader_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'reward.css' %}">
+   <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+   <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+
+   <title>Choin</title>
+</head>
+<body>
+    <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+    <div class="mini-header">
+        <div>
+            <i class="fas fa-bars menu"></i>
+        </div>
+   <div class="pool">
+   <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
+       <p>  Choin Balance: 200</p> 
+   </div>
+   </div>
+   <div class="reward-heading">
+ 
+       <h1>Class of 2022</h1>
+       <div class="search">
+       <form method="GET">
+           <input type="search" placeholder="Search student by name"/>
+          <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
+       </form>
+   </div>
+   </div>
+  
+</body>
+<script src="{% static 'js/navbar.js' %}"></script>
+</html>

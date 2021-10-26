@@ -69,3 +69,11 @@ def profile_upload(request):
     
 
     return render(request, template, context)
+
+def reward(request):
+    return render(request,'reward.html')
+# def reward_confirm(request):
+#     return render(request,'reward_confirm.html')
+def reward_confirm(request):
+    metrics = Metrics.objects.all()
+    return render(request,'reward_confirm.html',{'metrics':metrics})
