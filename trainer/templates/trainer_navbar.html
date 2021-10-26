@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
+</head>
+<body>
+
+    <div class="sidebar">
+        <i class="fas fa-times"></i>
+        <img id="logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+
+        <hr>
+        <div id="navItems">
+        <a href="" class="nav active">Home</a>
+        <a href="" class="nav">Reward</a>
+        <a href="" class="nav">Transactions</a>
+        
+    </div>
+     </div>
+    
+</body>
+<script src="{% static 'js/navbar.js' %}"></script>
+</html>

@@ -25,3 +25,8 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
+class Metrics(models.Model):
+   metric = models.CharField(max_length=20,null=True)
+   value = models.IntegerField(null=True)
+   date_added =models.DateTimeField(auto_now_add=True,null=True)

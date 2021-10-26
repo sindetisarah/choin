@@ -1,96 +1,32 @@
 {% load static %}
+{% include 'trainer_navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'trainer.css' %}">
 
-    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+
+    <title>Choin</title>
 </head>
 <body>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-body{
-    font-family: 'Poppins', sans-serif;
-}
-#Image{
-    border-radius: 50%;
-    width:4%;
-
-}
-#heading{
-    padding-left: 50%;
-    color:#561278;
-    font-weight: lighter;
-    margin-top: 5%;
-    
-
-}
-     
-#profile{
-    border-radius: 50%;
-    width:4%;
-    bottom: 88%;
-    margin-left: 90%;
-    position: absolute;
-    background-color: #000;
-    
-}
-#choin_balance{
-   margin-left:83%;
-   color:purple;
-   font-size: 20px;
-   top:9%;
-   position: absolute;
-}
-table{
-    width: 900px;
-    margin-left: 25%;
-    margin-top: 8%;
-    margin-bottom: 8%;
-    border-collapse: collapse;
-
-}
-th, caption{
-    text-align: left;
-    color:purple;
-    font-weight: lighter;
-    font-size: 20px;
-
-}
-
-th, td{
-    padding-left: 60px;
-    font-family: 'Poppins', sans-serif;
-    
-
-}
-tr:nth-child(even){
-    background-color:#c4c4c4;
-    opacity: 61%;
-}
-tr:nth-child(odd){
-    background-color:white;
-}
-
-    
-    </style>
+        <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+        <div class="mini-header">
+            <div>
+                <i class="fas fa-bars menu"></i>
+            </div>
+       <div class="pool">
+       <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
+           <p>  Choin Balance: 200</p> 
+       </div>
+       </div>
    <h3 id ="heading">Leaderboard</h3>
 
-    <div class="sidebar">
-        <img id="logo" src="/static/images/akira-removebg-preview 8.png" />
-
-
-        <hr>
-        <a href="">Home</a>
-        <a href="">Reward</a>
-        <a href="">Transactions</a>
-        
-     </div>
-     <img id="profile" src="/static/images/me-removebg-preview.png" />
-     <h1 id="choin_balance">Balance:20 Choins</h1>
+     <!-- <img id="profile" src="/static/images/me-removebg-preview.png" />
+     <h1 id="choin_balance">Balance:20 Choins</h1> -->
 
      <table>
         <tr>
