@@ -38,7 +38,7 @@ def profile_upload(request):
     )
 
     # send the email to the recipent
-    users=Student.objects.all()
+    users=User.objects.all()
     
     for user in users:
         user.role=User.STUDENT
@@ -47,10 +47,10 @@ def profile_upload(request):
         password = User.objects.make_random_password(length=10, 
                         allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
         
-        user.password=password
-        user.save()
-        # user.set_password(password)
-        # user.save(update_fields=['password'])
+        # user.password=password
+        # user.save()
+        user.set_password(password)
+        user.save(update_fields=['password'])
         emails=user.email
         # password=user.password
 
@@ -89,7 +89,7 @@ def trainer_profile_upload(request):
     )
 
     # send the email to the recipent
-    users=Trainer.objects.all()
+    users=User.objects.all()
     
     for user in users:
         user.role=User.TRAINER
@@ -97,10 +97,10 @@ def trainer_profile_upload(request):
         
         password = User.objects.make_random_password(length=10, 
                         allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
-        user.password=password
-        user.save()
-        # user.set_password(password)
-        # user.save(update_fields=['password'])
+        # user.password=password
+        # user.save()
+        user.set_password(password)
+        user.save(update_fields=['password'])
         emails=user.email
         subject = "Welcome To The AkiraChix Rewarding System"
         message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {}. Your role is {} \nVisit this link to Log In : https://choin.herokuapp.com/".format(emails,password,user.role)
