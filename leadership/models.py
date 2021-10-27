@@ -15,6 +15,18 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
     objects = CustomUserManager()
 
+    LEADERSHIP=1
+    TRAINER=2
+    STUDENT=3
+
+    ROLE_CHOICES = (
+        (LEADERSHIP, 'Leadership'),
+        (TRAINER, 'Trainer'),
+        (STUDENT, 'Student'),
+    )
+    
+    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True,null=True)
+
     class Meta:
         verbose_name = ('user')
         verbose_name_plural = ('users')
