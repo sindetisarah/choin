@@ -39,6 +39,6 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
 
 class Metrics(models.Model):
-   metric = models.CharField(max_length=20,null=True)
+   metric = models.CharField(max_length=100,null=True)
    value = models.IntegerField(null=True)
    date_added =models.DateTimeField(auto_now_add=True,null=True)
