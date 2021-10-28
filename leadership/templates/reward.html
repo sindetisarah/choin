@@ -32,6 +32,15 @@
        </form>
    </div>
    </div>
+
+   <table>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.username }}</td>
+        <td><a id="href" href="{%url 'reward_confirm' id=student.id%}">Reward</a> </td>
+    </tr>
+    {% endfor %}
+</table>
   
 </body>
 <script src="{% static 'js/navbar.js' %}"></script>
