@@ -42,3 +42,16 @@ class Metrics(models.Model):
    metric = models.CharField(max_length=100,null=True)
    value = models.IntegerField(null=True)
    date_added =models.DateTimeField(auto_now_add=True,null=True)
+
+   def __str__(self):
+        return self.metric
+   def save(self):
+        self.value
+        super(Metrics, self).save()
+        
+class Transaction(models.Model):
+    receiver =models.CharField(max_length = 20)
+    sender =models.EmailField()
+    metric = models.CharField(max_length = 100)
+    value = models.IntegerField()
+    time =models.DateTimeField(auto_now_add=True,null=True)
