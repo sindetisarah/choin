@@ -1,4 +1,4 @@
-{% load static %}
+{% include 'student_navbar.html' %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,15 +15,14 @@
 <body>
     <section class="hero">
         <div class="hero-content">
-            <h1>My Profile</h1>
-            <div class="close" id="profile">My Profile</div>
+            <div id="profile" class="close1">My Profile</div>
             <img src="http://cdn7.dissolve.com/p/D1307_90_007/D1307_90_007_0004_600.jpg" alt="" id="img1">
         </div>
     </section>
 
     <div class="bg-modal">
         <div class="modal-content">
-            <!-- <div class="close">X</div> -->
+            <div class="close">X</div>
 
             <a href=""><i class="fa fa-edit" style="font-size:48px;color:purple;margin-left:80%"></i></a>
             <img src="http://cdn7.dissolve.com/p/D1307_90_007/D1307_90_007_0004_600.jpg" alt="" id="img2">
@@ -36,6 +35,12 @@
             </form>
         </div>
     </div>
+    <script>
+        document.querySelector('.close').addEventListener('click',
+            function() {
+                document.querySelector('.modal-content').style.display = "none";
+            });
+    </script>
 </body>
 
 </html>
