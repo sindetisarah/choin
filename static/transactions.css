@@ -75,21 +75,7 @@ table {
   }
   tr:nth-child(even) {background-color: #DCBEEB;}
 
-  #delete, #edit{
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #b076ce;
-    width: 40%;
-    padding: 5px 20px;
-  }
-  #delete > a{
-color: rgb(238, 135, 135);
-text-decoration: none;
-  }
-  #edit>a{
-      color: rgb(20, 114, 20);
-      text-decoration: none;
-  }
+  
 
 .btn{
     background-color: #561278;
