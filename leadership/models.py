@@ -5,7 +5,7 @@ import uuid
 
 # Create your models here.
 class User(AbstractUser):
-    user_name = models.CharField(('username'), unique=True,max_length=40),
+    username = models.CharField(('username'), unique=True,max_length=40,primary_key=True)
     email = models.EmailField(('email address'), unique=True)
     is_superadmin = models.BooleanField(('is_superadmin'), default=False)
     is_active = models.BooleanField(('is_active'), default=True)
@@ -14,6 +14,18 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     objects = CustomUserManager()
+
+    LEADERSHIP=1
+    TRAINER=2
+    STUDENT=3
+
+    ROLE_CHOICES = (
+        (LEADERSHIP, 'Leadership'),
+        (TRAINER, 'Trainer'),
+        (STUDENT, 'Student'),
+    )
+    
+    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True,null=True)
 
     class Meta:
         verbose_name = ('user')
