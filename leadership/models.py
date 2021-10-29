@@ -5,7 +5,7 @@ import uuid
 
 # Create your models here.
 class User(AbstractUser):
-    user_name = models.CharField(('username'), unique=True,max_length=40),
+    username = models.CharField(('username'), unique=True,max_length=40,primary_key=True)
     email = models.EmailField(('email address'), unique=True)
     is_superadmin = models.BooleanField(('is_superadmin'), default=False)
     is_active = models.BooleanField(('is_active'), default=True)
