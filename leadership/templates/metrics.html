@@ -1,0 +1,83 @@
+{%  load static %}
+{% include 'leader_navbar.html' %} {% include 'edit_metric.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'metric.css' %}">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
+</head>
+<body>
+    <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+    <div class="mini-header"> 
+    <div>
+        <i class="fas fa-bars menu"></i>
+    </div>
+
+    <div class="pool">
+        <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
+        <button type="button" class="metric-modal" id="addMetric">Add Metrics</button>
+           
+        </div>
+    </div>
+<!-- add metrics form -->
+<div class="add-metric-modal" id="adds-metric-modal">
+    <div class="add-metric">
+        <i class="fas fa-times" id="close"></i>
+        <form method="POST" enctype="multipart/form-data">
+            <h4>Add Metric</h4>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="close-modal">Add Metric</button>
+        </form>
+    </div> 
+</div>
+
+</div>
+<table class="table ">
+    <tr>
+        <th>Metric</th>
+        <th>Choin</th>
+</tr>
+{% for met in metrics %}
+<tr>
+    <td>{{ met.metric }}</td>
+    <td>{{ met.value }}</td>
+    <td><button id="edit"><a href="{% url 'edit' met.id %} ">Edit</a></button></td>
+    
+    <td><button id="delete"><a href="{% url 'delete' met.id %}">Delete</a></button></td>
+    
+</tr>
+{% endfor %}
+</table>
+<!-- <span class="step-links"> -->
+<div class="pagination">
+  <span class="step-links">
+      {% if metrics.has_previous %}
+          <a id="previous" class="btn btn-outline-dark mb-2 " href="?page=1">First Page</a>
+          <a id="previous" class="btn btn-outline-dark mb-2 " href="?page={{ metrics.previous_page_number }}"><i class="fas fa-backward"></i></a>
+      {% endif %}
+      {% if metrics.has_next %}
+          <a  id="last_page" class="btn btn-outline-dark mb-2" href="?page={{ metrics.next_page_number }}"><i class="fas fa-forward"></i></a>
+          <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ metrics.paginator.num_pages }}">Last Page</a>
+      {% endif %}
+  </span>
+<!-- metric table -->
+
+       
+        
+   
+<!-- </span> -->
+
+<script src="{% static 'js/metrics.js' %}"></script>
+<script src="{% static 'js/navbar.js' %}"></script>
+
+
+</body>
+
+</html>

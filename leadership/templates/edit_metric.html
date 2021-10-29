@@ -1,0 +1,31 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'edit-metric.css' %}">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
+</head>
+<body>
+    <div class="add-metric-modal" id="adds-metric-modal">
+        <div class="add-metric">
+            <i class="fas fa-times" id="close"></i>
+           
+            <form method="POST" enctype="multipart/form-data">
+                <h4>Add Metric</h4>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="close-modal">Save Edit</button>
+            </form>
+        </div> 
+    </div>
+    
+    </div>
+
+</body>
+<script src="{% static 'js/edit-metric.js' %}"></script>
+</html>
