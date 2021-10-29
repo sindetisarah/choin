@@ -1,0 +1,71 @@
+ {% include 'student_navbar.html' %}{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'redeem.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="http://cdn7.dissolve.com/p/D1307_90_007/D1307_90_007_0004_600.jpg" alt="" id="prof">
+    <h3 id="heading">Balance:20Choins</h3>
+    <h2 id="redeem">Redeems</h2>
+    <div class="container">
+        <main class="grid">
+            <article>
+                <img src="{% static 'images/coffee.jpeg' %}" alt="" id="coffee">
+                <div class="text">
+                    <p>Coffee<button>+</button>1<button>-</button></p>
+                    <h3>20Choins</h3>
+                </div>
+            </article>
+            <article>
+                <img src="{% static 'images/Pizza.jpeg' %}" alt="" id="pizza">
+                <div class="text">
+                    <p>Pizza<button>+</button>1<button>-</button></p>
+                    <h3>50Choins</h3>
+                </div>
+            </article>
+            <article>
+                <img src="{% static 'images/cupcake.jpeg' %}" alt="">
+                <div class="text">
+                    <p>Cakes<button>+</button>1<button>-</button></p>
+                    <h3>15Choins</h3>
+                </div>
+            </article>
+            <article>
+        </main>
+        <main class="grid">
+            <article>
+                <img src="{% static 'images/colacola.jpeg' %}" alt="">
+                <div class="text">
+                    <p>Soda<button>+</button>1<button>-</button></p>
+                    <h3>20Choins</h3>
+                </div>
+            </article>
+            <article>
+                <img src="{% static 'images/laptop.jpeg' %}" alt="">
+                <div class="text">
+                    <p>Laptop<button>+</button>1<button>-</button></p>
+                    <h3>200Choins</h3>
+                </div>
+            </article>
+            <article>
+                <img src="{% static 'images/KFC.jpg' %}" alt="">
+                <div class="text">
+                    <p>KFC<button>+</button>1<button>-</button></p>
+                    <h3>100Choins</h3>
+                </div>
+            </article>
+            <article>
+        </main>
+    </div>
+
+
+</body>
+
+</html>

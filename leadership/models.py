@@ -15,6 +15,18 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
     objects = CustomUserManager()
 
+    LEADERSHIP=1
+    TRAINER=2
+    STUDENT=3
+
+    ROLE_CHOICES = (
+        (LEADERSHIP, 'Leadership'),
+        (TRAINER, 'Trainer'),
+        (STUDENT, 'Student'),
+    )
+    
+    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True,null=True)
+
     class Meta:
         verbose_name = ('user')
         verbose_name_plural = ('users')
@@ -25,3 +37,21 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
+class Metrics(models.Model):
+   metric = models.CharField(max_length=100,null=True)
+   value = models.IntegerField(null=True)
+   date_added =models.DateTimeField(auto_now_add=True,null=True)
+
+   def __str__(self):
+        return self.metric
+   def save(self):
+        self.value
+        super(Metrics, self).save()
+        
+class Transaction(models.Model):
+    receiver =models.CharField(max_length = 20)
+    sender =models.EmailField()
+    metric = models.CharField(max_length = 100)
+    value = models.IntegerField()
+    time =models.DateTimeField(auto_now_add=True,null=True)
