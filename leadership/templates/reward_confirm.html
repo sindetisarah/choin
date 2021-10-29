@@ -28,28 +28,29 @@
         <p>Total Choins: 89</p>
         <div class="student-details">
             <img src="https://bit.ly/3belrZj" alt="student-image" id="student-image"/>
-             <h2>Juliet Gisemba</h2>
+                <h2>{{ student.username }}</h2>
         </div>
         <div class="metric">
             <div class="metric-choice">
-            <form >
-                Metric
-                <select>
-                    <option selected disabled="true">Select Metric</option>
-                    {% for q in metrics %}
-                    <option>
-                    {{ q.metric }}
-                    </option>
-                    {% endfor %}
-                </select>               
-            </form>
+                <form method="get" >
+                    Metric
+                    <select name='drop1'>
+                        <option selected disabled="true">Select Metric</option>
+                        {% for q in metrics %}
+                        <option id="metric" type="text" name="metric" value="{{ q }}">
+                        {{ q }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="OK">
+                </form>
         </div>
             <div class="value">
-           Choin <p id="choins"></p>
+           Choin <p id="choins">{{ met }}</p>
             </div>
 
             <div class="submit">
-                <form action="POST">
+                <form action="{% url 'trans' %}">
                     <button type="submit">Proceed</button>
                 </form>
             </div>
