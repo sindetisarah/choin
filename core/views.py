@@ -31,7 +31,9 @@ class LoginView(FormView):
 
         if user is not None:
             login(self.request, user)
-            return HttpResponseRedirect(self.success_url)
+            if user.role==3:
+                return redirect('user_profile')
+            # return HttpResponseRedirect(self.success_url)
 
         else:
             messages.add_message(self.request, messages.INFO, 'Wrong credentials\
