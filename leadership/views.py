@@ -269,7 +269,7 @@ def trainer_profile_upload(request):
 
 
 def reward(request):
-    allStudents = User.objects.all()
+    allStudents = User.objects.all().filter(role=3)
     paginator = Paginator(allStudents, 6)
     page = request.GET.get('page')
     students = paginator.get_page(page)
