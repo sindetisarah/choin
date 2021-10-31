@@ -1,7 +1,7 @@
 from django.urls import path
-from . views import redeem
-from core.views import Profile
+from . views import redeem,profile
+# from core.views import Profile
 urlpatterns =[
     path('redeem/',redeem,name='redeem'),
-    path('profile/',Profile,name='student-profile'),
+    path('student-profile/',profile,name='student-profile'),
     ]
