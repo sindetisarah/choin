@@ -13,11 +13,10 @@ from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
-
+from leadership.models import User
 
 class LoginView(FormView):
     """login view"""
-
     form_class = forms.LoginForm
     success_url = reverse_lazy('user_profile')
     template_name = 'home.html'
@@ -26,33 +25,26 @@ class LoginView(FormView):
         """ process user login"""
         credentials = form.cleaned_data
 
-        user = authenticate(username=credentials['email'],
-                            password=credentials['password'])
+        user = authenticate(username=credentials['email'],password=credentials['password'])
 
         if user is not None:
             login(self.request, user)
-            if user.role==3:
-                return redirect('user_profile')
-            # return HttpResponseRedirect(self.success_url)
-
+            if user.role==2:
+                print(user.role)
+                return HttpResponseRedirect(reverse_lazy('trainer-profile'))
+            elif user.role==3:
+                print(user.role)
+                return HttpResponseRedirect(reverse_lazy('student-profile'))
+            else:
+                return HttpResponseRedirect(reverse_lazy('user-profile'))
         else:
             messages.add_message(self.request, messages.INFO, 'Wrong credentials\
                                 please try again')
             return HttpResponseRedirect(reverse_lazy('login'))
 
-
-# 			if user is not None:
-# 				login(request, user)
-# 				messages.info(request, f"You are now logged in as {username}.")
-# 				return render(request,'trial.html')
-# 			else:
-# 				messages.error(request,"Invalid username or password.")
-# 		else:
-# 			messages.error(request,"Invalid username or password.")
-# 	form = AuthenticationForm()
-# 	return render(request=request, template_name="home.html", context={"login_form":form})
 def index(request):
     return render(request,'trial.html')
+
 def Profile(request):
     return render(request,'profile.html')
 def navbar(request):
