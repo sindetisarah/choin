@@ -1,0 +1,15 @@
+{% extends 'student_navbar.html' %}
+{% load static %}
+{%block content%}
+<center>Student</center>
+<div style="margin-left:20%;">
+    <form method="post">
+        <h2>hello</h2>
+        {%csrf_token%}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+<button type="submit">Save Profile</button>
+    </form>
+    
+</div>
+{%endblock%}

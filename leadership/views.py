@@ -210,7 +210,7 @@ def profile_upload(request):
 
 def trainer_profile_upload(request):
     # declaring template
-    template = "trainer.html"
+    template = "trainer_emails.html"
     trainer_data = Trainer.objects.all()
 # prompt is a context variable that can have different values      depending on their context
     prompt = {
@@ -269,7 +269,7 @@ def trainer_profile_upload(request):
 
 
 def reward(request):
-    allStudents = User.objects.all()
+    allStudents = User.objects.all().filter(role=3)
     paginator = Paginator(allStudents, 6)
     page = request.GET.get('page')
     students = paginator.get_page(page)

@@ -1,11 +1,10 @@
 from django.db import models
 from .manager import CustomUserManager
-from django.contrib.auth.models import AbstractUser,User
-import uuid
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    username = models.CharField(('username'), unique=True,max_length=40,primary_key=True)
+    username = models.CharField(('username'), unique=True,max_length=40)
     email = models.EmailField(('email address'), unique=True)
     is_superadmin = models.BooleanField(('is_superadmin'), default=False)
     is_active = models.BooleanField(('is_active'), default=True)
