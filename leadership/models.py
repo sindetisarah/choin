@@ -1,7 +1,6 @@
 from django.db import models
 from .manager import CustomUserManager
-from django.contrib.auth.models import AbstractUser,User
-import uuid
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
