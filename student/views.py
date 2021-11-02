@@ -3,16 +3,7 @@ from .forms import UpdateProfileForm,UserProfileForm
 from .models import Student
 from django.core.exceptions import ObjectDoesNotExist
 # @login_required
-# def profile(request):
-#     if request.method == 'POST':
-#         form = UpdateProfileForm(data=request.POST, instance=request.user)
-#         update = form.save(commit=False)
-#         update.user = request.user
-#         update.save()
-#     else:
-#         form = UpdateProfileForm(instance=request.user)
 
-#     return render(request, 'student_profile.html', {'form': form})
 
 
 def student_profile(request):
