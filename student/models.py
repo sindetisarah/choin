@@ -6,6 +6,6 @@ from django.db.models.deletion import CASCADE
 
 class Student(models.Model):
     user=models.OneToOneField(User,on_delete=CASCADE,null=True)
-    username=models.CharField(max_length=50,null=True)
-    email=models.EmailField(null=True)
+    # username=models.CharField(max_length=50,null=True)
+    # email=models.EmailField(null=True)
     

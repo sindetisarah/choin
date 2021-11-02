@@ -1,53 +1,50 @@
-{%  load static %}
-{% include 'leader_navbar.html' %}
+{% load static %} {% include 'leader_navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="{% static 'reward.css' %}">
-   <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
-   <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
-   <title>Choin</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reward.css' %}">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
 </head>
+
 <body>
     <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
     <div class="mini-header">
         <div>
             <i class="fas fa-bars menu"></i>
         </div>
-   <div class="pool">
-   <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
-       <p>  Choin Balance: 200</p> 
-   </div>
-   </div>
-   <div class="reward-heading">
- 
-       <h1>Class of 2022</h1>
-       <div class="search">
-       <form method="GET">
-           <input type="search" placeholder="Search student by name"/>
-          <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
-       </form>
-   </div>
-   </div>
-   <table class="table ">
-    <tr>
-        <th>Student Name</th>
-        <th>Reward</th>
-       
-</tr>
-{% for student in students %}
-    <tr>
-       
-        <td>{{ student.username }} </td>
-        <td><button id="reward-student"><a href="{%url 'reward_confirm' id=student.id%}">Reward</a></button></td>
-        
-    </tr>
-    {% endfor %}
-</table>
-<!-- <span class="step-links"> -->
+        <div class="pool">
+            <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
+            <p> Choin Balance: 200</p>
+        </div>
+    </div>
+    <div class="reward-heading">
+
+        <h1>Class of 2022</h1>
+        <div class="search">
+            <form method="get" action="{% url 'search_student' %}">
+                <input type="search" placeholder="Search student by first name" name="search" />
+                <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <table class="table ">
+        <tr>
+            <th>Student Name</th>
+            <th>Reward</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.username }} </td>
+            <td><button id="reward-student"><a href="{%url 'reward_confirm' student.id%}">Reward</a></button></td>
+        </tr>
+        {% endfor %}
+    </table>
     <div class="pagination">
         <span class="step-links">
             {% if students.has_previous %}
@@ -59,8 +56,8 @@
                 <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ students.paginator.num_pages }}">Last Page</a>
             {% endif %}
         </span>
-      <!-- metric table -->
-   
+
 </body>
 <script src="{% static 'js/navbar.js' %}"></script>
+
 </html>
