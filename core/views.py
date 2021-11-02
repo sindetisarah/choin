@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.urls.base import reverse_lazy
 from django.contrib.auth import login
 
-from django.contrib.auth.views import LoginView, redirect_to_login
+from django.contrib.auth.views import PasswordChangeDoneView, PasswordContextMixin
 
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
+from django.views.generic.base import View
 from django.views.generic.edit import FormView
 from . import forms
 from django.contrib.auth import login, authenticate, logout
@@ -15,10 +16,33 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 from leadership.models import User
 
+from django.contrib.auth.forms import (
+    AuthenticationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm,
+)
+from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
+
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+
+from django.contrib.auth.signals import user_logged_in
+from django.contrib.auth.models import update_last_login
+
+
+def update_first_login(sender, user, **kwargs):
+    if user.last_login is None:
+        # First time this user has logged in
+        kwargs['request'].session['first_login'] = True
+    # Update the last_login value as normal
+    update_last_login(sender, user, **kwargs)
+
+user_logged_in.disconnect(update_last_login)
+user_logged_in.connect(update_first_login)
+
 class LoginView(FormView):
     """login view"""
     form_class = forms.LoginForm
-    success_url = reverse_lazy('user_profile')
+    success_url = reverse_lazy('change_password')
     template_name = 'home.html'
 
     def form_valid(self, form):
@@ -29,18 +53,41 @@ class LoginView(FormView):
 
         if user is not None:
             login(self.request, user)
-            if user.role==2:
-                print(user.role)
-                return HttpResponseRedirect(reverse_lazy('trainer-profile'))
-            elif user.role==3:
-                print(user.role)
-                return HttpResponseRedirect(reverse_lazy('student-profile'))
+            if user.last_login is None:
+                return HttpResponseRedirect(reverse_lazy('change_password'))
             else:
-                return HttpResponseRedirect(reverse_lazy('user-profile'))
+                if user.role==2:
+                    return HttpResponseRedirect(reverse_lazy('trainer-profile'))
+                elif user.role==3:
+                    print(user.role)
+                    return HttpResponseRedirect(reverse_lazy('student-profile'))
+            
         else:
             messages.add_message(self.request, messages.INFO, 'Wrong credentials\
                                 please try again')
             return HttpResponseRedirect(reverse_lazy('login'))
+
+
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            if user.role==2:
+                return HttpResponseRedirect(reverse_lazy('trainer-profile'))
+            elif user.role==3:
+                print(user.role)
+                return HttpResponseRedirect(reverse_lazy('student-profile'))
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'registration/password_change.html', {'form': form})
+
 
 def index(request):
     return render(request,'trial.html')
