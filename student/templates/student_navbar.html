@@ -20,15 +20,16 @@
 
         <hr>
         <div id="navItems">
-            <a href="" class="nav active">Home</a>
+            <a href="{%url 'student-home'%}" class="nav active">Home</a>
             <a href="{% url 'redeem' %}" class="nav">Redeem</a>
             <a href="" class="nav">Transactions</a>
-            <a href="{% url 'user-profile' %}" class="nav">Profile</a>
+            <a href="{% url 'student-profile' %}" class="nav">Profile</a>
 
         </div>
     </div>
+{%block content%}
 
-
+{%endblock%}
 </body>
 <script src="{% static 'js/navbar.js' %}"></script>
 
