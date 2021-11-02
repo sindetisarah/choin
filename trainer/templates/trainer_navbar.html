@@ -21,10 +21,13 @@
         <a href="" class="nav active">Home</a>
         <a href="" class="nav">Reward</a>
         <a href="" class="nav">Transactions</a>
+        <a href="{% url 'trainer-profile' %}" class="nav">Profile</a>
+
         
     </div>
      </div>
-    
+    {%block content%}
+    {%endblock%}
 </body>
 <script src="{% static 'js/navbar.js' %}"></script>
 </html>
