@@ -1,26 +1,77 @@
+{% load static %}
+{% include 'leader_navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'admin.css' %}">
+
 
     <title>Choin</title>
 </head>
+
 <body>
-    {% if messages %}
+    <img id="profile" src="/static/images/me-removebg-preview.png" />
+    <!-- <h1 id="choin_available">Available Choins:2000</h1> -->
+    <div class="card" id="upload_display">
+        <img id="codehive" src="/static/images/code-hive.png">
+        <!-- {% if messages %}
         {% for message in messages %}
-            <div>
-                <strong>{{message|safe}}</strong>
-            </div>
+        <div>
+            <strong id="msg">{{message|safe}}</strong>
+        </div> -->
         {% endfor %}
-    {% else %}
-    {{order}}
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="file1"> Upload Student file</label>
-        <input type="file" id="file1" name="file">
-        <small>Only accepts CSV files</small>
-        <button type="submit">Upload</button>
-    </form>
-    {% endif %}
+        {% else %}
+        {{order}}
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <!-- <label for="file1"> Upload Student file</label> -->
+            <input type="file" id="file1" name="file">
+            <!-- <small>Only accepts CSV files</small> -->
+
+            <button type="submit">Upload</button>
+
+        </form>
+
+
+
+
+        {% endif %}
+    </div>
+
+    <table>
+        <tr>
+            <th>Image
+            </th>
+            <th> Name</th>
+            <th>Choins</th>
+
+
+        </tr>
+
+
+        <tr>
+            <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+            </td>
+            <td>Eunice Atieno</td>
+            <td>100</td>
+
+
+
+        </tr>
+        <tr>
+            <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+            </td>
+            <td>Hunter Achieng</td>
+            <td>98</td>
+
+
+        </tr>
+
+    </table>
+
 </body>
+
 </html>
