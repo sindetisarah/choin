@@ -54,3 +54,6 @@ class Transaction(models.Model):
     metric = models.CharField(max_length = 100)
     value = models.IntegerField()
     time =models.DateTimeField(auto_now_add=True,null=True)
+
+class Wallet(models.Model):
+    owner = models.OneToOneField(User)    

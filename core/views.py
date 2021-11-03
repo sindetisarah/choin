@@ -6,6 +6,7 @@ from django.contrib.auth import login
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import View
 from django.views.generic.edit import FormView
 from . import forms
@@ -43,7 +44,9 @@ class LoginView(FormView):
     form_class = forms.LoginForm
     success_url = reverse_lazy('change_password')
     template_name = 'home.html'
-
+    
+    
+    @csrf_exempt
     def form_valid(self, form):
         """ process user login"""
         credentials = form.cleaned_data
@@ -64,7 +67,7 @@ class LoginView(FormView):
         else:
             messages.add_message(self.request, messages.INFO, 'Wrong credentials\
                                 please try again')
-            return HttpResponseRedirect(reverse_lazy('login'))
+        return HttpResponseRedirect(reverse_lazy('login'))
 
 
 
