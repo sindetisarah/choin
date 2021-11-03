@@ -35,6 +35,9 @@ def student_profile(request):
 
 def student_home(request):
     return render(request,'student_home.html')
-
 def redeem(request):
     return render(request,'redeem.html')
+def redeem_failed(request):
+    return render(request,'RedeemFailed.html')
+def redeem_success(request):
+    return render(request,'RedeemSucceed.html')
