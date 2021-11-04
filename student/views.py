@@ -43,3 +43,5 @@ def redeem_failed(request):
     return render(request,'RedeemFailed.html')
 def redeem_success(request):
     return render(request,'RedeemSucceed.html')
+def redeem_active(request):
+    return render(request,'redeem_active.html')
