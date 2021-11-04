@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from student.models import Student
 from trainer.models import Trainer
 from .models import *
-from leadership.forms import AddMetricsForm
+from leadership.forms import AddMetricsForm, RewardItemForm
 from RewardSystem.settings import EMAIL_HOST_USER
 from django.core import mail
 from django.core.mail import send_mail
@@ -328,6 +328,7 @@ def delete_metric(request,id):
     metrics_delete = Metrics.objects.get(id=id)
     metrics_delete.delete()
     return redirect("metrics")
+
 def edit_metric(request,id): 
     the_metrics = Metrics.objects.get(id=id)
     if request.method == "POST":
@@ -344,8 +345,6 @@ def edit_metric(request,id):
 
 
 def addMetric(request): 
-   
-
     metrics_list = Metrics.objects.all()
     paginator = Paginator(metrics_list, 6)
     page = request.GET.get('page')
@@ -372,3 +371,15 @@ def search_student(request):
         message="Looks like the student doesn't exist. Try searching using the first name"
         return render (request,'reward.html',{'students':students,'message':message})
     return render (request,'reward.html',{'students':students,'results':results})
+
+def add_reward(request):
+    if request.method=="POST":
+        form=RewardItemForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('add-reward-item')
+        else:
+            print(form.errors)
+    else:
+        form=RewardItemForm()
+    return render(request,"reward_item.html",{"form":form})
