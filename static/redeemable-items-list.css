@@ -114,7 +114,8 @@ table {
     margin-top: 2%;
 }
 #item-image{
-    width: 100px;
+    width: 90px;
+    height: 50px;
 }
 
 @media (max-width:875px){

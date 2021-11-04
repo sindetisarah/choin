@@ -7,13 +7,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
 </head>
 
-<body style="margin-left: 18%;">
-    <img src="http://cdn7.dissolve.com/p/D1307_90_007/D1307_90_007_0004_600.jpg" alt="" id="prof">
-    <h3 id="heading">Balance:20Choins</h3>
-    <h2 id="redeem">Redeems</h2>
+<body>
+    <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+    <div class="mini-header">
+        <div>
+            <i class="fas fa-bars menu"></i>
+        </div>
+        <div class="pool">
+            <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
+            <p> Choin Balance: 200</p>
+        </div>
+    </div>
+    <div class="reward-heading">
+
+        <h1>Redeemable Items</h1>
+        
+    </div>
     <!-- <div class="container">
         <main class="grid">
             <article>
@@ -25,22 +39,27 @@
                 </div>
                 {%endfor%}
             </article> -->
-
-    <div class="row mb-5 ml-2 mr-2" id="row-reward">
+<div class="grid">
+    <div  id="row-reward">
         {%for item in reward_items%}
-        <div class="col-sm-3 mb-4" id="card-column">
+        <div  class="card-column">
             <div class="card" id="card-profile">
-                <img style="width: 100%;" src="{{item.image.url}}">
+                <img alt="redeemable-item" src="{{item.image.url}}">
 
                 <div class="card-body">
-                    <h5 class="card-title">{{item.item_name}}<button class="btn plus-btn" type="button">+</button><input type="text" id="quantity" value="1">
+                    
+                    <h3 class="card-title">{{item.item_name}}</h3>
+                    <button class="btn plus-btn" type="button">+</button>
+                        <input type="text" id="quantity" value="1">
                         <button class="btn minus-btn disabled" type="button">-</button>
-                    </h5>
+                    
                     <!-- <h6 class="card-title">{{item.item_value}}</h5> -->
                     <hr>
                     </p>
+
                     <p class="total-choins">
                         <span><i class="fas fa-rupee-sign" style="color: black;"></i></span>
+                        <label>Choins:</label>
                         <input id="choins" class="text-dark" value="{{item.item_value}}">
                     </p>
                 </div>
@@ -48,7 +67,7 @@
         </div>
         {%endfor%}
     </div>
-
+</div>
     <!-- <article>
                 <img src="{% static 'images/Pizza.jpeg' %}" alt="" id="pizza">
                 <div class="text">
@@ -92,6 +111,7 @@
     <!-- </div> -->
 
     <script src="{% static 'js/redeem.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
 
 </body>
 
