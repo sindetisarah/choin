@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .forms import UpdateProfileForm,UserProfileForm
 from .models import Student
 from django.core.exceptions import ObjectDoesNotExist
+from leadership.models import RedeemableItem
 # @login_required
 
 
@@ -36,7 +37,8 @@ def student_profile(request):
 def student_home(request):
     return render(request,'student_home.html')
 def redeem(request):
-    return render(request,'redeem.html')
+    reward_items=RedeemableItem.objects.all()
+    return render(request,'redeem.html',{'reward_items':reward_items})
 def redeem_failed(request):
     return render(request,'RedeemFailed.html')
 def redeem_success(request):
