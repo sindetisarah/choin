@@ -17,6 +17,7 @@ import socket
 from urllib.parse import urlparse
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt #New
+from django.db.models import Q
 class Blockchain:
     def __init__(self):
         self.chain = []
@@ -360,3 +361,14 @@ def addMetric(request):
     else:
         form = AddMetricsForm()
     return render(request,'metrics.html',{'form':form, 'metrics':metrics})
+
+def search_student(request):
+    search_post = request.GET.get('search')
+    if search_post:
+        students = User.objects.filter(Q(username__icontains=search_post))
+        results=students.count()
+    else:
+        students = Student.objects.all()
+        message="Looks like the student doesn't exist. Try searching using the first name"
+        return render (request,'reward.html',{'students':students,'message':message})
+    return render (request,'reward.html',{'students':students,'results':results})

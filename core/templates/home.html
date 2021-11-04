@@ -11,9 +11,12 @@
     <title>Choin</title>
 </head>
 
-<body>
+<body >
+    
+    <div id="particles-js"></div>
     <img id="logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
     <hr>
+    <div class="particles-home">
     <h1 id="welcome">WELCOME TO CHOIN</h1>
     <div class="login-page">
         <div class="how-to-use">
@@ -61,6 +64,15 @@
 
         </div>
     </div>
+    
+</div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- <script src ="{% static 'particles.min.js' %}"></script> -->
+    <script>
+        
+window.particlesJS.load('particles-js', "{% static 'particles.json' %}");
+        
+    </script>
 </body>
 
 </html>
