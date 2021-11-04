@@ -48,6 +48,12 @@ class Metrics(models.Model):
    def save(self):
         self.value
         super(Metrics, self).save()
+
+
+class Wallet(models.Model):
+     owner = models.CharField(max_length = 20 ,null=True)
+     choinBalance = models.IntegerField(null=True)
+            
         
 class Transaction(models.Model):
     receiver =models.CharField(max_length = 20)

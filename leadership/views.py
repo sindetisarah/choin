@@ -321,6 +321,12 @@ def reward_confirm(request,id):
             value =the_transactions[3],
             time =the_transactions[4],)
             transaction.save()
+
+
+    
+  
+     
+      
     return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
    
 
@@ -372,3 +378,4 @@ def search_student(request):
         message="Looks like the student doesn't exist. Try searching using the first name"
         return render (request,'reward.html',{'students':students,'message':message})
     return render (request,'reward.html',{'students':students,'results':results})
+

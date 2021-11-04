@@ -153,14 +153,14 @@ def replace_chain(request): #New
     return JsonResponse(response)
 
 
-def reward(request):
+def trainer_reward(request):
     allStudents = User.objects.all().filter(role=3)
     paginator = Paginator(allStudents, 6)
     page = request.GET.get('page')
     students = paginator.get_page(page)
     return render(request,'trainer_reward.html',{'students':students})
 
-def trans(request):
+def trainer_trans(request):
     tran = Transaction.objects.all().filter(sender =request.user)
     paginator = Paginator(tran, 6)
     page = request.GET.get('page')
@@ -169,7 +169,7 @@ def trans(request):
     return render(request,'trainer_transactions.html',{'transactions':transactions})
 
 
-def reward_confirm(request,id):
+def trainer_reward_confirm(request,id):
     student = User.objects.get(id=id)
     metrics = Metrics.objects.all()
     # return render(request,'reward_confirm.html',{'metrics':metrics})
@@ -210,7 +210,7 @@ def reward_confirm(request,id):
    
 
 
-def search_student(request):
+def trainer_search_student(request):
     search_post = request.GET.get('search')
     if search_post:
         students = User.objects.filter(Q(username__icontains=search_post))
