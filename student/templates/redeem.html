@@ -10,20 +10,41 @@
     <title>Document</title>
 </head>
 
-<body>
+<body style="margin-left: 18%;">
     <img src="http://cdn7.dissolve.com/p/D1307_90_007/D1307_90_007_0004_600.jpg" alt="" id="prof">
     <h3 id="heading">Balance:20Choins</h3>
     <h2 id="redeem">Redeems</h2>
-    <div class="container">
+    <!-- <div class="container">
         <main class="grid">
             <article>
-                <img src="{% static 'images/coffee.jpeg' %}" alt="" id="coffee">
+                {%for item in reward_items%}
+                <img src="" id="coffee">
                 <div class="text">
-                    <p>Coffee<button>+</button>1<button>-</button></p>
-                    <h3>20Choins</h3>
+                    <p>{{item.item_name}}<button>+</button>1<button>-</button></p>
+                    <h3>{{item.item_value}}</h3>
                 </div>
-            </article>
-            <article>
+                {%endfor%}
+            </article> -->
+
+            <div class="row mb-5 ml-2 mr-2"  id="row-reward">
+                {%for item in reward_items%}
+                <div class="col-sm-3 mb-4" id="card-column">
+                  <div class="card" id="card-profile">
+                    <img style="width: 100%;" src="{{item.image.url}}">
+                    
+                    <div class="card-body">
+                      <h5 class="card-title">{{item.item_name}}<button>+</button>1<button>-</button></h5>
+                      <h6 class="card-title">{{item.item_value}}</h5>
+              
+                      <hr>
+                  </p>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+              </div>
+            
+            <!-- <article>
                 <img src="{% static 'images/Pizza.jpeg' %}" alt="" id="pizza">
                 <div class="text">
                     <p>Pizza<button>+</button>1<button>-</button></p>
@@ -61,9 +82,9 @@
                     <h3>100Choins</h3>
                 </div>
             </article>
-            <article>
-        </main>
-    </div>
+            <article> -->
+        <!-- </main> -->
+    <!-- </div> -->
 
 
 </body>

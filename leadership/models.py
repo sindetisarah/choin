@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 from .manager import CustomUserManager
 from django.contrib.auth.models import AbstractUser
 
@@ -55,5 +56,15 @@ class Transaction(models.Model):
     metric = models.CharField(max_length = 100)
     value = models.IntegerField()
     time =models.DateTimeField(auto_now_add=True,null=True)
+
+class RedeemableItem(models.Model):
+    image=models.ImageField(upload_to='rewards/')
+    item_name=models.CharField(max_length=50)
+    item_value=models.FloatField()
+    quantity=models.PositiveSmallIntegerField()
+    item_in_stock=models.BooleanField(default=True)
+
+    def __str__(self) :
+        return self.item_name
 
  
