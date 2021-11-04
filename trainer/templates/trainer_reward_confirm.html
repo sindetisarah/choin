@@ -1,0 +1,64 @@
+{%  load static %}
+{% include 'trainer_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reward_confirm.css' %}">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+
+    <title>Choin</title>
+</head>
+<body>
+    <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+    <div class="mini-header"> 
+    <div>
+        <i class="fas fa-bars menu"></i>
+    </div>
+
+    <div class="pool">
+        <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
+           
+        </div>
+    </div>
+    <div class="reward_confirm">
+        <p>Total Choins: 89</p>
+        <div class="student-details">
+            <img src="https://bit.ly/3belrZj" alt="student-image" id="student-image"/>
+                <h2>{{ student.username }}</h2>
+        </div>
+        <div class="metric">
+            <div class="metric-choice">
+                <form method="get" >
+                    Metric
+                    <select name='drop1'>
+                        <option selected disabled="true">Select Metric</option>
+                        {% for q in metrics %}
+                        <option id="metric" type="text" name="metric" value="{{ q }}">
+                        {{ q }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="OK">
+                </form>
+        </div>
+            <div class="value">
+           Choin <p id="choins">{{ met }}</p>
+            </div>
+
+            <div class="submit">
+                <form action="{% url 'trans' %}">
+                    <button type="submit">Proceed</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+<script src="{% static 'js/navbar.js' %}"></script>
+</html>
