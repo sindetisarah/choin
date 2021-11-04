@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     username = models.CharField(('username'), unique=True,max_length=40)
     email = models.EmailField(('email address'), unique=True)
+    is_previously_logged_in=models.BooleanField(default=False)
     is_superadmin = models.BooleanField(('is_superadmin'), default=False)
     is_active = models.BooleanField(('is_active'), default=True)
     is_staff = models.BooleanField(default=True)
@@ -54,3 +55,5 @@ class Transaction(models.Model):
     metric = models.CharField(max_length = 100)
     value = models.IntegerField()
     time =models.DateTimeField(auto_now_add=True,null=True)
+
+ 

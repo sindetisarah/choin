@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','choin.herokuapp.com']
 
 INSTALLED_APPS = [
     'registration',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -150,7 +151,7 @@ AUTH_USER_MODEL = 'leadership.User'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'choinminers@gmail.com'
-EMAIL_HOST_PASSWORD = 'akirachixchoinminers123'
+EMAIL_HOST_PASSWORD = 'miners.choin'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
