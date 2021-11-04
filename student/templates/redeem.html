@@ -1,4 +1,4 @@
- {% include 'student_navbar.html' %}{% load static %}
+{% include 'student_navbar.html' %}{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,25 +26,30 @@
                 {%endfor%}
             </article> -->
 
-            <div class="row mb-5 ml-2 mr-2"  id="row-reward">
-                {%for item in reward_items%}
-                <div class="col-sm-3 mb-4" id="card-column">
-                  <div class="card" id="card-profile">
-                    <img style="width: 100%;" src="{{item.image.url}}">
-                    
-                    <div class="card-body">
-                      <h5 class="card-title">{{item.item_name}}<button>+</button>1<button>-</button></h5>
-                      <h6 class="card-title">{{item.item_value}}</h5>
-              
-                      <hr>
-                  </p>
-                    </div>
-                  </div>
+    <div class="row mb-5 ml-2 mr-2" id="row-reward">
+        {%for item in reward_items%}
+        <div class="col-sm-3 mb-4" id="card-column">
+            <div class="card" id="card-profile">
+                <img style="width: 100%;" src="{{item.image.url}}">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{item.item_name}}<button class="btn plus-btn" type="button">+</button><input type="text" id="quantity" value="1">
+                        <button class="btn minus-btn disabled" type="button">-</button>
+                    </h5>
+                    <!-- <h6 class="card-title">{{item.item_value}}</h5> -->
+                    <hr>
+                    </p>
+                    <p class="total-choins">
+                        <span><i class="fas fa-rupee-sign" style="color: black;"></i></span>
+                        <input id="choins" class="text-dark" value="{{item.item_value}}">
+                    </p>
                 </div>
-                {%endfor%}
-              </div>
-            
-            <!-- <article>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+    <!-- <article>
                 <img src="{% static 'images/Pizza.jpeg' %}" alt="" id="pizza">
                 <div class="text">
                     <p>Pizza<button>+</button>1<button>-</button></p>
@@ -83,9 +88,10 @@
                 </div>
             </article>
             <article> -->
-        <!-- </main> -->
+    <!-- </main> -->
     <!-- </div> -->
 
+    <script src="{% static 'js/redeem.js' %}"></script>
 
 </body>
 
