@@ -28,18 +28,21 @@
         <h1>Class of 2022</h1>
         <div class="search">
             <form method="get" action="{% url 'search_student' %}">
-                <input type="search" placeholder="Search student by first name" name="search" />
                 <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
+                <input type="search" placeholder="Search student by first name" name="search" />
+                
             </form>
         </div>
     </div>
     <table class="table ">
         <tr>
+            <th>Student Image</th>
             <th>Student Name</th>
             <th>Reward</th>
         </tr>
         {% for student in students %}
         <tr>
+            <td>{{ student.image}}</td>
             <td>{{ student.username }} </td>
             <td><button id="reward-student"><a href="{%url 'reward_confirm' student.id%}">Reward</a></button></td>
         </tr>

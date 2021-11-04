@@ -33,34 +33,13 @@ body{
     margin-top: -0.5%;
     color: #561278;
 }
-.search{
-    width: 40%;
-}
-.search>form>input{
-    width: 100%;
-    padding: 10px 10px;
-    color: #561278;
-    border-radius: 2px;
-    border: none;
-    background-color: #DCBEEB;
-}
-  
-.search-button {
-    padding: 10px;
-    min-width: 40px;
-    position:absolute;
-    right:3rem;
-    border:transparent;
-    background-color:transparent;
-   
-}
-.fas{
-    color: #561278;
-}
+
 table {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
+    box-shadow: gray 5px 5px 5px;
+    border-radius: 5px;
   }
   th, td {
     text-align: left;
