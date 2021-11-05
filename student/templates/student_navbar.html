@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
     <title>Choin</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
 </head>
 
 <body>
@@ -24,7 +24,7 @@
         <div id="navItems">
             <a href="{%url 'student-home'%}" class="nav active">Home</a>
             <a href="{% url 'redeem' %}" class="nav">Redeem</a>
-            <a href="" class="nav">Transactions</a>
+            <a href="{% url 'student_transactions' %}" class="nav">Transactions</a>
             <a href="{% url 'student-profile' %}" class="nav">Profile</a>
 
         </div>

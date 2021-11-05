@@ -18,6 +18,7 @@ from urllib.parse import urlparse
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt #New
 from django.db.models import Q
+
 class Blockchain:
     def __init__(self):
         self.chain = []
@@ -321,6 +322,17 @@ def reward_confirm(request,id):
             value =the_transactions[3],
             time =the_transactions[4],)
             transaction.save()
+            
+    transactions = Transaction.objects.all().filter(receiver = student.username)
+    choinBalance = sum(transactions.values_list('value', flat=True))
+    print(choinBalance)
+    print(student.id)
+    wallet_owner=User.objects.get(id=student.id)
+    # print(stu)
+    wallets=Wallet.objects.all().filter(owner=wallet_owner)
+    # if wallets.exists():
+    wallets.update(owner = wallet_owner, choinBalance = choinBalance)
+
     return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
    
 
@@ -383,3 +395,12 @@ def add_reward(request):
     else:
         form=RewardItemForm()
     return render(request,"reward_item.html",{"form":form})
+
+def redeemableItemsList(request):
+    items = RedeemableItem.objects.all()
+    paginator = Paginator(items, 6)
+    page = request.GET.get('page')
+    redeemable_items = paginator.get_page(page)
+   
+    return render(request,'redeemable_items_list.html',{'redeemable_items':redeemable_items})
+

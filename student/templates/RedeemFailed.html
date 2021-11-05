@@ -10,12 +10,20 @@
 </head>
 
 <body>
-    <i class='fas fa-exclamation-circle' style='font-size:48px;color:red'></i>
-    <h2>Transaction Failed</h2>
-    <p>You don't have enough choins to
-        <br>purchase {item}</p>
-    <h3>Current Balance: {choins}</h3>
-    <button>Ok</button>
+    <div class="card">
+        <i class='fas fa-exclamation-circle' style='font-size:48px;color:red'></i>
+        <h2>Transaction Failed</h2>
+        <p>You don't have enough choins to
+            <br>purchase {item}</p>
+        <h3>Current Balance: {choins}</h3>
+        <button class="close">Ok</button>
+    </div>
+    <script>
+        document.querySelector('.close').addEventListener('click',
+            function() {
+                document.querySelector('.card').style.display = 'none';
+            })
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 from django.urls import path
-from . views import add_reward, add_transaction,search_student,connect_node, delete_metric, edit_metric, get_chain, is_valid, profile_upload, replace_chain, reward, reward_confirm,trainer_profile_upload,addMetric, trans
+from . views import add_reward, add_transaction,search_student,connect_node, delete_metric, edit_metric, get_chain, is_valid, profile_upload, replace_chain, reward, reward_confirm,trainer_profile_upload,addMetric, trans, redeemableItemsList
 urlpatterns =[
     path('get_chain/', get_chain, name="get_chain"),
     path('add_transaction/', add_transaction, name="add_transaction"), #New
@@ -15,6 +15,7 @@ urlpatterns =[
     path('edit_metric/<int:id>',edit_metric,name='edit'),
     path('trans/',trans,name='trans'),
     path('search/',search_student,name='search_student'),
-    path('add-reward-item/',add_reward,name='add-reward-item')
+    path('add-reward-item/',add_reward,name='add-reward-item'),
+    path('redeemable-items/', redeemableItemsList, name='redeemable-items'),
 
 ]

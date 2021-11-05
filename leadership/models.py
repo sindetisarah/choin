@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.base import Model
 from .manager import CustomUserManager
 from django.contrib.auth.models import AbstractUser
+from django.db.models.deletion import CASCADE
+
 
 # Create your models here.
 class User(AbstractUser):
@@ -38,6 +40,11 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
+class Wallet(models.Model):
+    owner = models.ForeignKey(User,on_delete=CASCADE, null=True)
+    choinBalance = models.IntegerField(null=True)
+
 
 class Metrics(models.Model):
    metric = models.CharField(max_length=100,null=True)
