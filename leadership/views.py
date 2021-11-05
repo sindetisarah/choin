@@ -322,6 +322,17 @@ def reward_confirm(request,id):
             value =the_transactions[3],
             time =the_transactions[4],)
             transaction.save()
+            
+    transactions = Transaction.objects.all().filter(receiver = student.username)
+    choinBalance = sum(transactions.values_list('value', flat=True))
+    print(choinBalance)
+    print(student.id)
+    wallet_owner=User.objects.get(id=student.id)
+    # print(stu)
+    wallets=Wallet.objects.all().filter(owner=wallet_owner)
+    # if wallets.exists():
+    wallets.update(owner = wallet_owner, choinBalance = choinBalance)
+
     return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
    
 
