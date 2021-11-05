@@ -38,6 +38,44 @@ document.querySelector(".minus-btn").addEventListener("click", function() {
 
 //purchase modal
 
-// document.querySelector('.fas').addEventListener('click', function(){
+// document.querySelector('.fa-shopping-cart').addEventListener('click', function(){
 //     document.querySelector('.purchase-modal').style.display = "inline"
+    
+//     var tbl = document.createElement('table');
+  
+  
+//   var tbdy = document.createElement('tbody');
+//   for (var i = 0; i < 1; i++) {
+//     var tr = document.createElement('tr');
+//     for (var j = 0; j < 1; j++) {
+//       if (i == 2 && j == 1) {
+//         break
+//       } else {
+//         var td = document.createElement('td');
+        
+        
+//         i == 1 && j == 1 ? td.setAttribute('rowSpan', '2') : null;
+//         tr.appendChild(td)
+//       }
+//     }
+//     tbdy.appendChild(tr);
+//   }
+//   tbl.appendChild(tbdy);
+//   document.querySelector('.purchase').appendChild(tbl)
+
 // })
+
+// document.querySelector('.close').addEventListener('click', function(){
+//     document.querySelector('.purchase-modal').style.display = "none"
+// })
+
+//selected 
+// function selectedItem(){
+//    var cart= document.querySelectorAll('.fa-shopping-cart');
+//    for(let i = 0; i <cart.length; i++){
+//        if(cart[i].checked){
+//            document.querySelector('.purchase').style.backgroundColor = 'red'
+//        }
+//    }
+// }
+

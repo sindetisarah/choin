@@ -32,7 +32,7 @@
         {%for item in reward_items%}
         
             <div class="card" id="card-profile">
-                <img alt="redeemable-item" src="{{item.image.url}}">                    
+                <img id="image-reward" alt="redeemable-item" src="{{item.image.url}}">                    
                     <h3 class="card-title">{{item.item_name}}</h3>
                     <button class="btn plus-btn" type="button">+</button>
                         <input type="text" id="quantity" value="1">
@@ -50,8 +50,8 @@
     </div>
     <div class="purchase-modal">
         <div class="purchase">
-            <i class="fas fa-times" id="close"></i>
-            <table class="table ">
+            <i class="fas fa-times close" id="close"></i>
+            <!-- <table class="table ">
            
                 {%for item in reward_items%}
             <tr>
@@ -61,16 +61,12 @@
                 <td>{{item.item_value}}</td>
             </tr>
             {% endfor %}
-            </table>
+            </table> -->
 
         </div>
 
     </div>
-    <script>
-        document.querySelector('.fa-shopping-cart').addEventListener('click', function(){
-    document.querySelector('.purchase-modal').style.display = "inline"
-})
-    </script>
+   
     <script src="{% static 'js/redeem.js' %}"></script>
     <script src="{% static 'js/navbar.js' %}"></script>
    
