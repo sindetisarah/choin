@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from .forms import UpdateProfileForm,UserProfileForm
 from .models import Student
 from django.core.exceptions import ObjectDoesNotExist
-from leadership.models import RedeemableItem
+from leadership.models import RedeemableItem, Transaction, Wallet
 # @login_required
 
 
@@ -38,10 +38,20 @@ def student_home(request):
     return render(request,'student_home.html')
 def redeem(request):
     reward_items=RedeemableItem.objects.all()
-    return render(request,'redeem.html',{'reward_items':reward_items})
+    
+    bal = Wallet.objects.all().filter(owner = request.user)
+    return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal})
 def redeem_failed(request):
     return render(request,'RedeemFailed.html')
 def redeem_success(request):
     return render(request,'RedeemSucceed.html')
 def redeem_active(request):
     return render(request,'redeem_active.html')
+
+def student_transactions(request):
+    transactions = Transaction.objects.all().filter(receiver = request.user.username)
+    bal = Wallet.objects.all().filter(owner = request.user)
+    
+    
+
+    return render(request,'student_transactions.html',{'transactions':transactions,'bal':bal})         
