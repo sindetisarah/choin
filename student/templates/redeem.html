@@ -28,90 +28,52 @@
         <h1>Redeemable Items</h1>
         
     </div>
-    <!-- <div class="container">
-        <main class="grid">
-            <article>
-                {%for item in reward_items%}
-                <img src="" id="coffee">
-                <div class="text">
-                    <p>{{item.item_name}}<button>+</button>1<button>-</button></p>
-                    <h3>{{item.item_value}}</h3>
-                </div>
-                {%endfor%}
-            </article> -->
-<div class="grid">
     <div  id="row-reward">
         {%for item in reward_items%}
-        <div  class="card-column">
+        
             <div class="card" id="card-profile">
-                <img alt="redeemable-item" src="{{item.image.url}}">
-
-                <div class="card-body">
-                    
+                <img alt="redeemable-item" src="{{item.image.url}}">                    
                     <h3 class="card-title">{{item.item_name}}</h3>
                     <button class="btn plus-btn" type="button">+</button>
                         <input type="text" id="quantity" value="1">
-                        <button class="btn minus-btn disabled" type="button">-</button>
-                    
-                    <!-- <h6 class="card-title">{{item.item_value}}</h5> -->
+                        <button class="btn minus-btn" type="button">-</button>
                     <hr>
-                    </p>
+                    
 
                     <p class="total-choins">
-                        <span><i class="fas fa-rupee-sign" style="color: black;"></i></span>
                         <label>Choins:</label>
                         <input id="choins" class="text-dark" value="{{item.item_value}}">
+                        <i class="fas fa-shopping-cart"></i>
                     </p>
-                </div>
-            </div>
-        </div>
+                </div>       
         {%endfor%}
     </div>
-</div>
-    <!-- <article>
-                <img src="{% static 'images/Pizza.jpeg' %}" alt="" id="pizza">
-                <div class="text">
-                    <p>Pizza<button>+</button>1<button>-</button></p>
-                    <h3>50Choins</h3>
-                </div>
-            </article>
-            <article>
-                <img src="{% static 'images/cupcake.jpeg' %}" alt="">
-                <div class="text">
-                    <p>Cakes<button>+</button>1<button>-</button></p>
-                    <h3>15Choins</h3>
-                </div>
-            </article>
-            <article>
-        </main>
-        <main class="grid">
-            <article>
-                <img src="{% static 'images/colacola.jpeg' %}" alt="">
-                <div class="text">
-                    <p>Soda<button>+</button>1<button>-</button></p>
-                    <h3>20Choins</h3>
-                </div>
-            </article>
-            <article>
-                <img src="{% static 'images/laptop.jpeg' %}" alt="">
-                <div class="text">
-                    <p>Laptop<button>+</button>1<button>-</button></p>
-                    <h3>200Choins</h3>
-                </div>
-            </article>
-            <article>
-                <img src="{% static 'images/KFC.jpg' %}" alt="">
-                <div class="text">
-                    <p>KFC<button>+</button>1<button>-</button></p>
-                    <h3>100Choins</h3>
-                </div>
-            </article>
-            <article> -->
-    <!-- </main> -->
-    <!-- </div> -->
+    <div class="purchase-modal">
+        <div class="purchase">
+            <i class="fas fa-times" id="close"></i>
+            <table class="table ">
+           
+                {%for item in reward_items%}
+            <tr>
+                <td><img id="item-image" alt="redeemable-item" src="{{item.image.url}}"></td>
+                <td><button class="btn plus-btn" type="button">+</button><input type="text" id="quantity" value="1">
+                    <button class="btn minus-btn disabled" type="button">-</button></td>
+                <td>{{item.item_value}}</td>
+            </tr>
+            {% endfor %}
+            </table>
 
+        </div>
+
+    </div>
+    <script>
+        document.querySelector('.fa-shopping-cart').addEventListener('click', function(){
+    document.querySelector('.purchase-modal').style.display = "inline"
+})
+    </script>
     <script src="{% static 'js/redeem.js' %}"></script>
     <script src="{% static 'js/navbar.js' %}"></script>
+   
 
 </body>
 
