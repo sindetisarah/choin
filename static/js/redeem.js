@@ -35,3 +35,9 @@ document.querySelector(".minus-btn").addEventListener("click", function() {
     }
     choinTotal()
 })
+
+//purchase modal
+
+// document.querySelector('.fas').addEventListener('click', function(){
+//     document.querySelector('.purchase-modal').style.display = "inline"
+// })
