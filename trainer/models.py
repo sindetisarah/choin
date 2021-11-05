@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
-from leadership.models import User
+from leadership.models import User , Wallet
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 # Create your models here.
@@ -16,6 +16,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         if instance.role==2:
             Trainer.objects.create(user=instance)
+            Wallet.objects.create(owner=instance)
     else:
         pass
     

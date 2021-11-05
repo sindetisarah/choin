@@ -1,6 +1,9 @@
 from django.db import models
+from django.db.models.base import Model
 from .manager import CustomUserManager
 from django.contrib.auth.models import AbstractUser
+from django.db.models.deletion import CASCADE
+
 
 # Create your models here.
 class User(AbstractUser):
@@ -38,6 +41,11 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+class Wallet(models.Model):
+    owner = models.ForeignKey(User,on_delete=CASCADE, null=True)
+    choinBalance = models.IntegerField(null=True)
+
+
 class Metrics(models.Model):
    metric = models.CharField(max_length=100,null=True)
    value = models.IntegerField(null=True)
@@ -55,5 +63,15 @@ class Transaction(models.Model):
     metric = models.CharField(max_length = 100)
     value = models.IntegerField()
     time =models.DateTimeField(auto_now_add=True,null=True)
+
+class RedeemableItem(models.Model):
+    image=models.ImageField(upload_to='rewards/')
+    item_name=models.CharField(max_length=50)
+    item_value=models.FloatField()
+    quantity=models.PositiveSmallIntegerField()
+    item_in_stock=models.BooleanField(default=True)
+
+    def __str__(self) :
+        return self.item_name
 
  

@@ -7,13 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="{% static '' %}"></script>
 </head>
 
 <body>
-    <i class="fa fa-check-circle" style="font-size:48px;color:purple"></i>
-    <h2>Transaction successful</h2>
-    <p>You have successfully redeemed {item} for {choins}</p>
-    <button>Ok</button>
+    <div class="card">
+        <i class="fa fa-check-circle" style="font-size:48px;color:purple"></i>
+        <h2>Transaction successful</h2>
+        <p>You have successfully redeemed {item} for {choins}</p>
+        <button id="close">Ok</button>
+    </div>
+    <script>
+        document.querySelector('.close').addEventListener('click',
+            function() {
+                document.querySelector('.card').style.display = 'none';
+            })
+    </script>
 </body>
 
 </html>

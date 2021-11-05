@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from student.models import Student
 from trainer.models import Trainer
 from .models import *
-from leadership.forms import AddMetricsForm
+from leadership.forms import AddMetricsForm, RewardItemForm
 from RewardSystem.settings import EMAIL_HOST_USER
 from django.core import mail
 from django.core.mail import send_mail
@@ -18,6 +18,7 @@ from urllib.parse import urlparse
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt #New
 from django.db.models import Q
+
 class Blockchain:
     def __init__(self):
         self.chain = []
@@ -321,6 +322,17 @@ def reward_confirm(request,id):
             value =the_transactions[3],
             time =the_transactions[4],)
             transaction.save()
+            
+    transactions = Transaction.objects.all().filter(receiver = student.username)
+    choinBalance = sum(transactions.values_list('value', flat=True))
+    print(choinBalance)
+    print(student.id)
+    wallet_owner=User.objects.get(id=student.id)
+    # print(stu)
+    wallets=Wallet.objects.all().filter(owner=wallet_owner)
+    # if wallets.exists():
+    wallets.update(owner = wallet_owner, choinBalance = choinBalance)
+
     return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
    
 
@@ -328,6 +340,7 @@ def delete_metric(request,id):
     metrics_delete = Metrics.objects.get(id=id)
     metrics_delete.delete()
     return redirect("metrics")
+
 def edit_metric(request,id): 
     the_metrics = Metrics.objects.get(id=id)
     if request.method == "POST":
@@ -344,8 +357,6 @@ def edit_metric(request,id):
 
 
 def addMetric(request): 
-   
-
     metrics_list = Metrics.objects.all()
     paginator = Paginator(metrics_list, 6)
     page = request.GET.get('page')
@@ -372,3 +383,24 @@ def search_student(request):
         message="Looks like the student doesn't exist. Try searching using the first name"
         return render (request,'reward.html',{'students':students,'message':message})
     return render (request,'reward.html',{'students':students,'results':results})
+
+def add_reward(request):
+    if request.method=="POST":
+        form=RewardItemForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('add-reward-item')
+        else:
+            print(form.errors)
+    else:
+        form=RewardItemForm()
+    return render(request,"reward_item.html",{"form":form})
+
+def redeemableItemsList(request):
+    items = RedeemableItem.objects.all()
+    paginator = Paginator(items, 6)
+    page = request.GET.get('page')
+    redeemable_items = paginator.get_page(page)
+   
+    return render(request,'redeemable_items_list.html',{'redeemable_items':redeemable_items})
+

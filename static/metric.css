@@ -97,6 +97,8 @@ table {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
+    box-shadow: gray 5px 5px 5px;
+    border-radius: 5px;
   }
   th, td {
     text-align: left;
@@ -117,6 +119,14 @@ table {
     border: 1px solid #b076ce;
     width: 40%;
     padding: 5px 20px;
+  }
+   #edit:hover{
+    background-color: #7c4797;
+    box-shadow: #b7afbb 5px 5px 5px;
+  }
+  #delete:hover{
+    background-color: #7c4797;
+    box-shadow: #b7afbb 5px 5px 5px;
   }
   #delete > a{
 color: rgb(238, 135, 135);
