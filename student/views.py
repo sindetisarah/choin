@@ -47,6 +47,8 @@ def redeem_success(request):
     return render(request,'RedeemSucceed.html')
 def redeem_active(request):
     return render(request,'redeem_active.html')
+def student_dashboard(request):
+    return render(request,'stud_dashboard.html')
 
 def student_transactions(request):
     transactions = Transaction.objects.all().filter(receiver = request.user.username)
