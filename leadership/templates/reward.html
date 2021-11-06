@@ -36,13 +36,13 @@
     </div>
     <table class="table ">
         <tr>
-            <th>Student Image</th>
+            
             <th>Student Name</th>
             <th>Reward</th>
         </tr>
         {% for student in students %}
         <tr>
-            <td>{{ student.image}}</td>
+            
             <td>{{ student.username }} </td>
             <td><button id="reward-student"><a href="{%url 'reward_confirm' student.id%}">Reward</a></button></td>
         </tr>
