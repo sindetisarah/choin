@@ -1,22 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 body {
     font-family: 'Poppins', sans-serif;
 }
-#heading{
-    margin-left: 50%;
-    margin-top:6%;
-   position: absolute;
-   color: #561278;
-   font-weight: lighter;
-    
 
+#heading {
+    margin-left: 50%;
+    margin-top: 6%;
+    position: absolute;
+    color: #561278;
+    font-weight: lighter;
 }
 
 #Image {
     border-radius: 50%;
     width: 4%;
-
 }
 
 #heading {
@@ -32,8 +29,8 @@ body {
     margin-left: 90%;
     position: fixed;
     background-color: #000;
-
 }
+
 
 /* #choin_available {
     margin-left: 83%;
@@ -43,50 +40,15 @@ body {
      position: absolute;
    
 } */
-button{
+
+button {
     background-color: #561278;
     color: white;
-    
-    height:40px;
+    height: 40px;
     margin-bottom: 70px;
     border-radius: 10px;
-    width:10rem;
+    width: 10rem;
     margin-left: 3%;
-}
-
-table {
-    width: 900px;
-    margin-left: 25%;
-    margin-top: 10%;
-    margin-bottom: 1%;
-    border-collapse: collapse;
-
-}
-#file1{
-    background-color: #561278;
-    color: white;
-    margin-top: 175px;
-    position: absolute;
-    margin-left: 2%;
-
-
-}
-
-th,
-caption {
-    text-align: left;
-    color: purple;
-    font-weight: lighter;
-    font-size: 20px;
-
-}
-
-th,
-td {
-    padding-left: 60px;
-    font-family: 'Poppins', sans-serif;
-
-
 }
 
 tr:nth-child(even) {
@@ -98,16 +60,21 @@ tr:nth-child(odd) {
     background-color: white;
 }
 
+
 /* //style accepts ony csv */
-.type_csv{
+
+.type_csv {
     bottom: 10px;
 }
+
+
 /* styling the search button */
 
-.search{
+.search {
     width: 40%;
 }
-.search>form>input{
+
+.search>form>input {
     width: 100%;
     padding: 10px 10px;
     color: #561278;
@@ -115,32 +82,32 @@ tr:nth-child(odd) {
     border: none;
     background-color: #DCBEEB;
 }
-  
+
 .search-button {
     padding: 10px;
     min-width: 40px;
-    position:absolute;
-    right:3rem;
-    border:transparent;
-    background-color:transparent;
-   
+    position: absolute;
+    right: 3rem;
+    border: transparent;
+    background-color: transparent;
 }
-.card{
+
+.card {
     margin-top: 10%;
-    background-color:#C4C4C4;
+    background-color: #C4C4C4;
     margin-left: 30%;
-    width:50rem;
+    width: 50rem;
     border-radius: 8px;
     opacity: 80%;
-    
 }
-#msg{
+
+#msg {
     font-size: 10px;
     padding-bottom: 20px;
 }
-#codehive{
+
+#codehive {
     background-color: white;
     margin-left: 2%;
     margin-top: 7%;
-
 }
