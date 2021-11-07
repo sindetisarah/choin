@@ -1,27 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-#heading {
-    margin-left: 50%;
-    margin-top: 6%;
-    position: absolute;
-    color: #561278;
-    font-weight: lighter;
-}
-
-#Image {
-    border-radius: 50%;
-    width: 4%;
-}
-
-#heading {
-    margin-left: 50%;
-    color: #561278;
-    font-weight: lighter;
-}
-
 #profile {
     border-radius: 50%;
     width: 4%;
@@ -29,85 +6,270 @@ body {
     margin-left: 90%;
     position: fixed;
     background-color: #000;
+
 }
-
-
-/* #choin_available {
+#choin_available {
     margin-left: 83%;
     color: purple;
     font-size: 15px;
     margin-top: 5.5%;
-     position: absolute;
+     position:relative;
    
-} */
-
-button {
+}
+#btn_upload{
     background-color: #561278;
     color: white;
-    height: 40px;
+    font-size: 15px;
+    
+    height:35px;
     margin-bottom: 70px;
-    border-radius: 10px;
-    width: 10rem;
-    margin-left: 3%;
+    border-radius: 5px;
+    width:8rem;
+    margin-left: 0.9%;
+    border-color: transparent;
 }
+table {
+    width: 855px;
+    margin-left: 25%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-collapse: collapse;
+    margin-right:100px;
 
-tr:nth-child(even) {
-    background-color: #c4c4c4;
-    opacity: 61%;
+
 }
-
-tr:nth-child(odd) {
-    background-color: white;
-}
-
-
-/* //style accepts ony csv */
-
-.type_csv {
+th, td {
+    text-align: left;
+    padding-right: 50px;
+  }
+  th{
+      color: #561278;
+      font-size: 18px;
+  }
+  td{
+    height: 50px;
+  }
+  tr:nth-child(even) {background-color: #DCBEEB;}
+  .type_csv{
     bottom: 10px;
 }
-
-
-/* styling the search button */
-
-.search {
+.search{
     width: 40%;
 }
-
-.search>form>input {
+.search>form>input{
     width: 100%;
-    padding: 10px 10px;
-    color: #561278;
+    padding: 8px 8px;
+    color: whitesmoke;
     border-radius: 2px;
+    margin-left: 126%;
     border: none;
-    background-color: #DCBEEB;
+    background-color:white;
+    border:1px solid black;
 }
-
+  
 .search-button {
-    padding: 10px;
+    /* padding: 10px; */
     min-width: 40px;
-    position: absolute;
-    right: 3rem;
-    border: transparent;
-    background-color: transparent;
+    position:absolute;
+    right:3rem;
+    border:transparent;
+    background-color:transparent;
+   
+    padding-bottom: 20px;
 }
-
-.card {
-    margin-top: 10%;
-    background-color: #C4C4C4;
-    margin-left: 30%;
-    width: 50rem;
+.card{
+    margin-top: 1%;
+    background-color:rgba(128, 128, 128, 0.281);
+    margin-left: 25%;
+    width:55rem;
     border-radius: 8px;
-    opacity: 80%;
+    height:32vh;
+    
+    
 }
-
-#msg {
+#msg{
     font-size: 10px;
     padding-bottom: 20px;
 }
-
-#codehive {
+#codehive{
     background-color: white;
     margin-left: 2%;
-    margin-top: 7%;
+    margin-top: 1.4%;
+    position: absolute;
+    border-radius: 5px;
+    width:290px;
+    height:160px;
+
 }
+::-webkit-file-upload-button {
+    background:purple;
+    color:white;
+    border-radius: 5px;
+    width: 10rem;
+    height: 5vh;
+    border-color: transparent;
+    font-size: 16px;
+   
+  }
+  .text_display{
+      margin-left:50%;
+     padding-top: 6%;
+  }
+  #btn_full_list{
+    margin-top: 0.5%;
+    margin-left:83%;
+    background-color: #DCBEEB;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    border-color: transparent;
+}
+.csv_display{
+    margin-left: 68%;
+    margin-top: 2%;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    #heading{
+        margin-left: 50%;
+        margin-top:6%;
+       position: absolute;
+       color: #561278;
+       font-weight: lighter;
+        
+    
+    }
+    
+    #Image {
+        border-radius: 50%;
+        width: 4%;
+        
+    }
+    #heading {
+        margin-left: 50%;
+        color: #561278;
+        font-weight: lighter;
+    }
+/* media queries */
+@media (max-width:875px){
+    body{
+        margin: 0;
+    }
+    #codehive{
+        background-color: white;
+        margin-left: 2%;
+        margin-top: 1.4%;
+        position: absolute;
+        border-radius: 5px;
+        width: 210px;
+        height:150px;
+     }
+      .card{ 
+         margin-top: 4%;
+        background-color:rgba(128, 128, 128, 0.281);
+        margin-left: 7%;
+        width: 225px;
+        border-radius: 8px;
+        height:20vh;
+         
+          }
+   
+    #profile{
+        width: 5%;
+        border-radius: 50%;
+        margin-left: 80%;
+        margin-bottom: 20%;
+    }
+    #choin_available {
+        margin-left:55%;
+        color: purple;
+        font-size: 10px;
+        margin-top: 6.5%;
+         position:relative;
+       
+    }
+    table {
+        width: 10px;
+        margin-left: 6%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        border-collapse: collapse;
+        margin-right:2px;
+        margin-right: 10px;
+        font-size: 15px;
+    
+    
+    }
+    .csv_display{
+        margin-left: 4%;
+        margin-top: 8%;
+        font-size: 15px;
+        }
+
+        ::-webkit-file-upload-button {
+            background:purple;
+            color:white;
+            border-radius: 5px;
+            width: 10rem;
+            height: 5vh;
+            border-color: transparent;
+            font-size: 15px;
+            margin-top: 10px;
+
+           
+          }
+          .text_display{
+              margin-left:2%;
+             padding-top: 80%;
+            
+             font-size: 15px;
+          }
+          #btn_full_list{
+            margin-top: 2%;
+            margin-left:45%;
+            background-color: #DCBEEB;
+            border-radius: 5px;
+            width: 100px;
+            height: 30px;
+            border-color: transparent;
+            
+        }
+        #leader{
+            font-size: 20px;
+            padding-top:55% ;
+            margin-left: 8%;
+            color:purple;
+            /* position: absolute; */
+        }
+        ::-webkit-file-upload-button {
+            background:purple;
+            color:white;
+            border-radius: 5px;
+            width: 8rem;
+            height: 4vh;
+            border-color: transparent;
+            font-size: 16px;
+           
+          }
+
+  th, td {
+    text-align: left;
+    padding-right: 20px;
+  }
+  .search{
+    width: 60%;
+}
+.search>form>input{
+    width: 100%;
+    padding: 8px 8px;
+    color: whitesmoke;
+    border-radius: 2px;
+    margin-left: 15%;
+    border: none;
+    background-color:white;
+    border:1px solid black;
+}
+}
+    
+
