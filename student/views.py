@@ -1,8 +1,10 @@
 from django.shortcuts import redirect, render
 from .forms import UpdateProfileForm,UserProfileForm
-from .models import Student
+from .models import Redeem, RewardedItem, Student
 from django.core.exceptions import ObjectDoesNotExist
 from leadership.models import RedeemableItem, Transaction, Wallet
+from django.http import JsonResponse
+import json
 # @login_required
 
 
@@ -37,16 +39,38 @@ def student_profile(request):
 def student_home(request):
     return render(request,'student_home.html')
 def redeem(request):
+    if request.user.is_authenticated:
+        student_customer = request.user.role == 3
+        order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
+        items = order.orderitem_set.all()
+        cartItems = order.calculate_cart_items
+    else:
+        items= []
     reward_items=RedeemableItem.objects.all()
     
     bal = Wallet.objects.all().filter(owner = request.user)
-    return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal})
+    return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'cartItems':cartItems })
 def redeem_failed(request):
     return render(request,'RedeemFailed.html')
 def redeem_success(request):
+    if request.user.is_authenticated:
+        student_customer = request.user.role==3
+        order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
+        items = order.orderitem_set.all()
+    else:
+        items= []
+    context = {'items':items, 'order':order}  
     return render(request,'RedeemSucceed.html')
-def redeem_active(request):
-    return render(request,'redeem_active.html')
+def cart(request):
+    if request.user.is_authenticated:
+        student_customer = request.user.role == 3
+        order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
+        items = order.orderitem_set.all()
+    else:
+        items= []
+
+    context = {'items':items, 'order':order}    
+    return render(request,'cart.html', context)
 
 def student_transactions(request):
     transactions = Transaction.objects.all().filter(receiver = request.user.username)
@@ -54,4 +78,29 @@ def student_transactions(request):
     
     
 
-    return render(request,'student_transactions.html',{'transactions':transactions,'bal':bal})         
+    return render(request,'student_transactions.html',{'transactions':transactions,'bal':bal})  
+
+def update_item(request):
+    data = json.loads(request.data)
+    productId = data['productId'] 
+    action = data['action']
+
+    print('Action:', action)
+    print('ProductId:', productId) 
+
+    student_customer = request.user.role ==3
+    product = RedeemableItem.objects.get(id=productId)
+    order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
+    orderItem, created = RewardedItem.objects.get_or_create(order = order, product=product)
+
+    if action =='add':
+        orderItem.quantity = (orderItem.quantity +1)
+    elif action == 'remove':
+         orderItem.quantity = (orderItem.quantity - 1)
+    
+    orderItem.save()
+
+    if orderItem.quantity <= 0:
+        orderItem.delete()
+
+    return JsonResponse('Item was added', safe=False)

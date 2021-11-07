@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+ 
+body{
+    margin: 0 0 0 20% ;    
+   
+}
+#mini-logo{
+    display: none !important;
+}
+.menu{
+    display: none !important;
+}
+.pool{
+    display: flex;
+    flex-direction: column;
+    margin-left: 80%;
+}
+.pool>p{
+    font-weight: bold;
+    color: #561278;
+}
+#profile-image{
+    width: 30%;
+    border-radius: 50%;
+    margin-left: 40%;
+}
+.reward-heading{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5%;
+}
+.reward-heading >h1{
+    margin-top: -2.5%;
+    color: #561278;
+}
+.cart-count{
+    border: solid 1px #95899b;
+    width: 85%;
+    margin-left: 5%;
+    padding: 20px;
+    box-shadow: #95899b 2px 2px 2px;
+    border-radius: 10px;
+}
+table {
+    border-collapse: collapse;
+    margin-top: 1%;
+    width: 100%;
+    margin-left: 2%;
+    
+  }
+
+  th{
+    text-align: left;
+    /* padding-bottom: 20px; */
+    color: #561278;
+      /* font-size: 18px; */
+  }
+  th >strong{
+      color: #8a7f8f;
+  }
+  th>a{
+      border: solid 1px transparent;
+      background-color: #dd84e6;
+      padding: 10px;
+      color: #561278;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: #95899b 2px 2px 2px;
+  }
+  .continue{
+      text-decoration: none;
+      margin-left: 2%;
+      border: solid 1px transparent;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: #95899b 2px 2px 2px;
+      background-color: #d7b7e7;
+      
+      
+  }
+  .products>table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
+    box-shadow: gray 5px 5px 5px;
+    border-radius: 5px;
+    margin-top: 5%;
+  }
+
+  .products>table>th,.products>table>td {
+    text-align: left;
+    padding: 8px;
+  }
+  .products>table>th{
+      color: #561278;
+      font-size: 18px;
+  }
+  .products>table>td{
+    height: 50px;
+  }
+@media (max-width:875px){
+    body{
+        margin: 0;
+    }
+    #mini-logo{
+        display: inline !important;
+        width: 30%;
+        margin: 2%;
+       
+    }
+    .menu{
+        display: inline !important;
+        color: #561278;
+        font-size: 20px;
+        padding-top: 10px;
+        cursor: pointer;
+    }
+    .mini-header{
+        display: flex;
+        margin: 0 5%;
+        justify-content: space-evenly;
+    }
+    .pool{
+        margin-left: 50%;
+        width: 50%;
+    }
+    #profile-image{
+       
+        margin-left: 70%;
+    }
+    .pool>p{
+        font-size: 13px;
+        margin-left: 15%;
+    }
+    .reward-heading{
+        flex-direction: column;
+       
+    }
+}

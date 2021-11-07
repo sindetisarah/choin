@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,14 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <script src="{% static '' %}"></script>
+    
 </head>
 
 <body>
     <div class="card">
         <i class="fa fa-check-circle" style="font-size:48px;color:purple"></i>
         <h2>Transaction successful</h2>
-        <p>You have successfully redeemed {item} for {choins}</p>
+        <div>You have successfully redeemed 
+            <ul>
+            {%for item in items %}
+            <li> {{ item.quantity }} {{item.reward.item_name}}</li>
+        </ul>
+        {% endfor %}
+             for {{ order.calculate_cart_total}}</div>
         <button id="close">Ok</button>
     </div>
     <script>
@@ -23,6 +30,7 @@
                 document.querySelector('.card').style.display = 'none';
             })
     </script>
+     <script src="{% static 'js/redeem.js' %}"></script>
 </body>
 
 </html>

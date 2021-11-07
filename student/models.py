@@ -23,15 +23,33 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         pass
 
 class Redeem(models.Model):
+    # cart
+    #order
     student=models.ForeignKey(Student,on_delete=CASCADE,null=True)
     date_of_purchase=models.DateField(null=True)
+    transaction_id = models.CharField(max_length=200, null=True)
+    complete = models.BooleanField(default=False, null=True, blank=False)
 
+    @property
+    def calculate_cart_total(self):
+        orderitem=self.orderitem_set.all()
+        total=sum([item.calculate_total for item in orderitem])
+        return total
+    
+    @property
+    def calculate_cart_items(self):
+        orderitem=self.orderitem_set.all()
+        total=sum([item.quantity for item in orderitem])
+        return total
 
 class RewardedItem(models.Model):
+    # item within the cart
     reward=models.ForeignKey(RedeemableItem,on_delete=SET_NULL, null=True,blank=False)
     order=models.ForeignKey(Redeem,on_delete=SET_NULL ,null=True,blank=False)
     quantity=models.PositiveSmallIntegerField(null=True,blank=False)
+    date_added = models.DateTimeField(auto_now_add=True, null=True)
 
+    @property
     def calculate_total(self):
         total_price=self.reward.item_value*self.quantity
         return total_price
