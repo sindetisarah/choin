@@ -101,4 +101,18 @@ th, td {
     height:160px;
 
 }
+::-webkit-file-upload-button {
+    background:purple;
+    color:white;
+    border-radius: 5px;
+    width: 10rem;
+    height: 5vh;
+    border-color: transparent;
+    font-size: 16px;
+   
+  }
+  .text_display{
+      margin-left:50%;
+     padding-top: 6%;
+  }
 
