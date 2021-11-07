@@ -1,1 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+#profile {
+    border-radius: 50%;
+    width: 4%;
+    bottom: 88%;
+    margin-left: 90%;
+    position: fixed;
+    background-color: #000;
+
+}
