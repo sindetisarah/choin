@@ -38,3 +38,15 @@ table {
 
 
 }
+th, td {
+    text-align: left;
+    padding-right: 50px;
+  }
+  th{
+      color: #561278;
+      font-size: 18px;
+  }
+  td{
+    height: 50px;
+  }
+  tr:nth-child(even) {background-color: #DCBEEB;}
