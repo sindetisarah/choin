@@ -35,33 +35,56 @@ body{
 }
 .search{
     width: 40%;
+    
+    
+}
+form{
+    display: flex;
 }
 .search>form>input{
-    width: 100%;
+    width: 95%;
     padding: 10px 10px;
     color: #561278;
     border-radius: 2px;
     border: none;
     background-color: #DCBEEB;
-}
-  
-.search-button {
-    padding: 10px;
-    min-width: 40px;
-    position:absolute;
-    right:3rem;
-    border:transparent;
-    background-color:transparent;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
    
+}
+  form > input:focus{
+      outline: none;
+  }
+.search-button{
+    border: none;
+    background-color: transparent;
+   text-align: center;
+   margin-left: 10%;
+   padding: 10px 10px;
+   background-color: #DCBEEB;
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px;
+   
+  
+    
+}
+.search-button>i{
+    text-decoration: none;
 }
 .fas{
     color: #561278;
+  
+    
+    
 }
 table {
     border-collapse: collapse;
     width: 90%;
     margin-left: 5%;
+    box-shadow: gray 5px 5px 5px;
+    border-radius: 5px;
   }
+
   th, td {
     text-align: left;
     padding: 8px;
@@ -102,6 +125,10 @@ table {
 color: #fff;
 text-decoration: none;
   }
+#reward-student:hover{
+background-color: #413a44;
+box-shadow: #7c4797 5px 5px 5px;
+}
 @media (max-width:875px){
     body{
         margin: 0;
@@ -142,9 +169,18 @@ text-decoration: none;
     }
     .search{
         width: 100%;
+        
+    }
+    form{
+        margin-left: -10%;
     }
     .pagination{
         margin-left: 20.5%;
         margin-top: 5%;
     }
- }
+    #reward-student{
+        width: 60%;
+        padding: 10px;
+      }
+     
+}

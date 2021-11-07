@@ -1,0 +1,65 @@
+{%  load static %}
+{% include 'trainer_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'transactions.css' %}">
+   <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+   <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+   <title>Choin</title>
+</head>
+<body>
+    <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+    <div class="mini-header">
+        <div>
+            <i class="fas fa-bars menu"></i>
+        </div>
+   <div class="pool">
+   <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
+       <p>  Choin Balance: 200</p> 
+   </div>
+   </div>
+   <div class="reward-heading">
+ 
+       <h1>Choins Transactions</h1>
+    
+   </div>
+
+   
+<table class="table ">
+    <tr>
+        <th>Date</th>
+        <th>Recipient</th>
+        <th>Reason</th>
+        <th>Choin</th>
+</tr>
+  {% for t in transactions %}
+    <tr>
+       
+        <td>{{ t.time}} </td>
+        <td>{{ t.receiver}} </td>
+        <td>{{ t.metric}} </td>
+        <td>{{ t.value}} </td>
+    </tr>
+    {% endfor %}
+</table>
+<!-- <span class="step-links"> -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if transactions.has_previous %}
+                <a id="previous" class="btn btn-outline-dark mb-2 " href="?page=1">First Page</a>
+                <a id="previous" class="btn btn-outline-dark mb-2 " href="?page={{ transactions.previous_page_number }}"><i class="fas fa-backward"></i></a>
+            {% endif %}
+            {% if transactions.has_next %}
+                <a  id="last_page" class="btn btn-outline-dark mb-2" href="?page={{ transactions.next_page_number }}"><i class="fas fa-forward"></i></a>
+                <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ transactions.paginator.num_pages }}">Last Page</a>
+            {% endif %}
+        </span>
+      <!-- metric table -->
+  
+</body>
+<script src="{% static 'js/navbar.js' %}"></script>
+</html>

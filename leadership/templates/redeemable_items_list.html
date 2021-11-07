@@ -1,0 +1,63 @@
+{% load static %} {% include 'leader_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'redeemable-items-list.css' %}">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
+</head>
+<body>
+    <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+    <div class="mini-header">
+        <div>
+            <i class="fas fa-bars menu"></i>
+        </div>
+        <div class="pool">
+            <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
+            <p> Choin Balance: 200</p>
+        </div>
+    </div>
+    <div class="reward-heading">
+
+        <h1>Redeemable Items</h1>
+        <div class="search">
+            <form method="get" action="{% url 'search_student' %}">
+                <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
+                <input type="search" placeholder="Search item" name="search" />
+                
+            </form>
+        </div>
+    </div>
+    <table class="table ">
+        <tr>
+            <th>Item Image</th>
+            <th>Item Name</th>
+            <th>Value</th>
+        </tr>
+        {% for item in redeemable_items %}
+        <tr>
+            <td><img id="item-image" src="{{ item.image.url }}"></td>
+            <td>{{ item.item_name }} </td>
+            <td>{{ item.item_value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="pagination">
+        <span class="step-links">
+            {% if redeemable_items.has_previous %}
+                <a id="previous" class="btn btn-outline-dark mb-2 " href="?page=1">First Page</a>
+                <a id="previous" class="btn btn-outline-dark mb-2 " href="?page={{ redeemable_items.previous_page_number }}"><i class="fas fa-backward"></i></a>
+            {% endif %}
+            {% if redeemable_items.has_next %}
+                <a  id="last_page" class="btn btn-outline-dark mb-2" href="?page={{ redeemable_items.next_page_number }}"><i class="fas fa-forward"></i></a>
+                <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ redeemable_items.paginator.num_pages }}">Last Page</a>
+            {% endif %}
+        </span>
+
+        <script src="{% static 'js/navbar.js' %}"></script>
+    
+</body>
+</html>

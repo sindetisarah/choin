@@ -1,50 +1,37 @@
-{% load static %}
 {% include 'trainer_navbar.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'trainer.css' %}">
+{% load static %}
+{%block content%}
+<img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+<div class="mini-header">
+    <div>
+        <i class="fas fa-bars menu"></i>
+    </div>
+    <div class="pool">
+        <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
+        <p> Choin Balance: 200</p>
+    </div>
+</div>
+<h3 id="heading">Leaderboard</h3>
 
-    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
 
-    <title>Choin</title>
-</head>
-<body>
-        <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
-        <div class="mini-header">
-            <div>
-                <i class="fas fa-bars menu"></i>
-            </div>
-       <div class="pool">
-       <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
-           <p>  Choin Balance: 200</p> 
-       </div>
-       </div>
-   <h3 id ="heading">Leaderboard</h3>
 
-     <!-- <img id="profile" src="/static/images/me-removebg-preview.png" />
-     <h1 id="choin_balance">Balance:20 Choins</h1> -->
-
-     <table>
-        <tr>
-            <th>Image
-            </th>
-            <th> Name</th>
-            <th>Choins</th>
-            
-
-        </tr>
-   
-   
+<table>
     <tr>
-    <td><img id="Image" src="/static/images/me-removebg-preview.png" />
-    </td>
-    <td>Eunice Atieno</td>
-    <td>100</td>
-   
+        <th>Image
+        </th>
+        <th> Name</th>
+        <th>Choins</th>
+
+
+    </tr>
+
+
+    <tr>
+        <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+        </td>
+        <td>Eunice Atieno</td>
+        <td>100</td>
+
 
     </tr>
     <tr>
@@ -52,11 +39,9 @@
         </td>
         <td>Hunter Achieng</td>
         <td>98</td>
-       
-    
-        </tr>
-   
+
+
+    </tr>
+
 </table>
-    
-</body>
-</html>
+{%endblock%}
