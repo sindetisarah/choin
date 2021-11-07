@@ -146,4 +146,10 @@ th, td {
         width: 4%;
         
     }
+    #heading {
+        margin-left: 50%;
+        color: #561278;
+        font-weight: lighter;
+    }
+    
 
