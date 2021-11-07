@@ -1,5 +1,4 @@
-{% load static %}
-{% include 'leader_navbar.html' %}
+{% load static %} {% include 'leader_navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,35 +16,28 @@
     <div class="card" id="upload_display">
         <img id="codehive" src="/static/images/code-hive.png">
         <div class="text_display">
-            {% if messages %}
-            {% for message in messages %}
+            {% if messages %} {% for message in messages %}
             <div>
                 <strong id="msg">{{message|safe}}</strong>
             </div>
-            {% endfor %}
-            {% else %}
-            {{order}}
-            
+            {% endfor %} {% else %} {{order}}
+
             <form action="" method="POST" enctype="multipart/form-data">
 
                 {% csrf_token %}
                 <label for="file1"> Upload Student file</label><br>
                 <input type="file" id="file1" name="file">
-            </div>
-                <div class="csv_display">
+        </div>
+        <div class="csv_display">
 
-                    <small>Only accepts CSV files</small><br>
+            <small>Only accepts CSV files</small><br>
 
-                    <button id="btn_upload" type="submit">UPLOAD</button>
-                </div>
-        
+            <button id="btn_upload" type="submit">UPLOAD</button>
+        </div>
+
 
 
         </form>
-
-   
-
-
 
         {% endif %}
     </div>
@@ -54,8 +46,9 @@
         <h1 id="leader">Leaderboard</h1>
         <div class="search">
             <form method="get" action="{% url 'search_student' %}">
-                <input type="search" placeholder="Search student by first name" name="search" />
                 <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
+                <input type="search" placeholder="Search student by first name" name="search" />
+
             </form>
         </div>
     </div>
@@ -85,8 +78,18 @@
             </td>
             <td>Hunter Achieng</td>
             <td>98</td>
-
-
+        </tr>
+        <tr>
+            <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+            </td>
+            <td>Marie Chantal</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+            </td>
+            <td>Sarah Sindet</td>
+            <td>100</td>
         </tr>
 
     </table>
