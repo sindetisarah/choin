@@ -112,7 +112,7 @@ th, td {
    
   }
   .text_display{
-      margin-left:50%;
+      margin-left:40%;
      padding-top: 6%;
   }
   #btn_full_list{
@@ -125,8 +125,7 @@ th, td {
     border-color: transparent;
 }
 .csv_display{
-    margin-left: 80%;
-    margin-top: 2%;
+    margin-left: 75%;
     }
     body {
         font-family: 'Poppins', sans-serif;
@@ -150,6 +149,10 @@ th, td {
         margin-left: 50%;
         color: #561278;
         font-weight: lighter;
+    }
+    #file1{
+        padding-top: 2%;
+        position: absolute;
     }
 /* media queries */
 @media (max-width:875px){
@@ -203,7 +206,7 @@ th, td {
     }
     .csv_display{
         margin-left: 4%;
-        margin-top: 8%;
+        margin-top: 6%;
         font-size: 15px;
         }
 
