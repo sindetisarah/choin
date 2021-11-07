@@ -124,4 +124,11 @@ th, td {
     height: 30px;
     border-color: transparent;
 }
+.csv_display{
+    margin-left: 68%;
+    margin-top: 2%;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
 
