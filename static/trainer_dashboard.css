@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#heading {
+    margin-left: 50%;
+    margin-top: 6%;
+    position: absolute;
+    color: #561278;
+    font-weight: lighter;
+}
+
+#Image {
+    border-radius: 50%;
+    width: 4%;
+}
+
+#heading {
+    margin-left: 50%;
+    color: #561278;
+    font-weight: lighter;
+}
+
+#profile {
+    border-radius: 50%;
+    width: 4%;
+    bottom: 88%;
+    margin-left: 90%;
+    position: fixed;
+    background-color: #000;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+
+/* #choin_available {
+    margin-left: 83%;
+    color: purple;
+    font-size: 15px;
+    margin-top: 5.5%;
+     position: absolute;
+   
+} */
+
+button {
+    background-color: #561278;
+    color: white;
+    height: 40px;
+    margin-bottom: 70px;
+    border-radius: 10px;
+    width: 10rem;
+    margin-left: 3%;
+}
+
+#file1 {
+    background-color: #561278;
+    color: white;
+    margin-top: 175px;
+    position: absolute;
+    margin-left: 2%;
+}
+
+
+/* //style accepts ony csv */
+
+.type_csv {
+    bottom: 10px;
+}
+
+
+/* styling the search button */
+
+.search {
+    width: 40%;
+}
+
+.search>form>input {
+    width: 100%;
+    padding: 10px 10px;
+    color: #561278;
+    border-radius: 2px;
+    border: none;
+    background-color: #DCBEEB;
+}
+
+.search-button {
+    padding: 10px;
+    min-width: 40px;
+    position: absolute;
+    right: 3rem;
+    border: transparent;
+    background-color: transparent;
+}
+
+.card {
+    margin-top: 10%;
+    background-color: #C4C4C4;
+    margin-left: 30%;
+    width: 50rem;
+    border-radius: 8px;
+    opacity: 80%;
+}
+
+#msg {
+    font-size: 10px;
+    padding-bottom: 20px;
+}
+
+#codehive {
+    background-color: white;
+    margin-left: 2%;
+    margin-top: 7%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin-left: 25%;
+    box-shadow: gray 5px 5px 5px;
+    border-radius: 5px;
+    margin-right: 25%;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    color: #561278;
+    font-size: 18px;
+}
+
+td {
+    height: 50px;
+}
+
+tr:nth-child(even) {
+    background-color: #DCBEEB;
+}
+
+#title {
+    margin-left: 25%;
+}
+
+h1 {
+    margin-left: 80%;
+    font-size: 20px;
+}
