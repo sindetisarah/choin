@@ -131,4 +131,19 @@ th, td {
     body {
         font-family: 'Poppins', sans-serif;
     }
+    #heading{
+        margin-left: 50%;
+        margin-top:6%;
+       position: absolute;
+       color: #561278;
+       font-weight: lighter;
+        
+    
+    }
+    
+    #Image {
+        border-radius: 50%;
+        width: 4%;
+        
+    }
 
