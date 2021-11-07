@@ -87,3 +87,18 @@ th, td {
     
     
 }
+#msg{
+    font-size: 10px;
+    padding-bottom: 20px;
+}
+#codehive{
+    background-color: white;
+    margin-left: 2%;
+    margin-top: 1.4%;
+    position: absolute;
+    border-radius: 5px;
+    width:290px;
+    height:160px;
+
+}
+
