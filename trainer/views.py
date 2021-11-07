@@ -255,6 +255,8 @@ def trainer_profile(request):
         'profile_form': profile_form # user profile form
         }
     return render(request, 'trainer_profile.html', args)
+def trainer_dashboard(request):
+    return render(request,"trainer_dashboard.html")
 
 
 
