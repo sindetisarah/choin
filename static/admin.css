@@ -16,3 +16,15 @@
      position:relative;
    
 }
+#btn_upload{
+    background-color: #561278;
+    color: white;
+    font-size: 15px;
+    
+    height:35px;
+    margin-bottom: 70px;
+    border-radius: 5px;
+    width:8rem;
+    margin-left: 0.9%;
+    border-color: transparent;
+}
