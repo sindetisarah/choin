@@ -115,4 +115,13 @@ th, td {
       margin-left:50%;
      padding-top: 6%;
   }
+  #btn_full_list{
+    margin-top: 0.5%;
+    margin-left:83%;
+    background-color: #DCBEEB;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    border-color: transparent;
+}
 
