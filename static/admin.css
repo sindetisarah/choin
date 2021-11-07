@@ -50,3 +50,6 @@ th, td {
     height: 50px;
   }
   tr:nth-child(even) {background-color: #DCBEEB;}
+  .type_csv{
+    bottom: 10px;
+}
