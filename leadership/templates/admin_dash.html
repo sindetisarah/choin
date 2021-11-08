@@ -42,22 +42,71 @@
 
 
         </form>
-        <form action="" method="POST" enctype="multipart/form-data">
+         <form action="" method="POST" enctype="multipart/form-data">
 
-            {% csrf_token %}
-            <label for="file1"> Upload Student file</label><br>
-            <input type="file" id="file1" name="file">
-        </div>
-            <div class="csv_display">
-
-                <small>Only accepts CSV files</small><br>
-
-                <button id="btn_upload" type="submit">UPLOAD</button>
+                {% csrf_token %}
+                <label for="file1"> Upload Student file</label><br>
+                <input type="file" id="file1" name="file">
             </div>
-    
+                <div class="csv_display">
+
+                    <small>Only accepts CSV files</small><br>
+
+                    <button id="btn_upload" type="submit">UPLOAD</button>
+                </div>
+        
 
 
-    </form>
+        </form>
+
+
+   
+
+
+
+        {% endif %}
+        <div class="text_display">
+            {% if messages %}
+            {% for message in messages %}
+            <div>
+                <strong id="msg">{{message|safe}}</strong>
+            </div>
+            {% endfor %}
+            {% else %}
+            {{order}}
+            
+            <form action="" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+                <label for="file1"> Upload Student file</label><br>
+                <input type="file" id="file1" name="file">
+            </div>
+                <div class="csv_display">
+
+                    <small>Only accepts CSV files</small><br>
+
+                    <button id="btn_upload" type="submit">UPLOAD</button>
+                </div>
+        
+
+
+        </form>
+         <form action="" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+                <label for="file1"> Upload Student file</label><br>
+                <input type="file" id="file1" name="file">
+            </div>
+                <div class="csv_display">
+
+                    <small>Only accepts CSV files</small><br>
+
+                    <button id="btn_upload" type="submit">UPLOAD</button>
+                </div>
+        
+
+
+        </form>
 
 
    
