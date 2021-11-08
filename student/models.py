@@ -22,17 +22,14 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     else:
         pass
 
-class Redeem(models.Model):
-    student=models.ForeignKey(Student,on_delete=CASCADE,null=True)
-    date_of_purchase=models.DateField(null=True)
+class Order(models.Model):
+	product = models.ForeignKey(RedeemableItem,on_delete=models.CASCADE)
+	customer = models.ForeignKey(Student,on_delete=models.CASCADE)
+	quantity = models.IntegerField(default=1)
+	price = models.IntegerField()
+	phone = models.CharField(max_length=15,blank=True)
+	completed = models.BooleanField(default=False)
 
 
-class RewardedItem(models.Model):
-    reward=models.ForeignKey(RedeemableItem,on_delete=SET_NULL, null=True,blank=False)
-    order=models.ForeignKey(Redeem,on_delete=SET_NULL ,null=True,blank=False)
-    quantity=models.PositiveSmallIntegerField(null=True,blank=False)
-
-    def calculate_total(self):
-        total_price=self.reward.item_value*self.quantity
-        return total_price
-
+	def __str__(self):
+		return self.customer.email

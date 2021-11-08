@@ -1,4 +1,6 @@
 {% include 'student_navbar.html' %}{% load static %}
+{% load cart %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +49,13 @@
                     <p class="total-choins">
                         <label>Choins:</label>
                         <input id="choins" class="text-dark" value="{{item.item_value}}">
-                        <i class="fas fa-shopping-cart"></i>
+                        <!-- <a href="{%url 'redeemed_items' %}"><i class="fas fa-shopping-cart"> </i></a> -->
+                        {% if item|is_in_cart:request.session.cart %}
+                        <a href="{%url 'redeemed_items' %}"><i class="fas fa-shopping-cart"> </i></a>
+                        {% else %}
+                        <a href="{%url 'redeemed_items' %}"><i class="fas fa-shopping-cart"> </i></a>
+
+                        {% endif %}
                     </p>
                 </div>       
         {%endfor%}

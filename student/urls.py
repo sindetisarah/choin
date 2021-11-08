@@ -9,6 +9,7 @@ urlpatterns =[
     path('redeem/',redeem_success,name='redeem_success'),
     path('redeem_active/',redeem_active,name='redeem_active'),
     path('student_transactions/',student_transactions,name='student_transactions'),
+    # path('redeemed_items/',view_redeemed_items,name='redeemed_items'),
     path('student_dashboard/',student_dashboard,name='student_dashboard'),
 
     ]

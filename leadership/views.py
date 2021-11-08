@@ -18,6 +18,8 @@ from urllib.parse import urlparse
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt #New
 from django.db.models import Q
+from notifications.signals import notify
+
 
 class Blockchain:
     def __init__(self):
@@ -322,7 +324,10 @@ def reward_confirm(request,id):
             value =the_transactions[3],
             time =the_transactions[4],)
             transaction.save()
-            
+        message=f"You have been awarded {the_transactions[3]}choins"
+        notify.send(request.user, recipient=student, verb='Message',description=message)
+        
+    
     transactions = Transaction.objects.all().filter(receiver = student.username)
     choinBalance = sum(transactions.values_list('value', flat=True))
     print(choinBalance)
@@ -332,6 +337,9 @@ def reward_confirm(request,id):
     wallets=Wallet.objects.all().filter(owner=wallet_owner)
     # if wallets.exists():
     wallets.update(owner = wallet_owner, choinBalance = choinBalance)
+    
+    # notify.send (request.user, recipient = student, verb ='You have been awarded choins ')
+
 
     return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
    
