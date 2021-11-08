@@ -43,7 +43,7 @@
 
 
         </form>
-        <div class="text_display">
+        <div class="text_display_2">
             {% if messages %}
             {% for message in messages %}
             <div>
@@ -56,14 +56,14 @@
             <form action="" method="POST" enctype="multipart/form-data">
 
                 {% csrf_token %}
-                <label for="file1"> Upload Student file</label><br>
-                <input type="file" id="file1" name="file">
+                <label for="file2"> Upload Student file</label><br>
+                <input type="file" id="file2" name="file">
             </div>
-                <div class="csv_display">
+                <div class="csv_display2">
 
                     <small>Only accepts CSV files</small><br>
 
-                    <button id="btn_upload" type="submit">UPLOAD</button>
+                    <button id="btn_upload_2" type="submit">UPLOAD</button>
                 </div>
 
    
