@@ -94,11 +94,11 @@ th, td {
 #codehive{
     background-color: white;
     margin-left: 2%;
-    margin-top: 1.4%;
+    margin-top: 3%;
     position: absolute;
     border-radius: 5px;
     width:290px;
-    height:160px;
+    height:240px;
 
 }
 ::-webkit-file-upload-button {
