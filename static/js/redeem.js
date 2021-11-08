@@ -5,7 +5,7 @@ for(let i=0; i< updateBtnLngth; i++){
     updateBtn[i].addEventListener('click', function(){
         var productId = this.dataset.product;
         var action = this.dataset.action;
-        // console.log('productId:', productId, 'action:',action);
+        console.log('productId:', productId, 'action:',action);
         updateUserOrder(productId, action)                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     })
 
@@ -28,18 +28,19 @@ function getToken(name) {
 var csrftoken = getToken('csrftoken');                                                                                                                                                                                                                            
 
 function updateUserOrder(productId, action){
-   var url = "/update_item/"
+   var url = "http://127.0.0.1:8000/student/update_item/"
    fetch(url, {                                                                                                                                         
        method: 'POST',
        headers: {'Content-Type': 'application/json',
                   'X-CSRFToken': csrftoken},
-       body: JSON.stringify({'productId':productId,'action': action})
+       body:JSON.stringify({'productId':productId,'action': action})
    })
    .then(response => response.json)
    .then(data=>{
-       console.log('Data:', data )
+       console.log('data:', data )
        location.reload()
     })
+    .catch(error => alert(error.toString()))
 }
 
 

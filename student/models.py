@@ -32,25 +32,25 @@ class Redeem(models.Model):
 
     @property
     def calculate_cart_total(self):
-        orderitem=self.orderitem_set.all()
-        total=sum([item.calculate_total for item in orderitem])
-        return total
+        orderitems=self.rewardeditem_set.all()
+        total_price=sum([item.calculate_total() for item in orderitems])
+        return total_price
     
     @property
     def calculate_cart_items(self):
-        orderitem=self.orderitem_set.all()
-        total=sum([item.quantity for item in orderitem])
-        return total
+        orderitems=self.rewardeditem_set.all()
+        total_items=sum([item.quantity for item in orderitems])
+        return total_items
 
 class RewardedItem(models.Model):
     # item within the cart
-    reward=models.ForeignKey(RedeemableItem,on_delete=SET_NULL, null=True,blank=False)
-    order=models.ForeignKey(Redeem,on_delete=SET_NULL ,null=True,blank=False)
-    quantity=models.PositiveSmallIntegerField(null=True,blank=False)
+    reward=models.ForeignKey(RedeemableItem,on_delete=CASCADE, null=True,blank=False)
+    order=models.ForeignKey(Redeem,on_delete=CASCADE ,null=True,blank=False)
+    quantity=models.IntegerField(default=0)
     date_added = models.DateTimeField(auto_now_add=True, null=True)
 
     @property
     def calculate_total(self):
-        total_price=self.reward.item_value*self.quantity
+        total_price=self.reward.item_value * self.quantity
         return total_price
 

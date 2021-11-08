@@ -42,7 +42,7 @@
             <tr>
                 
                 <th>Items: <strong>{{ order.calculate_cart_items}}</strong></th>
-                <th>Total Choins: <strong>{{ order.calculate_cart_total}}</strong></th>
+                <th>Total Choins: <strong>{{calculate_cart_total}}</strong></th>
                 <th><a href="{% static 'redeem_success' %}">Redeem</a></th>
             </tr>
             
@@ -63,15 +63,15 @@
         {%for item in items %}
         <tr>
             
-            <td><img id="image-reward" alt="redeemable-item" src="{{item.reward.image.url}}"> </td>
+            <td><img id="image-rewards" alt="redeemable-item" src="{{item.reward.image.url}}"> </td>
             <td>{{item.reward.item_name}}</td>
             <td>{{item.reward.item_value}}</td>
             <td>
                 <button data-product={{item.reward.id}} data-action="add" class="btn plus-btn update-cart" type="button">+</button>
-                        {{ item.quantity }}
+                        {{item.quantity}}
                 <button data-product={{item.reward.id}} data-action="remove" class="btn minus-btn update-cart" type="button">-</button>
             </td>
-            <td>{{item.calculate_total}}</td>
+            <td>{{item.calculate_total|floatformat:2}}</td>
         </tr>
         {% endfor %}
     </table>
