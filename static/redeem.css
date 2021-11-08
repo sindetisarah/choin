@@ -50,7 +50,7 @@ body{
     border-radius: 20px;
     background-color: #eee5e9; 
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
-    height: 300px;
+    height: 270px;
     text-align: center;
     width: 200px;
     margin: 10px;
@@ -73,6 +73,9 @@ body{
     width: 20%;
     background-color: transparent;
 }
+#heading{
+    color:#561278;
+}
 
 .text {
     padding: 0 20px 20px;
@@ -80,6 +83,19 @@ body{
 }
 .fa-shopping-cart{
     color: #8a7f8f;
+    margin-left: 5%;
+}
+.cart-notf{
+    color: #8a7f8f;
+    font-size:20px;
+    position: absolute;
+    top: 5%;
+    right: 12%;
+    
+}
+.fa-shopping-bag{
+    color: #8a7f8f;
+    margin-left: 5%;
 }
 .close{
     color: #561278;
