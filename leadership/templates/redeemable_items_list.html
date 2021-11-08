@@ -1,6 +1,7 @@
 {% load static %} {% include 'leader_navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
     <title>Choin</title>
 </head>
+
 <body>
     <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
     <div class="mini-header">
@@ -24,10 +26,10 @@
 
         <h1>Redeemable Items</h1>
         <div class="search">
-            <form method="get" action="{% url 'search_student' %}">
+            <form method="get" action="{% url 'search_redeemable_item' %}">
                 <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
                 <input type="search" placeholder="Search item" name="search" />
-                
+
             </form>
         </div>
     </div>
@@ -58,6 +60,7 @@
         </span>
 
         <script src="{% static 'js/navbar.js' %}"></script>
-    
+
 </body>
+
 </html>

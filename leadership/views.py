@@ -411,4 +411,14 @@ def redeemableItemsList(request):
     redeemable_items = paginator.get_page(page)
    
     return render(request,'redeemable_items_list.html',{'redeemable_items':redeemable_items})
+def search_redeemable_item(request):
+    search_post = request.GET.get('search')
+    if search_post:
+        items = RedeemableItem.objects.filter(Q(item_name__icontains=search_post))
+        results=items.count()
+    else:
+        items =RedeemableItem.objects.all()
+        message="Looks like the item doesn't exist. Try again "
+        return render (request,'redeemable_items_list.html',{'items':items,'message':message})
+    return render (request,'redeemable_items_list.html',{'items':items,'results':results})
 
