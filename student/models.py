@@ -33,7 +33,7 @@ class Redeem(models.Model):
     @property
     def calculate_cart_total(self):
         orderitems=self.rewardeditem_set.all()
-        total_price=sum([item.calculate_total() for item in orderitems])
+        total_price=sum([item.calculate_total for item in orderitems])
         return total_price
     
     @property

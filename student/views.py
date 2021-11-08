@@ -80,7 +80,7 @@ def cart(request):
     else:
         items= []
         order={'calculate_cart_total':0, 'calculate_cart_items':0}
-    context={'items':items,'order':order}
+    
 
     context = {'items':items, 'order':order}    
     return render(request,'cart.html', context)
@@ -105,7 +105,7 @@ def update_item(request):
     product = RedeemableItem.objects.get(id=productId)
     order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
     print(order)
-    orderItem, created = RewardedItem.objects.get_or_create(order = order, reward=product ,quantity = 0)
+    orderItem, created = RewardedItem.objects.get_or_create(order = order, reward=product )
     print(orderItem)
     print(orderItem.date_added)
     print(orderItem.quantity)

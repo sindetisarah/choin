@@ -42,7 +42,7 @@
             <tr>
                 
                 <th>Items: <strong>{{ order.calculate_cart_items}}</strong></th>
-                <th>Total Choins: <strong>{{calculate_cart_total}}</strong></th>
+                <th>Total Choins: <strong>{{order.calculate_cart_total}}</strong></th>
                 <th><a href="{% static 'redeem_success' %}">Redeem</a></th>
             </tr>
             
@@ -77,6 +77,7 @@
     </table>
 
    </div>
+   
     <script src="{% static 'js/redeem.js' %}"></script>
     <script src="{% static 'js/navbar.js' %}"></script>
    
