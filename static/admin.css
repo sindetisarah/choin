@@ -161,21 +161,21 @@ th, td {
         font-size: 15px;
         
         height:35px;
-        margin-bottom: 70px;
+        margin-bottom: 68px;
         border-radius: 5px;
         width:8rem;
-        margin-left: 0.9%;
+        margin-left: 16%;
         border-color: transparent;
     }
     .csv_display_2{
         margin-left: 50%;
-        bottom: 23%;
+        bottom: 28%;
         position: absolute;
         }
 
         .text_display_2{
-            margin-left:40%;
-            margin-bottom: 60%;
+            margin-left:28%;
+            /* margin-bottom: 80%; */
             position:absolute;
           
           
