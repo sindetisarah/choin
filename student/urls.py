@@ -1,5 +1,6 @@
 from django.urls import path
-from . views import redeem,student_profile,student_home,redeem_failed,redeem_success, cart, student_transactions,update_item
+from . views import redeem,student_profile,student_home,redeem_failed,redeem_success, cart, student_transactions,update_item,student_dashboard
+
 # from core.views import Profile
 urlpatterns =[
     path('student-home',student_home,name='student-home'),
@@ -10,4 +11,7 @@ urlpatterns =[
     path('cart/',cart,name='cart'),
     path('student_transactions/',student_transactions,name='student_transactions'),
     path('update_item/',update_item,name='update_item'),
+    # path('redeemed_items/',view_redeemed_items,name='redeemed_items'),
+    path('student_dashboard/',student_dashboard,name='student_dashboard'),
+
     ]

@@ -1,0 +1,135 @@
+{% load static %} {% include 'student_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'stud_dashboard.css' %}">
+    <title>Choin</title>
+</head>
+
+<body>
+    <img id="profile" src="/static/images/me-removebg-preview.png" />
+    <h1 id="choin_available">Available Choins:2000</h1>
+    <h1>Home</h1>
+    <hr>
+    <div class="row">
+        <h3 id="proff">Profile
+        </h3>
+        <div class="column">
+            <div class="card">
+                <img src="/static/images/me-removebg-preview.png" id="img" alt="">
+                <p id="prof">Eunice Atieno</p>
+                <p id="prof">My choin balance</p>
+                <p id="prof">300Choin</p>
+                <p id="prof">Rewarded</p>
+            </div>
+        </div>
+        <h3 id="title">Latest transactions
+        </h3>
+        <div class="column">
+            <table>
+                <tr>
+                    <th>Date
+                    </th>
+                    <th>Type</th>
+                    <th>Total choins</th>
+
+
+                </tr>
+                <tr>
+                    <td>11/10/2021
+                    </td>
+                    <td>Redeemed</td>
+                    <td>100</td>
+
+                </tr>
+                <tr>
+                    <td>12/10/2021
+                    </td>
+                    <td>Rewarded</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>13/10/2021
+                    </td>
+                    <td>Rewarded</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>14/10/2021
+                    </td>
+                    <td>Redeemed</td>
+                    <td>200</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <h3 id="proff">Latest redeem
+        </h3>
+        <div class="column">
+            <div class="card">
+                {%for item in reward_items%}
+                <div class="row">
+                    <div class="column">
+                        <img id="image-reward" alt="redeemable-item" src="{{item.image.url}}">
+                        <h3>{{item.item_name}}</h3>
+                    </div>
+                    <div class="column">
+                        <img id="image-reward" alt="redeemable-item" src="{{item.image.url}}">
+                        <h3>{{item.item_name}}</h3>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        <h3 id="title">Leaderboard
+        </h3>
+        <div class="column">
+            <table>
+                <tr>
+                    <th>Image
+                    </th>
+                    <th> Name</th>
+                    <th>Choins</th>
+
+
+                </tr>
+
+
+                <tr>
+                    <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+                    </td>
+                    <td>Eunice</td>
+                    <td>100</td>
+
+                </tr>
+                <tr>
+                    <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+                    </td>
+                    <td>Hunter</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+                    </td>
+                    <td>Chantal</td>
+                    <td>98</td>
+                </tr>
+                <tr>
+                    <td><img id="Image" src="/static/images/me-removebg-preview.png" />
+                    </td>
+                    <td>Shadya</td>
+                    <td>99</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,10 +1,16 @@
 from django.shortcuts import redirect, render
+from django.urls import reverse
 from .forms import UpdateProfileForm,UserProfileForm
 from .models import Redeem, RewardedItem, Student
 from django.core.exceptions import ObjectDoesNotExist
 from leadership.models import RedeemableItem, Transaction, User, Wallet
 from django.http import JsonResponse
 import json
+from .models import  *
+from django.core.exceptions import ObjectDoesNotExist
+from leadership.models import RedeemableItem, Transaction, Wallet
+
+
 # @login_required
 
 
@@ -39,6 +45,7 @@ def student_profile(request):
 def student_home(request):
     return render(request,'student_home.html')
 
+    
 def redeem(request):
     if request.user.is_authenticated:
         student_customer = Student.objects.get(id=request.user.id)
@@ -53,6 +60,7 @@ def redeem(request):
     reward_items=RedeemableItem.objects.all()
     bal = Wallet.objects.all().filter(owner = request.user)
     return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
+    
 
 def redeem_failed(request):
     return render(request,'RedeemFailed.html')
@@ -84,14 +92,27 @@ def cart(request):
 
     context = {'items':items, 'order':order}    
     return render(request,'cart.html', context)
+    
+
+def redeem_active(request):
+    return render(request,'redeem_active.html')
+def student_dashboard(request):
+    return render(request,'stud_dashboard.html')
 
 def student_transactions(request):
     transactions = Transaction.objects.all().filter(receiver = request.user.username)
     bal = Wallet.objects.all().filter(owner = request.user)
-    
-    
-
     return render(request,'student_transactions.html',{'transactions':transactions,'bal':bal})  
+
+# def view_redeemed_items(request):
+#     if request.user.is_authenticated:
+#         customer=request.user.idt
+#         order,created=Order.objects.get_or_create(customer=customer,completed=False)
+#         items=order.orderedproduct_set.all()
+#     else:
+#         items=[]
+
+#     return render(request,'student_transactions.html',{'transactions':transactions,'bal':bal})  
 
 def update_item(request):
     data = json.loads(request.body)
@@ -123,3 +144,10 @@ def update_item(request):
        orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+    
+
+# def mark_as_read(request,pk):
+    
+#     notifications = Notifications.objects.get(pk=pk)
+#     notifications.mark_as_read()
+#     return redirect(reverse('student-home'))

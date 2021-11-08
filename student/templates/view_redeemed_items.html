@@ -1,0 +1,59 @@
+{% include 'student_navbar.html' %}{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'redeem.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
+</head>
+
+<body>
+    
+  <div class="card ml-4 mr-4 mb-5">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <div class="headers">
+        <div style="flex:2"></div>
+        <div style="flex:2">Item</div>
+        <div style="flex:1">Price</div>
+        <div style="flex:1">Quantity</div>
+        <div style="flex:1">Total</div>
+
+      </div>
+      <hr>
+      {%for item in items%}
+      <div class="cart-row">
+        
+        <div style="flex:2"><img class="cart-image" src="{{item.product.image.url}}"></div>
+        <div style="flex:2"><p>{{item.product.name}}</p></div>
+        <div style="flex:1"><p>${{item.product.price}}</p></div>
+        <div style="flex:1">
+          <p id="quantity">{{item.quantity}}</p>
+          <div id="quantity-arrow">
+            <img id="increase-quantity" class="change-quantity" src="{% static  'images/arrowup.png' %}">
+            <img id="decrease-quantity" class="change-quantity" src="{% static  'images/arrowdown.png' %}">
+          </div>
+        </div>
+        <div style="flex:1"><p>${{item.calculate_total}}</p></div>
+        
+      </div>
+      <hr>
+      {%endfor%}
+
+  </div>
+  </div>
+
+  
+  
+    <script src="{% static 'js/redeem.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+   
+
+</body>
+
+</html>
