@@ -19,6 +19,37 @@ from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt #New
 from django.db.models import Q
 from notifications.signals import notify
+from django.http import JsonResponse
+from django.urls import reverse
+# from .models import ActivateRedeemPage
+
+def ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', True)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
+def deactivate_ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', False)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
 
 
 class Blockchain:

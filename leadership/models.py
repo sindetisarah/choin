@@ -70,9 +70,13 @@ class RedeemableItem(models.Model):
     item_value=models.FloatField()
     quantity=models.PositiveSmallIntegerField(default=0)
     item_in_stock=models.BooleanField(default=True)
+    activate_page=models.BooleanField(default=False)
 
     def __str__(self) :
         return self.item_name
+
+# class ActivateRedeemPage(models.Model):
+#     activate_page=models.BooleanField(default=False)
     
 
  
