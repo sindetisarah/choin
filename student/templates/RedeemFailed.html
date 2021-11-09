@@ -15,7 +15,9 @@
         <h2>Transaction Failed</h2>
         <p>You don't have enough choins to
             <br>purchase {item}</p>
-        <h3>Current Balance: {choins}</h3>
+            {% for b in bal %}
+                <h3>Current Balance: {{ b.choinBalance}}</h3>
+            {% endfor %}    
         <button class="close">Ok</button>
     </div>
     <script>

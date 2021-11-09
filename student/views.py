@@ -66,7 +66,8 @@ def redeem(request):
     
 
 def redeem_failed(request):
-    return render(request,'RedeemFailed.html')
+    bal = Wallet.objects.all().filter(owner = request.user)
+    return render(request,'RedeemFailed.html',{'bal':bal})
 
 def redeem_success(request):
     if request.user.is_authenticated:
@@ -79,6 +80,7 @@ def redeem_success(request):
     return render(request,'RedeemSucceed.html',context)
 
 def cart(request):
+    bal = Wallet.objects.all().filter(owner = request.user)
     if request.user.is_authenticated:
         student_customer = Student.objects.get(user = request.user)
         # student_customer = request.user.role==3
@@ -90,10 +92,12 @@ def cart(request):
         
     else:
         items= []
+
+
         order={'calculate_cart_total':0, 'calculate_cart_items':0}
     
 
-    context = {'items':items, 'order':order}    
+    context = {'items':items, 'order':order,'bal':bal}    
     return render(request,'cart.html', context)
     
 
@@ -147,6 +151,40 @@ def update_item(request):
        orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+
+def student_redeem(request):
+    bal = Wallet.objects.all().filter(owner = request.user)
+    std = Student.objects.get(user = request.user)
+    order = Redeem.objects.all().filter(student = std)
+    
+    for b in bal:
+        for ord in order:
+
+            if b.choinBalance < ord.calculate_cart_total:
+                return redirect('redeem_failed')
+            else:
+     
+                wallets=Wallet.objects.all().filter(owner=request.user)
+                the_balance =b.choinBalance - ord.calculate_cart_total
+                red = Redeem.objects.all().filter(student = std)
+
+                red.delete()
+                
+                wallets.update(owner = request.user, choinBalance = the_balance)
+
+                return render(request,'RedeemSucceed.html',{'the_balance':the_balance})        
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 # def mark_as_read(request,pk):
@@ -154,3 +192,5 @@ def update_item(request):
 #     notifications = Notifications.objects.get(pk=pk)
 #     notifications.mark_as_read()
 #     return redirect(reverse('student-home'))
+
+
