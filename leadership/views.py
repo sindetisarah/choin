@@ -18,6 +18,39 @@ from urllib.parse import urlparse
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt #New
 from django.db.models import Q
+from notifications.signals import notify
+from django.http import JsonResponse
+from django.urls import reverse
+# from .models import ActivateRedeemPage
+
+def ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', True)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
+def deactivate_ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', False)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
 
 class Blockchain:
     def __init__(self):
@@ -322,7 +355,10 @@ def reward_confirm(request,id):
             value =the_transactions[3],
             time =the_transactions[4],)
             transaction.save()
-            
+        message=f"You have been awarded {the_transactions[3]}choins"
+        notify.send(request.user, recipient=student, verb='Message',description=message)
+        
+    
     transactions = Transaction.objects.all().filter(receiver = student.username)
     choinBalance = sum(transactions.values_list('value', flat=True))
     print(choinBalance)
@@ -332,6 +368,9 @@ def reward_confirm(request,id):
     wallets=Wallet.objects.all().filter(owner=wallet_owner)
     # if wallets.exists():
     wallets.update(owner = wallet_owner, choinBalance = choinBalance)
+    
+    # notify.send (request.user, recipient = student, verb ='You have been awarded choins ')
+
 
     return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
    

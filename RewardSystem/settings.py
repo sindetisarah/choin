@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'leadership',
     'student',
     'trainer',
+    'notifications',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +131,7 @@ USE_TZ = False
 
 
 
+NOTIFICATIONS_SOFT_DELETE=True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

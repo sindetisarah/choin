@@ -47,6 +47,7 @@ tr:nth-child(even) {
     bottom: 88%;
     margin-left: 90%;
     background-color: #000;
+    margin-bottom: 30%;
 }
 
 #choin_available {
@@ -112,4 +113,62 @@ h1 {
     margin-bottom: 0;
     margin-top: -20px;
     margin-left: 10px;
+}
+
+#bell {
+    color: purple;
+    font-size: 30px;
+}
+
+.dropdown-content {
+    width: 500%;
+    margin-left: 720%;
+}
+
+h4 {
+    margin-left: 40%;
+}
+
+#delete {
+    font-weight: bolder;
+    padding: 4px;
+    border-radius: 10px;
+    border: 3px solid white;
+    background-color: white;
+    margin-left: 80px;
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+#read {
+    background-color: purple;
+    color: white;
+    padding: 5px;
+    border: 3px solid purple;
+    border-radius: 10px;
+    font-weight: bolder;
+    margin-left: 50px;
+}
+
+h1 {
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+#profile_up {
+    display: flex;
+    padding: 10px;
+    border: 3p solid black;
+}
+
+.prof_detail {
+    margin-left: 160%;
+}
+
+.dropbtn {
+    margin-left: 900%;
+}
+
+#content {
+    margin-left: 40px;
 }
