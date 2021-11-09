@@ -22,14 +22,35 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     else:
         pass
 
-class Order(models.Model):
-	product = models.ForeignKey(RedeemableItem,on_delete=models.CASCADE)
-	customer = models.ForeignKey(Student,on_delete=models.CASCADE)
-	quantity = models.IntegerField(default=1)
-	price = models.IntegerField()
-	phone = models.CharField(max_length=15,blank=True)
-	completed = models.BooleanField(default=False)
+class Redeem(models.Model):
+    # cart
+    #order
+    student=models.ForeignKey(Student,on_delete=CASCADE,null=True)
+    date_of_purchase=models.DateField(null=True)
+    transaction_id = models.CharField(max_length=200, null=True)
+    complete = models.BooleanField(default=False, null=True, blank=False)
 
+    @property
+    def calculate_cart_total(self):
+        orderitems=self.rewardeditem_set.all()
+        total_price=sum([item.calculate_total for item in orderitems])
+        return total_price
+    
+    @property
+    def calculate_cart_items(self):
+        orderitems=self.rewardeditem_set.all()
+        total_items=sum([item.quantity for item in orderitems])
+        return total_items
 
-	def __str__(self):
-		return self.customer.email
+class RewardedItem(models.Model):
+    # item within the cart
+    reward=models.ForeignKey(RedeemableItem,on_delete=CASCADE, null=True,blank=False)
+    order=models.ForeignKey(Redeem,on_delete=CASCADE ,null=True,blank=False)
+    quantity=models.IntegerField(default=0)
+    date_added = models.DateTimeField(auto_now_add=True, null=True)
+
+    @property
+    def calculate_total(self):
+        total_price=self.reward.item_value * self.quantity
+        return total_price
+
