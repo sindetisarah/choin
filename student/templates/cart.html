@@ -1,0 +1,87 @@
+{% include 'student_navbar.html' %}{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
+</head>
+
+<body>
+
+    <img id="mini-logo" src="{% static 'images/AkiraChix-Logo.png' %}" />
+    <div class="mini-header">
+        <div>
+            <i class="fas fa-bars menu"></i>
+        </div>
+        <div class="pool">
+            
+            <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
+            {% for b in bal %}
+     
+            <h3 id="heading">Balance:{{ b.choinBalance }}</h3>
+            
+            {% endfor %}
+        </div>
+    </div>
+    <div class="reward-heading">
+
+        <h1>Cart</h1>
+        
+    </div>
+    <div class="cart-count">
+        <a class="continue" href="{% url 'redeem' %}"> &#x2190; Continue redeeming</a>
+        <br/>
+        <br/>
+        <table class="table ">
+            <tr>
+                
+                <th>Items: <strong>{{ order.calculate_cart_items}}</strong></th>
+                <th>Total Choins: <strong>{{order.calculate_cart_total}}</strong></th>
+                <th><a href="{% static 'redeem_success' %}">Redeem</a></th>
+            </tr>
+            
+            
+        </table>
+
+    </div>
+    
+   <div class="products">
+    <table >
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Choin</th>
+            <th>Quantity</th>
+            <th>Total Choins</th>
+        </tr>
+        {%for item in items %}
+        <tr>
+            
+            <td><img id="image-rewards" alt="redeemable-item" src="{{item.reward.image.url}}"> </td>
+            <td>{{item.reward.item_name}}</td>
+            <td>{{item.reward.item_value}}</td>
+            <td>
+                <button data-product={{item.reward.id}} data-action="add" class="btn plus-btn update-cart" type="button">+</button>
+                        {{item.quantity}}
+                <button data-product={{item.reward.id}} data-action="remove" class="btn minus-btn update-cart" type="button">-</button>
+            </td>
+            <td>{{item.calculate_total|floatformat:2}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+   </div>
+   
+    <script src="{% static 'js/redeem.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+   
+
+</body>
+
+</html>
