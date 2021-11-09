@@ -25,30 +25,57 @@
             {% endfor %}
             {% else %}
             {{order}}
-            
+
             <form action="" method="POST" enctype="multipart/form-data">
 
                 {% csrf_token %}
                 <label for="file1"> Upload Student file</label><br>
                 <input type="file" id="file1" name="file">
-            </div>
-                <div class="csv_display">
+        </div>
+        <div class="csv_display">
 
-                    <small>Only accepts CSV files</small><br>
+            <small>Only accepts CSV files</small><br>
 
-                    <button id="btn_upload" type="submit">UPLOAD</button>
-                </div>
-        
+            <button id="btn_upload" type="submit">UPLOAD</button>
+        </div>
+        {% endif %}
+      
+
 
 
         </form>
+       
+        <!-- Upload for trainer -->
+        <div class="text_display_2">
+            {% if messages %}
+            {% for message in messages %}
+            <div>
+                <strong id="msg">{{message|safe}}</strong>
+            </div>
+            {% endfor %}
+            {% else %}
+            {{order}}
 
-   
+            <form action="" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+                <label for="file2"> Upload  Trainer's file</label><br>
+                <input type="file" id="file2" name="file">
+        </div>
+        <div class="csv_display_2">
+
+            <small>Only accepts CSV files</small><br>
+
+            <button id="btn_upload_2" type="submit">UPLOAD</button>
+        </div>
+
+
 
 
 
         {% endif %}
     </div>
+
     <div class="leader_heading">
 
         <h1 id="leader">Leaderboard</h1>
