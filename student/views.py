@@ -48,7 +48,7 @@ def student_home(request):
     
 def redeem(request):
     if request.user.is_authenticated:
-        student_customer = Student.objects.get(user=request.user)
+        student_customer = Student.objects.get(user = request.user)
         # student_customer = Student.objects.get(id=request.user.id)
         order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
         items = order.rewardeditem_set.all()
@@ -59,7 +59,10 @@ def redeem(request):
         # cartItems = order['get_cart_items']
     reward_items=RedeemableItem.objects.all()
     bal = Wallet.objects.all().filter(owner = request.user)
-    return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
+    for reward in reward_items:
+        if reward.activate_page ==False:
+            return render(request,'inactive_redeem.html',{'bal':bal, 'items':items})
+        return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
     
 
 def redeem_failed(request):
@@ -68,7 +71,7 @@ def redeem_failed(request):
 
 def redeem_success(request):
     if request.user.is_authenticated:
-        student_customer = Student.objects.get(id = request.user.id)
+        student_customer = Student.objects.get(user = request.user)
         order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
         items = order.orderitem_set.all()
     else:
@@ -141,7 +144,7 @@ def update_item(request):
     elif action == 'remove':
          orderItem.quantity = (orderItem.quantity - 1)
     
-    orderItem.student = Student.objects.get(user = request.user)
+    orderItem.student = Student.objects.get(user=request.user)
     orderItem.save()
 
     if orderItem.quantity <= 0:
@@ -164,7 +167,7 @@ def student_redeem(request):
                 wallets=Wallet.objects.all().filter(owner=request.user)
                 the_balance =b.choinBalance - ord.calculate_cart_total
                 red = Redeem.objects.all().filter(student = std)
-                
+
                 red.delete()
                 
                 wallets.update(owner = request.user, choinBalance = the_balance)
