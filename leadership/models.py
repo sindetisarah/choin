@@ -68,10 +68,11 @@ class RedeemableItem(models.Model):
     image=models.ImageField(upload_to='rewards/')
     item_name=models.CharField(max_length=50)
     item_value=models.FloatField()
-    quantity=models.PositiveSmallIntegerField()
+    quantity=models.PositiveSmallIntegerField(default=0)
     item_in_stock=models.BooleanField(default=True)
 
     def __str__(self) :
         return self.item_name
+    
 
  
