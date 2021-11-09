@@ -54,3 +54,5 @@ class RewardedItem(models.Model):
         total_price=self.reward.item_value * self.quantity
         return total_price
 
+
+
