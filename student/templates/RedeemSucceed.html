@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    
 </head>
 
 <body>
@@ -25,13 +24,8 @@
              for {{ order.calculate_cart_total}}</div>
         <button id="close">Ok</button>
     </div>
-    <script>
-        document.querySelector('.close').addEventListener('click',
-            function() {
-                document.querySelector('.card').style.display = 'none';
-            })
-    </script>
-     <script src="{% static 'js/redeem.js' %}"></script>
+    <script src="{% static 'js/redeem.js' %}"></script>
+
 </body>
 
 </html>

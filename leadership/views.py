@@ -452,4 +452,14 @@ def search_redeemable_item(request):
         message="Looks like the item doesn't exist. Try again "
         return render (request,'redeemable_items_list.html',{'items':items,'message':message})
     return render (request,'redeemable_items_list.html',{'items':items,'results':results})
+def search_student_by_admin(request):
+    search_post = request.GET.get('search')
+    if search_post:
+        students = User.objects.filter(Q(username__icontains=search_post))
+        results=students.count()
+    else:
+        students = Student.objects.all()
+        message="Looks like the student doesn't exist. Try searching using the first name"
+        return render (request,'reward.html',{'students':students,'message':message})
+    return render (request,'reward.html',{'students':students,'results':results})
 
