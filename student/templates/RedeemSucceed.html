@@ -17,10 +17,11 @@
         <h2>Transaction successful</h2>
         <div>You have successfully redeemed 
             <ul>
-            {%for item in items %}
+            {% for item in order %}
             <li> {{ item.quantity }} {{item.reward.item_name}}</li>
+            {% endfor %}
         </ul>
-        {% endfor %}
+        
              for {{ order.calculate_cart_total}}</div>
         <button id="close">Ok</button>
     </div>

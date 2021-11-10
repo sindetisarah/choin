@@ -62,7 +62,7 @@ def redeem(request):
     for reward in reward_items:
         if reward.activate_page ==False:
             return render(request,'inactive_redeem.html',{'bal':bal, 'items':items})
-        return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
+    return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
     
 
 def redeem_failed(request):
@@ -73,7 +73,8 @@ def redeem_success(request):
     if request.user.is_authenticated:
         student_customer = Student.objects.get(user = request.user)
         order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
-        items = order.orderitem_set.all()
+        items = order.rewardeditem_set.all()
+        print(items)
     else:
         items= []
     context = {'items':items, 'order':order}  
@@ -87,7 +88,7 @@ def cart(request):
         
         order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
         items = order.rewardeditem_set.all()
-        print(items)
+        
         # cartItems = order.calculate_cart_items()
         
     else:
@@ -132,15 +133,10 @@ def update_item(request):
     student_customer = Student.objects.get(user = request.user)
     product = RedeemableItem.objects.get(id=productId)
     order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
-    print(order)
     orderItem, created = RewardedItem.objects.get_or_create(order = order, reward=product )
-    print(orderItem)
-    print(orderItem.date_added)
-    print(orderItem.quantity)
 
     if action =='add':
         orderItem.quantity = (orderItem.quantity + 1)
-        print(orderItem.quantity)
     elif action == 'remove':
          orderItem.quantity = (orderItem.quantity - 1)
     
@@ -156,7 +152,7 @@ def student_redeem(request):
     bal = Wallet.objects.all().filter(owner = request.user)
     std = Student.objects.get(user = request.user)
     order = Redeem.objects.all().filter(student = std)
-    
+    the_balance=None
     for b in bal:
         for ord in order:
 
@@ -167,12 +163,12 @@ def student_redeem(request):
                 wallets=Wallet.objects.all().filter(owner=request.user)
                 the_balance =b.choinBalance - ord.calculate_cart_total
                 red = Redeem.objects.all().filter(student = std)
-
                 red.delete()
+                
                 
                 wallets.update(owner = request.user, choinBalance = the_balance)
 
-                return render(request,'RedeemSucceed.html',{'the_balance':the_balance})        
+    return render(request,'RedeemSucceed.html',{'the_balance':the_balance,'order':order})        
 
 
 

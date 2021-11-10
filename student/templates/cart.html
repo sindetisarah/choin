@@ -53,7 +53,7 @@
     
    <div class="products">
     <table >
-        <tr>
+        <tr class="top-row">
             <th>Image</th>
             <th>Product</th>
             <th>Choin</th>
@@ -61,7 +61,7 @@
             <th>Total Choins</th>
         </tr>
         {%for item in items %}
-        <tr>
+        <tr class="row">
             
             <td><img id="image-rewards" alt="redeemable-item" src="{{item.reward.image.url}}"> </td>
             <td>{{item.reward.item_name}}</td>
