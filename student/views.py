@@ -89,7 +89,6 @@ def cart(request):
         items = order.rewardeditem_set.all()
         print(items)
         # cartItems = order.calculate_cart_items()
-        
     else:
         items= []
 
