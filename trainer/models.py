@@ -16,7 +16,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         if instance.role==2:
             Trainer.objects.create(user=instance)
-            Wallet.objects.create(owner=instance)
+            # Wallet.objects.create(owner=instance)
     else:
         pass
     

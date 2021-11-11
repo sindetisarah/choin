@@ -9,8 +9,7 @@ from leadership.models import RedeemableItem
 
 class Student(models.Model):
     user=models.OneToOneField(User,on_delete=CASCADE,null=True,related_name='userprofile')
-    image = models.ImageField(upload_to='profile_image', blank=True)
-    gender = models.CharField(default='', blank=True, max_length=20)
+    class_name = models.CharField(max_length=20, blank=True)
     
 
 @receiver(post_save, sender=User)

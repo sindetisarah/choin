@@ -22,8 +22,8 @@ def student_profile(request):
         userprofile = Student(user=request.user)
         
     if request.method == 'POST':
-        user_form = UpdateProfileForm(request.POST, instance=request.user)
-        profile_form = UserProfileForm(request.POST, instance=request.user.userprofile.user)
+        user_form = UpdateProfileForm(request.POST, request.FILES,instance=request.user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile.user)
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save(commit=False)

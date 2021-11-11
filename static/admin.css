@@ -16,13 +16,26 @@
      position:relative;
    
 }
+#trainer_btn_upload{
+    background-color: #561278;
+    color: white;
+    font-size: 10px;
+    /* margin-top: -10%; */
+    height:35px;
+    /* margin-bottom: 10px; */
+    border-radius: 5px;
+    width:8rem;
+    margin-left: 20%;
+    border-color: transparent;
+}
+
 #btn_upload{
     background-color: #561278;
     color: white;
-    font-size: 15px;
-    
+    font-size: 10px;
+    /* margin-top: -10px; */
     height:35px;
-    margin-bottom: 70px;
+    /* margin-bottom: 10px; */
     border-radius: 5px;
     width:8rem;
     margin-left: 0.9%;
@@ -35,8 +48,6 @@ table {
     margin-bottom: 1%;
     border-collapse: collapse;
     margin-right:100px;
-
-
 }
 th, td {
     text-align: left;
@@ -83,7 +94,7 @@ th, td {
     margin-left: 25%;
     width:56rem;
     border-radius: 8px;
-    height:52vh;
+    height:40vh;
     
     
 }
@@ -152,34 +163,12 @@ th, td {
     }
     #file1{
         padding-top: 2%;
-        position: absolute;
+        /* position: absolute; */
     }
-    /* styling trainer_upload */
-    #btn_upload_2{
-        background-color: #561278;
-        color: white;
-        font-size: 15px;
-        
-        height:35px;
-        margin-bottom: 68px;
-        border-radius: 5px;
-        width:8rem;
-        margin-left: 16%;
-        border-color: transparent;
-    }
-    .csv_display_2{
-        margin-left: 50%;
-        bottom: 28%;
-        position: absolute;
-        }
-
-        .text_display_2{
-            margin-left:28%;
-            /* margin-bottom: 80%; */
-            position:absolute;
-          
-          
-        }
+   .student-upload-form{
+        margin-bottom: 2%;
+    } 
+    
 /* media queries */
 @media (max-width:875px){
     body{
@@ -236,6 +225,8 @@ th, td {
         font-size: 15px;
         }
 
+        
+
         ::-webkit-file-upload-button {
             background:purple;
             color:white;
@@ -268,6 +259,7 @@ th, td {
             font-size: 20px;
             padding-top:55% ;
             margin-left: 8%;
+            margin-top: 10%;
             color:purple;
             /* position: absolute; */
         }
