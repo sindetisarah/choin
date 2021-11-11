@@ -128,7 +128,7 @@ th, td {
   }
   #btn_full_list{
       font-size: 15px;
-    margin-top: 33%;
+    margin-top: 14%;
     margin-left:2%;
     background-color:purple;
     border-radius: 5px;
@@ -145,7 +145,7 @@ th, td {
     width: 120px;
     color:white;
     height: 35px;
-    margin-top: 33%;
+    margin-top: 8%;
     background-color:purple;
     border-color: transparent;
     font-size: 15px;
@@ -157,7 +157,7 @@ th, td {
     width: 120px;
     color:white;
     height: 35px;
-    margin-top: 33%;
+    margin-top: 15%;
     background-color:purple;
     border-color: transparent;
     font-size: 15px;
@@ -197,18 +197,20 @@ th, td {
         margin-bottom: 2%;
     } 
 
-    /* styling the three cards in the admin dashboard */
+    /* styling the three card3s in the admin dashboard */
     #row-cards{
         display: flex;
+        padding: 2px;
         
         flex-wrap: wrap;
         align-items: flex-start;
-        margin-left: 12%;
+        margin-left: 14%;
         margin-top: 6%;
     
     }
     .card2{   
        border: none;
+       margin-left: 20px;
         border-radius: 20px;
         background-color:white; 
         box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
@@ -219,7 +221,8 @@ th, td {
        color: rgb(77, 74, 74);
         
     }
-   
+    /* css trial */
+
     
 /* media queries */
 @media (max-width:875px){
@@ -235,7 +238,7 @@ th, td {
         width: 210px;
         height:150px;
      }
-      .card{ 
+      .card3{ 
          margin-top: 4%;
         background-color:rgba(128, 128, 128, 0.281);
         margin-left: 7%;
