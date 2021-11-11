@@ -165,7 +165,7 @@ def profile_upload(request):
     student_data = Student.objects.all()
 # prompt is a context variable that can have different values      depending on their context
     prompt = {
-        'order': 'Order of the CSV should be username,email,role',
+        'order': 'Order of the CSV should be firstname,lastname,email',
         'profiles': student_data
               }
     # GET request returns the value of the data with the specified key.
@@ -224,7 +224,7 @@ def trainer_profile_upload(request):
     trainer_data = Trainer.objects.all()
 # prompt is a context variable that can have different values      depending on their context
     prompt = {
-        'order': 'Order of the CSV should be username,email',
+        'order': 'Order of the CSV should be firstname,lastname,email',
         'profiles': trainer_data
               }
     # GET request returns the value of the data with the specified key.
@@ -238,16 +238,14 @@ def trainer_profile_upload(request):
     # setup a stream which is when we loop through each line we are able to handle a data in a stream
     io_string = io.StringIO(trainer_data_set)
     next(io_string)
-    # for column in csv.reader(io_string, delimiter=',', quotechar="|"):
-    #     _, created = Trainer.objects.update_or_create(
-    #     username=column[0],
-    #     email=column[1],
-    # )
+   
 
     csvf = csv.reader(io_string, delimiter=',', quotechar="|")
     data = []
-    for username, email, *__ in csvf:
-        user = User(username=username)
+    for firstname,lastname, email, *__ in csvf:
+        user = User(username=firstname)
+        user.first_name=firstname
+        user.last_name=lastname
         user.email=email
         data.append(user)
         user.role=User.TRAINER
