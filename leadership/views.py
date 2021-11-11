@@ -254,8 +254,7 @@ def trainer_profile_upload(request):
 
             password = User.objects.make_random_password(length=10, 
                             allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
-            # user.password=password
-            # user.save()
+          
             user.set_password(password)
             user.save(update_fields=['password'])
             emails=user.email
@@ -290,8 +289,6 @@ def trans(request):
 def reward_confirm(request,id):
     student = User.objects.get(id=id)
     metrics = Metrics.objects.all()
-    # return render(request,'reward_confirm.html',{'metrics':metrics})
-
 
     val = request.GET
     met =None
