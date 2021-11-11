@@ -76,6 +76,7 @@ class Blockchain:
             previous_block = block
             block_index += 1
         return True
+
     def add_transaction(self, sender, receiver, amount, time): #New
         self.transactions.append({'sender': sender,
                                   'receiver': receiver,
@@ -83,9 +84,11 @@ class Blockchain:
                                   'time': str(datetime.datetime.now())})
         previous_block = self.get_last_block()
         return previous_block['index'] + 1
+
     def add_node(self, address): #New
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
+
     def replace_chain(self): #New
         network = self.nodes
         longest_chain = None
@@ -124,6 +127,7 @@ def is_valid(request):
             response = {'message': 'Houston, we have a problem. The Blockchain is not valid.'}
     return JsonResponse(response)
 # Adding a new transaction to the Blockchain
+
 @csrf_exempt
 def add_transaction(request): #New
     if request.method == 'POST':
@@ -135,6 +139,7 @@ def add_transaction(request): #New
         response = {'message': f'This transaction will be added to Block {index}'}
     return JsonResponse(response)
 # Connecting new nodes
+
 @csrf_exempt
 def connect_node(request): #New
     if request.method == 'POST':
@@ -148,6 +153,7 @@ def connect_node(request): #New
                     'total_nodes': list(blockchain.nodes)}
     return JsonResponse(response)
 # Replacing the chain by the longest chain if needed
+
 def replace_chain(request): #New
     if request.method == 'GET':
         is_chain_replaced = blockchain.replace_chain()
@@ -158,7 +164,6 @@ def replace_chain(request): #New
             response = {'message': 'All good. The chain is the largest one.',
                         'actual_chain': blockchain.chain}
     return JsonResponse(response)
-
 
 def profile_upload(request):
     template = "admin_dash.html"
@@ -407,6 +412,7 @@ def redeemableItemsList(request):
     redeemable_items = paginator.get_page(page)
    
     return render(request,'redeemable_items_list.html',{'redeemable_items':redeemable_items})
+
 def search_redeemable_item(request):
     search_post = request.GET.get('search')
     if search_post:
@@ -417,6 +423,46 @@ def search_redeemable_item(request):
         message="Looks like the item doesn't exist. Try again "
         return render (request,'redeemable_items_list.html',{'items':items,'message':message})
     return render (request,'redeemable_items_list.html',{'items':items,'results':results})
+def search_student_by_admin(request):
+    search_post = request.GET.get('search')
+    if search_post:
+        students = User.objects.filter(Q(username__icontains=search_post))
+        results=students.count()
+    else:
+        students = Student.objects.all()
+        message="Looks like the student doesn't exist. Try searching using the first name"
+        return render (request,'reward.html',{'students':students,'message':message})
+    return render (request,'reward.html',{'students':students,'results':results})
+
+def ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', True)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
+def deactivate_ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', False)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
+
 
 def ajax_change_status(request):
     activate_page = request.GET.get('activate_page', True)

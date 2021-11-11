@@ -1,13 +1,11 @@
-{% load static %}
-{% include 'leader_navbar.html' %}
+{% load static %} {% include 'leader_navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'admin.css' %}">
-
-
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
     <title>Choin</title>
 
 </head>
@@ -18,8 +16,7 @@
     <div class="card" id="upload_display">
         <img id="codehive" src="/static/images/code-hive.png">
         <div class="text_display">
-            {% if messages %}
-            {% for message in messages %}
+            {% if messages %} {% for message in messages %}
             <div>
                 <strong id="msg">{{message|safe}}</strong>
             </div>
@@ -54,7 +51,7 @@
     <div class="leader_heading">
         <h1 id="leader">Leaderboard</h1>
         <div class="search">
-            <form method="get" action="{% url 'search_student' %}">
+            <form method="get" action="{% url 'search_student_by_admin' %}">
                 <input type="search" placeholder="Search student by first name" name="search" />
                 <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
             </form>

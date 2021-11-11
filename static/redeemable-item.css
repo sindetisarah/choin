@@ -52,8 +52,9 @@ body{
     text-decoration: none;
       }
 #redeem-item{
-    width: 25%;
-    height: 400px;
+    width: 50%;
+    height: 200px;
+    margin-left: 15%;
 
 }
 .item{
@@ -64,6 +65,7 @@ form{
     border: 1px solid #ccc;
     padding: 2px 20px;
     margin-left:5%;
+    margin-top: -2%;
     border-radius: 10px;
     background-color: #efe6f3;
     box-shadow: gray 5px 5px 5px ;
@@ -96,11 +98,38 @@ width: 100%;
     width: 50%;
     background-color: #561278;
     color: white;
-    padding: 14px 20px;
+    padding: 10px 20px;
     margin: 2px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+.image-buttons>form{
+    background-color: transparent;
+    border:none;
+    width: 50%;
+    box-shadow: none;
+    display: flex;
+}
+.image-buttons>form> .activations{
+    background-color: #a255c9;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5%;
+    box-shadow: rgb(83, 82, 82) 2px 2px 2px ;
+    
+}
+.image-buttons>form>.activations:hover{
+    background-color: rgb(151, 148, 148);
+    box-shadow: rgb(83, 82, 82) 2px 2px 2px ;
+}
+#activate{
+    margin-left: 15%;
+    color: #561278;
 }
 
 @media (max-width:875px){
@@ -155,8 +184,17 @@ width: 100%;
        
         width: 30%;
         padding: 10px 10px;
-        margin-left: 5%;
-       
+        margin-left: 5%;   
     
+    }
+    .item{
+        flex-direction: column;
+    }
+    #activate{
+        margin-left: 5%;      
+    }
+    .image-buttons>form> .btn-primary{
+        margin-left: -6%;
+
     }
 }

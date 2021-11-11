@@ -34,7 +34,7 @@
             <div class="metric-choice">
                 <form method="get" >
                     Metric
-                    <select name='drop1'>
+                    <select name='drop1' onchange="this.form.submit()">
                         <option selected disabled="true">Select Metric</option>
                         {% for q in metrics %}
                         <option id="metric" type="text" name="metric" value="{{ q }}">
@@ -42,7 +42,7 @@
                         </option>
                         {% endfor %}
                     </select>
-                    <input type="submit" value="OK">
+                    
                 </form>
         </div>
             <div class="value">

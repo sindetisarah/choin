@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,19 +12,19 @@
 
 <body>
     <div class="card">
-        <i class='fas fa-exclamation-circle' style='font-size:48px;color:red'></i>
+        <i class="fa fa-warning" style="font-size:48px;color:purple"></i>
+
         <h2>Transaction Failed</h2>
+        {%for item in reward_items%}
         <p>You don't have enough choins to
-            <br>purchase {item}</p>
-        <h3>Current Balance: {choins}</h3>
+            <br>purchase {{item.item_name}}</p>
+        {%endfor%} {% for b in bal %}
+        <h3>Current Balance: {{ b.choinBalance}}</h3>
+        {% endfor %}
         <button class="close">Ok</button>
     </div>
-    <script>
-        document.querySelector('.close').addEventListener('click',
-            function() {
-                document.querySelector('.card').style.display = 'none';
-            })
-    </script>
+    <script src="{% static 'js/redeem.js' %}"></script>
+
 </body>
 
 </html>
