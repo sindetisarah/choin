@@ -90,7 +90,7 @@ th, td {
 }
 .card{
     margin-top: 0.5%;
-    background-color:rgba(128, 128, 128, 0.281);
+    background-color:rgba(181, 149, 211, 0.281);
     margin-left: 25%;
     width:56rem;
     border-radius: 8px;
@@ -109,7 +109,7 @@ th, td {
     position: absolute;
     border-radius: 5px;
     width:290px;
-    height:150px;
+    height:175px;
 
 }
 ::-webkit-file-upload-button {
@@ -127,7 +127,7 @@ th, td {
      padding-top: 2%;
   }
   #btn_full_list{
-    margin-top: 0.5%;
+    margin-top: 30%;
     margin-left:83%;
     background-color: #DCBEEB;
     border-radius: 5px;
