@@ -60,9 +60,9 @@ def redeem(request):
     reward_items=RedeemableItem.objects.all()
     bal = Wallet.objects.all().filter(owner = request.user)
     for reward in reward_items:
-        if reward.activate_page ==False:
+        if reward.activate_page == False:
             return render(request,'inactive_redeem.html',{'bal':bal, 'items':items})
-        return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
+    return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
     
 
 def redeem_failed(request):
@@ -104,6 +104,9 @@ def cart(request):
 def redeem_active(request):
     return render(request,'redeem_active.html')
 def student_dashboard(request):
+    student=Student.objects.get(user=request.user)
+    choin_balance=Wallet.objects.get(owner=request.user)
+    data={'student':student,'choin_balance':choin_balance}
     return render(request,'stud_dashboard.html')
 
 def student_transactions(request):
