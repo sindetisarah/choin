@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'admin.css' %}">
     <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
     <title>Choin</title>
+
 </head>
 
 <body>
@@ -19,49 +20,34 @@
             <div>
                 <strong id="msg">{{message|safe}}</strong>
             </div>
-            {% endfor %} {% else %} {{order}}
+            {% endfor %}
+            {% else %}
+            {{order}}
 
-            <form action="" method="POST" enctype="multipart/form-data">
-
+            <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
+                <div class="student_upload_form">
                 <label for="file1"> Upload Student file</label><br>
                 <input type="file" id="file1" name="file">
-        </div>
-        <div class="csv_display">
-
-            <small>Only accepts CSV files</small><br>
-
-            <button id="btn_upload" type="submit">UPLOAD</button>
-        </div>
-        {% endif %}
-
-
-
-
-        </form>
-
-        <!-- Upload for trainer -->
-        <div class="text_display_2">
-            {% if messages %} {% for message in messages %}
-            <div>
-                <strong id="msg">{{message|safe}}</strong>
+                <button id="btn_upload" type="submit">UPLOAD</button>
+              
             </div>
-            {% endfor %} {% else %} {{order}}
+            </form>
 
-            <form action="" method="POST" enctype="multipart/form-data">
-
+            <form action="{% url 'trainer-upload' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="file2"> Upload  Trainer's file</label><br>
-                <input type="file" id="file2" name="file">
+                <div class="trainer-upload-form">
+                <label for="file2"> Upload Trainer file</label><br>
+                <input type="file" id="file2" name="file" >
+                <button id="btn_upload" type="submit">UPLOAD</button>
+            
         </div>
-        <div class="csv_display_2">
+            </form>
+   
 
-            <small>Only accepts CSV files</small><br>
-
-            <button id="btn_upload_2" type="submit">UPLOAD</button>
-        </div>
         {% endif %}
     </div>
+
     <div class="leader_heading">
         <h1 id="leader">Leaderboard</h1>
         <div class="search">
@@ -74,38 +60,28 @@
 
     <table>
         <tr>
-            <th>Image
-            </th>
-            <th> Name</th>
-            <th>Choins</th>
-
-
+            <th></th>
+            <th> First Name</th>
+            <th> Last Name</th>
+            <th>Total Choins</th>
         </tr>
 
 
         <tr>
+            {% for student in students%}
             <td><img id="Image" src="/static/images/me-removebg-preview.png" />
             </td>
-            {% for student in students %}
-            <td>{{ student.username }} </td>
-            {% endfor %} {% for b in bal %}
-            <td>Choin Balance : {{ b.choinBalance }} </td>
-            {% endfor %}
-        </tr>
-        <tr>
-            <td><img id="Image" src="/static/images/me-removebg-preview.png" />
-            </td>
-            {% for student in students %}
-            <td>{{ student.username }} </td>
-            {% endfor %} {% for b in bal %}
-            <td>Choin Balance : {{ b.choinBalance }} </td>
-            {% endfor %}
+            <td>{{student.username}}</td>
+            <td>100</td>
+            {%endfor%}
+
 
 
         </tr>
+        
 
     </table>
-    <button id="btn_full_list" type="submit">View Full List</button>
+    <button id="btn_full_list"><a href="{%url 'view_student_leaderboard'%}"> View Full List</a></button>
 
 
 </body>

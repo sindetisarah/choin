@@ -21,7 +21,13 @@ from django.db.models import Q
 from notifications.signals import notify
 from django.http import JsonResponse
 from django.urls import reverse
+from django.db import IntegrityError
 # from .models import ActivateRedeemPage
+
+from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
+
+
 
 
 class Blockchain:
@@ -160,117 +166,110 @@ def replace_chain(request): #New
     return JsonResponse(response)
 
 def profile_upload(request):
-    # declaring template
     template = "admin_dash.html"
     student_data = Student.objects.all()
+    try:
 # prompt is a context variable that can have different values      depending on their context
-    prompt = {
-        'order': 'Order of the CSV should be firstname,lastname,email',
-        'profiles': student_data
-              }
-    # GET request returns the value of the data with the specified key.
-    if request.method == "GET":
-        return render(request, template, prompt)
-    csv_file = request.FILES['file']
-    # let's check if it is a csv file
-    if not csv_file.name.endswith('.csv'):
-        messages.error(request, 'THIS IS NOT A CSV FILE')
-    student_data_set = csv_file.read().decode('UTF-8')
-    # setup a stream which is when we loop through each line we are able to handle a data in a stream
-    io_string = io.StringIO(student_data_set)
-    next(io_string)
-    # for column in csv.reader(io_string, delimiter=',', quotechar="|"):
-    #     _, created = User.objects.update_or_create(
-    #     username=column[0],
-    #     email=column[1],
-    # )
+        prompt = {
+            'order': 'Order of the CSV should be firstname,lastname,email',
+            'profiles': student_data
+                }
+        # GET request returns the value of the data with the specified key.
+        if request.method == "GET":
+            return render(request, template, prompt)
+        csv_file = request.FILES['file']
+        # let's check if it is a csv file
+        if not csv_file.name.endswith('.csv'):
+            messages.error(request, 'THIS IS NOT A CSV FILE')
+        student_data_set = csv_file.read().decode('UTF-8')
+        # setup a stream which is when we loop through each line we are able to handle a data in a stream
+        io_string = io.StringIO(student_data_set)
+        next(io_string)
+        
 
-    student_csvf = csv.reader(io_string, delimiter=',', quotechar="|")
-    student_data = []
-    for firstname,lastname, email, *__ in student_csvf:
-        user = User(username=firstname)
-        user.first_name=firstname
-        user.last_name=lastname
-        user.email=email
-        student_data.append(user)
-        user.role=User.STUDENT
-        user.save()
-    
-    users=User.objects.all().filter(role=3)
-    print(users)
+        student_csvf = csv.reader(io_string, delimiter=',', quotechar="|")
+        student_data = []
+        for firstname,lastname, email, *__ in student_csvf:
+            user = User(username=firstname)
+            user.first_name=firstname
+            user.last_name=lastname
+            user.email=email
+            student_data.append(user)
+            user.role=User.STUDENT
+            user.save()
+       
+        users=User.objects.all().filter(role=3)  # send the email to the recipent    
+        for user in users:                                   
+            password = User.objects.make_random_password(length=10, 
+                            allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
+            
+            user.set_password(password)
+            user.save(update_fields=['password'])
+            emails=user.email
+            subject = "Welcome To The AkiraChix Rewarding System"
+            message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {}. Your are a student{} \nVisit this link to Log In : https://choin.herokuapp.com/".format(emails,password,user.role)
+            recipient=emails
+            send_mail(subject, message,EMAIL_HOST_USER,[recipient])
 
-    # send the email to the recipent
-    
-    for user in users:                                   
-        password = User.objects.make_random_password(length=10, 
-                        allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
-    
-        user.set_password(password)
-        user.save(update_fields=['password'])
-        emails=user.email
-        # password=user.password
-
-        subject = "Welcome To The AkiraChix Rewarding System"
-        message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {}. Your are a student{} \nVisit this link to Log In : https://choin.herokuapp.com/".format(emails,password,user.role)
-        recipient=emails
-        send_mail(subject, message,EMAIL_HOST_USER,[recipient])
-
+    except IntegrityError as e: 
+        return render(request,"error.html")
     context = {}
     return render(request, template, context)
 
+def view_student_leaderboard(request):
+    students=Wallet.objects.all().order_by('-choinBalance')
+    
+    return render(request,'all_students.html',{'students':students})
+
 def trainer_profile_upload(request):
-    # declaring template
-    template = "trainer_emails.html"
+    template = "admin_dash.html"
     trainer_data = Trainer.objects.all()
 # prompt is a context variable that can have different values      depending on their context
-    prompt = {
-        'order': 'Order of the CSV should be firstname,lastname,email',
-        'profiles': trainer_data
-              }
-    # GET request returns the value of the data with the specified key.
-    if request.method == "GET":
-        return render(request, template, prompt)
-    csv_file = request.FILES['file']
-    # let's check if it is a csv file
-    if not csv_file.name.endswith('.csv'):
-        messages.error(request, 'THIS IS NOT A CSV FILE')
-    trainer_data_set = csv_file.read().decode('UTF-8')
-    # setup a stream which is when we loop through each line we are able to handle a data in a stream
-    io_string = io.StringIO(trainer_data_set)
-    next(io_string)
-   
+    try:
+        prompt = {
+            'order': 'Order of the CSV should be firstname,lastname,email',
+            'profiles': trainer_data
+                }
+        # GET request returns the value of the data with the specified key.
+        if request.method == "GET":
+            return render(request, template, prompt)
+        csv_file = request.FILES['file']
+        # let's check if it is a csv file
+        if not csv_file.name.endswith('.csv'):
+            messages.error(request, 'THIS IS NOT A CSV FILE')
+        trainer_data_set = csv_file.read().decode('UTF-8')
+        io_string = io.StringIO(trainer_data_set)
+        next(io_string)
 
-    csvf = csv.reader(io_string, delimiter=',', quotechar="|")
-    data = []
-    for firstname,lastname, email, *__ in csvf:
-        user = User(username=firstname)
-        user.first_name=firstname
-        user.last_name=lastname
-        user.email=email
-        data.append(user)
-        user.role=User.TRAINER
-        user.save()
-    # User.objects.bulk_create(data)
-
-
-    
-    # send the email to the recipent
-    users=User.objects.all().filter(role=2)
-    
-    for user in users:
+        csvf = csv.reader(io_string, delimiter=',', quotechar="|")
+        data = []
+        for firstname,lastname, email, *__ in csvf:
+            user = User(username=firstname)
+            user.first_name=firstname
+            user.last_name=lastname
+            user.email=email
+            data.append(user)
+            user.role=User.TRAINER
+            user.save()
+       
+        users=User.objects.all().filter(role=2)
         
+        for user in users:
+            
 
-        password = User.objects.make_random_password(length=10, 
-                        allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
-        # user.password=password
-        # user.save()
-        user.set_password(password)
-        user.save(update_fields=['password'])
-        emails=user.email
-        subject = "Welcome To The AkiraChix Rewarding System"
-        message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {}. You are a trainer {} \nVisit this link to Log In : https://choin.herokuapp.com/".format(emails,password,user.role)
-        recipient=emails
-        send_mail(subject, message,EMAIL_HOST_USER,[recipient])
+            password = User.objects.make_random_password(length=10, 
+                            allowed_chars='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789')  
+          
+            user.set_password(password)
+            user.save(update_fields=['password'])
+            emails=user.email
+            subject = "Welcome To The AkiraChix Rewarding System"
+            message = "Hi Welcome to Akirachix Choin.\nYour username is {} and password is {}. You are a trainer {} \nVisit this link to Log In : https://choin.herokuapp.com/".format(emails,password,user.role)
+            recipient=emails
+            send_mail(subject, message,EMAIL_HOST_USER,[recipient])
+
+    except IntegrityError as e: 
+        return render(request,"error.html")
 
     context = {}
     return render(request, template, context)
@@ -295,8 +294,6 @@ def trans(request):
 def reward_confirm(request,id):
     student = User.objects.get(id=id)
     metrics = Metrics.objects.all()
-    # return render(request,'reward_confirm.html',{'metrics':metrics})
-
 
     val = request.GET
     met =None
@@ -467,3 +464,30 @@ def deactivate_ajax_change_status(request):
 
 
 
+def ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', True)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
+def deactivate_ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', False)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False

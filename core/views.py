@@ -90,7 +90,7 @@ def change_password(request):
                 print(user.role)
                 return HttpResponseRedirect(reverse_lazy('student-profile'))
         else:
-            messages.error(request, 'Please correct the error below.')
+            print(form.errors)
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'registration/password_change.html', {'form': form})

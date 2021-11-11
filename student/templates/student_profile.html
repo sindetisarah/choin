@@ -29,7 +29,7 @@
     
     <div class="profile-edit">
         
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <h2>hello</h2>
             {%csrf_token%}
             {{ user_form.as_p }}
