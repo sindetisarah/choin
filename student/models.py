@@ -9,8 +9,7 @@ from leadership.models import RedeemableItem
 
 class Student(models.Model):
     user=models.OneToOneField(User,on_delete=CASCADE,null=True,related_name='userprofile')
-    image = models.ImageField(upload_to='profile_image', blank=True)
-    gender = models.CharField(default='', blank=True, max_length=20)
+    class_name = models.CharField(max_length=20, blank=True)
     
 
 @receiver(post_save, sender=User)
@@ -25,6 +24,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
 class Redeem(models.Model):
     # cart
     #order
+   
     student=models.ForeignKey(Student,on_delete=CASCADE,null=True)
     date_of_purchase=models.DateField(null=True)
     transaction_id = models.CharField(max_length=200, null=True)
@@ -53,6 +53,4 @@ class RewardedItem(models.Model):
     def calculate_total(self):
         total_price=self.reward.item_value * self.quantity
         return total_price
-
-
 

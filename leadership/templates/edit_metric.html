@@ -11,21 +11,21 @@
     <title>Choin</title>
 </head>
 <body>
-    <div class="add-metric-modal" id="adds-metric-modal">
+    <div class="metric-modal" id="adds-metric-modal">
         <div class="add-metric">
-            <i class="fas fa-times" id="close"></i>
+            
            
             <form method="POST" enctype="multipart/form-data">
-                <h4>Add Metric</h4>
+                <h3>Add Metric</h3>
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" id="close-modal">Save Edit</button>
+                <button type="submit" id="close-modal">Add Metric</button>
             </form>
         </div> 
     </div>
     
     </div>
-
+    <script src="{% static 'js/edit-metric.js' %}"></script>
 </body>
-<script src="{% static 'js/edit-metric.js' %}"></script>
+
 </html>

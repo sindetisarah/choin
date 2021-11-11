@@ -1,5 +1,5 @@
 {%  load static %}
-{% include 'leader_navbar.html' %} {% include 'edit_metric.html' %}
+{% include 'leader_navbar.html' %} 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
     <div class="add-metric">
         <i class="fas fa-times" id="close"></i>
         <form method="POST" enctype="multipart/form-data">
-            <h4>Add Metric</h4>
+            <h3>Add Metric</h3>
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" id="close-modal">Add Metric</button>
@@ -76,6 +76,7 @@
 
 <script src="{% static 'js/metrics.js' %}"></script>
 <script src="{% static 'js/navbar.js' %}"></script>
+
 
 
 </body>
