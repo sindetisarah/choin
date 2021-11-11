@@ -15,9 +15,9 @@ body{
     flex-direction: column;
     margin-left: 80%;
 }
-.pool>p{
-    font-weight: bold;
-    color: #561278;
+#heading{
+    color:#561278;
+    margin-left: 15%;
 }
 #profile-image{
     width: 30%;
@@ -30,10 +30,12 @@ body{
     margin: 0 5%;
 }
 .reward-heading >h1{
-    margin-top: -2.5%;
+    margin-top: -5%;
     color: #561278;
 }
-
+/* .heading-seperate{
+    margin-top: -5%;
+} */
 
 #row-reward{
     display: flex;
@@ -73,9 +75,7 @@ body{
     width: 20%;
     background-color: transparent;
 }
-#heading{
-    color:#561278;
-}
+
 
 .text {
     padding: 0 20px 20px;
@@ -85,17 +85,87 @@ body{
     color: #8a7f8f;
     margin-left: 5%;
 }
+.tooltiptext-2 {
+    visibility: hidden;
+    width: 100px;
+    background-color: rgb(46, 43, 43);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    margin-top: -3%;
+    margin-left: -60px;
+  }
+  .fa-shopping-cart.tooltiptext-2::after {
+    content: "";
+    position: absolute;
+    margin-top: -7%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  
+  .fa-shopping-cart:hover .tooltiptext-2{
+    visibility: visible;
+  }
+
 .cart-notf{
     color: #8a7f8f;
     font-size:20px;
-    position: absolute;
-    top: 5%;
-    right: 12%;
+    /* position: absolute;
     
+    right: 12%;
+     */
 }
+.cart-no>strong{
+    border: solid 1px transparent;
+    background-color: #c91a32;
+    padding: 3px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin-left: 50%;
+    color: #fff;
+   
+}
+.cart-no{
+    position: absolute;
+    top: 3%;
+    right: 10%;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 70px;
+    background-color: rgb(46, 43, 43);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    margin-top: -3%;
+    margin-left: -40px;
+  }
+  .fa-shopping-bag.tooltiptext::after {
+    content: "";
+    position: absolute;
+    margin-top: -7%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  
+  .fa-shopping-bag:hover .tooltiptext {
+    visibility: visible;
+  }
+
 .fa-shopping-bag{
     color: #8a7f8f;
     margin-left: 5%;
+    cursor: pointer;
 }
 .close{
     color: #561278;
@@ -188,7 +258,7 @@ button {
         display: inline !important;
         color: #561278;
         font-size: 20px;
-        padding-top: 10px;
+        padding-top: 50px;
         cursor: pointer;
     }
     .mini-header{
@@ -219,8 +289,15 @@ button {
      #row-reward{
         flex-wrap: wrap;
         align-items: flex-start;
-        margin-left: 15%;
-        
-    
+        margin-left: 15%;    
+    }
+    .cart-no{
+        position: absolute;
+        top: 8%;
+        right: 16%;
+    }
+    #heading{
+        color:#561278;
+        margin-left: 30%;
     }
 }

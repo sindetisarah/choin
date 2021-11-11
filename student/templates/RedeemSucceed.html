@@ -12,15 +12,17 @@
 
 <body>
     <div class="card">
-        <i class='fas fa-exclamation-circle' style='font-size:48px;color:purple'></i>
-        <h2>Transaction Failed</h2>
-        {%for item in reward_items%}
-        <p>You don't have enough choins to
-            <br>purchase {{item.item_name}}</p>
-        {%endfor%} {% for b in bal %}
-        <h3>Current Balance: {{ b.choinBalance}}</h3>
-        {% endfor %}
-        <button class="close">Ok</button>
+        <i class="fa fa-check-circle" style="font-size:48px;color:purple"></i>
+        <h2>Transaction successful</h2>
+        <div>You have successfully redeemed 
+            <ul>
+            {% for item in order %}
+            <li> {{ item.quantity }} {{item.reward.item_name}}</li>
+            {% endfor %}
+        </ul>
+        
+             for {{ order.calculate_cart_total}}</div>
+        <button id="close">Ok</button>
     </div>
     <script src="{% static 'js/redeem.js' %}"></script>
 

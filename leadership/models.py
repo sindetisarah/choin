@@ -7,7 +7,7 @@ from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class User(AbstractUser):
-    username = models.CharField(('username'), unique=True,max_length=40)
+    username = models.CharField(('username'), unique=False,max_length=40)
     email = models.EmailField(('email address'), unique=True)
     is_previously_logged_in=models.BooleanField(default=False)
     is_superadmin = models.BooleanField(('is_superadmin'), default=False)
@@ -41,9 +41,13 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+
 class Wallet(models.Model):
     owner = models.ForeignKey(User,on_delete=CASCADE, null=True)
-    choinBalance = models.IntegerField(null=True)
+    choinBalance = models.IntegerField(null=True,default=20)
+
+    def __str__(self):
+        return self.owner.first_name
 
 
 class Metrics(models.Model):
@@ -53,6 +57,7 @@ class Metrics(models.Model):
 
    def __str__(self):
         return self.metric
+
    def save(self):
         self.value
         super(Metrics, self).save()
@@ -63,6 +68,9 @@ class Transaction(models.Model):
     metric = models.CharField(max_length = 100)
     value = models.IntegerField()
     time =models.DateTimeField(auto_now_add=True,null=True)
+
+    def __str__(self):
+        return self.receiver
 
 class RedeemableItem(models.Model):
     image=models.ImageField(upload_to='rewards/')
@@ -75,8 +83,7 @@ class RedeemableItem(models.Model):
     def __str__(self) :
         return self.item_name
 
-# class ActivateRedeemPage(models.Model):
-#     activate_page=models.BooleanField(default=False)
+
     
 
  
