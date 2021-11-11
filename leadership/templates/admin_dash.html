@@ -1,13 +1,11 @@
-{% load static %}
-{% include 'leader_navbar.html' %}
+{% load static %} {% include 'leader_navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'admin.css' %}">
-
-
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
     <title>Choin</title>
 </head>
 
@@ -17,43 +15,57 @@
     <div class="card" id="upload_display">
         <img id="codehive" src="/static/images/code-hive.png">
         <div class="text_display">
-            {% if messages %}
-            {% for message in messages %}
+            {% if messages %} {% for message in messages %}
             <div>
                 <strong id="msg">{{message|safe}}</strong>
             </div>
-            {% endfor %}
-            {% else %}
-            {{order}}
-            
+            {% endfor %} {% else %} {{order}}
+
             <form action="" method="POST" enctype="multipart/form-data">
 
                 {% csrf_token %}
                 <label for="file1"> Upload Student file</label><br>
                 <input type="file" id="file1" name="file">
-            </div>
-                <div class="csv_display">
+        </div>
+        <div class="csv_display">
 
-                    <small>Only accepts CSV files</small><br>
+            <small>Only accepts CSV files</small><br>
 
-                    <button id="btn_upload" type="submit">UPLOAD</button>
-                </div>
-        
+            <button id="btn_upload" type="submit">UPLOAD</button>
+        </div>
+        {% endif %}
+
+
 
 
         </form>
 
-   
+        <!-- Upload for trainer -->
+        <div class="text_display_2">
+            {% if messages %} {% for message in messages %}
+            <div>
+                <strong id="msg">{{message|safe}}</strong>
+            </div>
+            {% endfor %} {% else %} {{order}}
 
+            <form action="" method="POST" enctype="multipart/form-data">
 
+                {% csrf_token %}
+                <label for="file2"> Upload  Trainer's file</label><br>
+                <input type="file" id="file2" name="file">
+        </div>
+        <div class="csv_display_2">
 
+            <small>Only accepts CSV files</small><br>
+
+            <button id="btn_upload_2" type="submit">UPLOAD</button>
+        </div>
         {% endif %}
     </div>
     <div class="leader_heading">
-
         <h1 id="leader">Leaderboard</h1>
         <div class="search">
-            <form method="get" action="{% url 'search_student' %}">
+            <form method="get" action="{% url 'search_student_by_admin' %}">
                 <input type="search" placeholder="Search student by first name" name="search" />
                 <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
             </form>
@@ -74,17 +86,20 @@
         <tr>
             <td><img id="Image" src="/static/images/me-removebg-preview.png" />
             </td>
-            <td>Eunice Atieno</td>
-            <td>100</td>
-
-
-
+            {% for student in students %}
+            <td>{{ student.username }} </td>
+            {% endfor %} {% for b in bal %}
+            <td>Choin Balance : {{ b.choinBalance }} </td>
+            {% endfor %}
         </tr>
         <tr>
             <td><img id="Image" src="/static/images/me-removebg-preview.png" />
             </td>
-            <td>Hunter Achieng</td>
-            <td>98</td>
+            {% for student in students %}
+            <td>{{ student.username }} </td>
+            {% endfor %} {% for b in bal %}
+            <td>Choin Balance : {{ b.choinBalance }} </td>
+            {% endfor %}
 
 
         </tr>

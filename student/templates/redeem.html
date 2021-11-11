@@ -1,4 +1,12 @@
 {% include 'student_navbar.html' %}{% load static %}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<!-- {% load cart %} -->
+>>>>>>> 7a05de65ade2b622c7d943e268529e5114d8ee45
+>>>>>>> 96a15a0ad1a4b6fd4d76a019db509208d148d8fb
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,49 +28,64 @@
         <div>
             <i class="fas fa-bars menu"></i>
         </div>
+       
         <div class="pool">
-            <i class="fas fa-shopping-cart cart-notf"></i>
-            <p>{{cartItems}}</p>
+<<<<<<< HEAD
+           
+            
             <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
             {% for b in bal %}
      
+=======
+            <i class="fas fa-shopping-cart cart-notf"></i>
+            <p>{{cartItems}}</p>
+            <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" /> {% for b in bal %}
+
+>>>>>>> 7a05de65ade2b622c7d943e268529e5114d8ee45
             <h3 id="heading">Balance:{{ b.choinBalance }}</h3>
-            
+
             {% endfor %}
+            <div class="cart-no">
+                <strong>{{cartItems}}</strong>
+                <a href="{% url 'cart' %}"><i class="fas fa-shopping-cart cart-notf"></i></a>
+            
+            </div>
         </div>
     </div>
     <div class="reward-heading">
 
         <h1>Redeemable Items</h1>
-        
+
     </div>
+    
     <div  id="row-reward">
         {%for item in reward_items%}
         
             <div class="card" id="card-profile">
                 <img id="image-reward" alt="redeemable-item" src="{{item.image.url}}">                    
                     <h3 class="card-title">{{item.item_name}}</h3>
-                    <!-- <button class="btn plus-btn" type="button">+</button>
-                        <input type="text" id="quantity" value="1">
-                        <button class="btn minus-btn" type="button">-</button> -->
-                    <hr>
                     
+                    <hr>  
 
                     <p class="total-choins">
                         <label>Choins: {{item.item_value}}</label>
                     
                         <!-- <input id="choins" class="text-dark" value="{{item.item_value}}"> -->
-                        <i data-product={{item.id}} data-action="add" class="fas fa-shopping-cart update-cart"></i>
-                        <a href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i></a>
+                        <i data-product={{item.id}} data-action="add" class="fas fa-shopping-cart update-cart">
+                            <span class="tooltiptext-2">Add to cart</span>
+                        </i>
+                        <a href="{% url 'cart' %}"><i class="fas fa-shopping-bag">
+                            <span class="tooltiptext">View</span>
+                        </i></a>
                     </p>
                 </div>       
         {%endfor%}
     </div>
-    
-   
+
+
     <script src="{% static 'js/redeem.js' %}"></script>
     <script src="{% static 'js/navbar.js' %}"></script>
-   
+
 
 </body>
 
