@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.core.paginator import Paginator
 from .forms import UpdateProfileForm,UserProfileForm
 from .models import Redeem, RewardedItem, Student
 from django.core.exceptions import ObjectDoesNotExist
@@ -103,6 +104,7 @@ def cart(request):
 
 def redeem_active(request):
     return render(request,'redeem_active.html')
+
 def student_dashboard(request):
     student=Student.objects.get(user=request.user)
     choin_balance=Wallet.objects.get(owner=request.user)
@@ -110,8 +112,11 @@ def student_dashboard(request):
     return render(request,'stud_dashboard.html')
 
 def student_transactions(request):
-    transactions = Transaction.objects.all().filter(receiver = request.user.username)
+    transact = Transaction.objects.all().filter(receiver = request.user.username)
     bal = Wallet.objects.all().filter(owner = request.user)
+    paginator = Paginator(transact, 5)
+    page = request.GET.get('page')
+    transactions = paginator.get_page(page)
     return render(request,'student_transactions.html',{'transactions':transactions,'bal':bal})  
 
 # def view_redeemed_items(request):

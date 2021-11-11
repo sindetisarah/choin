@@ -294,6 +294,7 @@ def trans(request):
 def reward_confirm(request,id):
     student = User.objects.get(id=id)
     metrics = Metrics.objects.all()
+    
 
     val = request.GET
     met =None
@@ -342,7 +343,7 @@ def reward_confirm(request,id):
     # notify.send (request.user, recipient = student, verb ='You have been awarded choins ')
 
 
-    return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
+    return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met, 'wallets':wallets})
    
 
 def delete_metric(request,id):
@@ -423,6 +424,7 @@ def search_redeemable_item(request):
         message="Looks like the item doesn't exist. Try again "
         return render (request,'redeemable_items_list.html',{'items':items,'message':message})
     return render (request,'redeemable_items_list.html',{'items':items,'results':results})
+
 def search_student_by_admin(request):
     search_post = request.GET.get('search')
     if search_post:
@@ -463,31 +465,3 @@ def deactivate_ajax_change_status(request):
         return False
 
 
-
-def ajax_change_status(request):
-    activate_page = request.GET.get('activate_page', True)
-    # job_id = request.GET.get('job_id', False)
-    # first you get your Job model
-    job = RedeemableItem.objects.all()
-    try:
-        for i in job:
-            i.activate_page =activate_page
-            i.save()
-        return redirect(reverse('add-reward-item'))
-    except Exception as e:
-        print("did not change")
-        return False
-
-def deactivate_ajax_change_status(request):
-    activate_page = request.GET.get('activate_page', False)
-    # job_id = request.GET.get('job_id', False)
-    # first you get your Job model
-    job = RedeemableItem.objects.all()
-    try:
-        for i in job:
-            i.activate_page =activate_page
-            i.save()
-        return redirect(reverse('add-reward-item'))
-    except Exception as e:
-        print("did not change")
-        return False

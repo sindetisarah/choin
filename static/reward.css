@@ -34,9 +34,12 @@ body{
     color: #561278;
 }
 .search{
-    width: 40%;
+    width: 40%; 
     
-    
+}
+#profile{
+    width: 40px;
+    border-radius: 50%;
 }
 form{
     display: flex;
@@ -171,6 +174,7 @@ box-shadow: #7c4797 5px 5px 5px;
         width: 100%;
         
     }
+   
     form{
         margin-left: -10%;
     }
@@ -179,7 +183,7 @@ box-shadow: #7c4797 5px 5px 5px;
         margin-top: 5%;
     }
     #reward-student{
-        width: 60%;
+        width: 100%;
         padding: 10px;
       }
      
