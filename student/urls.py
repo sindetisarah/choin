@@ -13,6 +13,7 @@ urlpatterns =[
     path('update_item/',update_item,name='update_item'),
     # path('redeemed_items/',view_redeemed_items,name='redeemed_items'),
     path('student_dashboard/',student_dashboard,name='student_dashboard'),
+    # path('redeem_success/',redeem_success,name='redeem_success'),
     path('student_redeem/',student_redeem,name='student_redeem'),
 
     ]

@@ -23,34 +23,6 @@ from django.http import JsonResponse
 from django.urls import reverse
 # from .models import ActivateRedeemPage
 
-def ajax_change_status(request):
-    activate_page = request.GET.get('activate_page', True)
-    # job_id = request.GET.get('job_id', False)
-    # first you get your Job model
-    job = RedeemableItem.objects.all()
-    try:
-        for i in job:
-            i.activate_page =activate_page
-            i.save()
-        return redirect(reverse('add-reward-item'))
-    except Exception as e:
-        print("did not change")
-        return False
-
-def deactivate_ajax_change_status(request):
-    activate_page = request.GET.get('activate_page', False)
-    # job_id = request.GET.get('job_id', False)
-    # first you get your Job model
-    job = RedeemableItem.objects.all()
-    try:
-        for i in job:
-            i.activate_page =activate_page
-            i.save()
-        return redirect(reverse('add-reward-item'))
-    except Exception as e:
-        print("did not change")
-        return False
-
 
 class Blockchain:
     def __init__(self):
@@ -98,6 +70,7 @@ class Blockchain:
             previous_block = block
             block_index += 1
         return True
+
     def add_transaction(self, sender, receiver, amount, time): #New
         self.transactions.append({'sender': sender,
                                   'receiver': receiver,
@@ -105,9 +78,11 @@ class Blockchain:
                                   'time': str(datetime.datetime.now())})
         previous_block = self.get_last_block()
         return previous_block['index'] + 1
+
     def add_node(self, address): #New
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
+
     def replace_chain(self): #New
         network = self.nodes
         longest_chain = None
@@ -146,6 +121,7 @@ def is_valid(request):
             response = {'message': 'Houston, we have a problem. The Blockchain is not valid.'}
     return JsonResponse(response)
 # Adding a new transaction to the Blockchain
+
 @csrf_exempt
 def add_transaction(request): #New
     if request.method == 'POST':
@@ -157,6 +133,7 @@ def add_transaction(request): #New
         response = {'message': f'This transaction will be added to Block {index}'}
     return JsonResponse(response)
 # Connecting new nodes
+
 @csrf_exempt
 def connect_node(request): #New
     if request.method == 'POST':
@@ -170,6 +147,7 @@ def connect_node(request): #New
                     'total_nodes': list(blockchain.nodes)}
     return JsonResponse(response)
 # Replacing the chain by the longest chain if needed
+
 def replace_chain(request): #New
     if request.method == 'GET':
         is_chain_replaced = blockchain.replace_chain()
@@ -181,14 +159,13 @@ def replace_chain(request): #New
                         'actual_chain': blockchain.chain}
     return JsonResponse(response)
 
-
 def profile_upload(request):
     # declaring template
     template = "admin_dash.html"
     student_data = Student.objects.all()
 # prompt is a context variable that can have different values      depending on their context
     prompt = {
-        'order': 'Order of the CSV should be username,email,role',
+        'order': 'Order of the CSV should be firstname,lastname,email',
         'profiles': student_data
               }
     # GET request returns the value of the data with the specified key.
@@ -210,17 +187,15 @@ def profile_upload(request):
 
     student_csvf = csv.reader(io_string, delimiter=',', quotechar="|")
     student_data = []
-    for username, email, *__ in student_csvf:
-        user = User(username=username)
+    for firstname,lastname, email, *__ in student_csvf:
+        user = User(username=firstname)
+        user.first_name=firstname
+        user.last_name=lastname
         user.email=email
         student_data.append(user)
         user.role=User.STUDENT
         user.save()
-    # User.objects.bulk_create(student_data)
-
     
-
-    # send the email to the recipent
     users=User.objects.all().filter(role=3)
     print(users)
 
@@ -249,7 +224,7 @@ def trainer_profile_upload(request):
     trainer_data = Trainer.objects.all()
 # prompt is a context variable that can have different values      depending on their context
     prompt = {
-        'order': 'Order of the CSV should be username,email',
+        'order': 'Order of the CSV should be firstname,lastname,email',
         'profiles': trainer_data
               }
     # GET request returns the value of the data with the specified key.
@@ -263,16 +238,14 @@ def trainer_profile_upload(request):
     # setup a stream which is when we loop through each line we are able to handle a data in a stream
     io_string = io.StringIO(trainer_data_set)
     next(io_string)
-    # for column in csv.reader(io_string, delimiter=',', quotechar="|"):
-    #     _, created = Trainer.objects.update_or_create(
-    #     username=column[0],
-    #     email=column[1],
-    # )
+   
 
     csvf = csv.reader(io_string, delimiter=',', quotechar="|")
     data = []
-    for username, email, *__ in csvf:
-        user = User(username=username)
+    for firstname,lastname, email, *__ in csvf:
+        user = User(username=firstname)
+        user.first_name=firstname
+        user.last_name=lastname
         user.email=email
         data.append(user)
         user.role=User.TRAINER
@@ -442,6 +415,7 @@ def redeemableItemsList(request):
     redeemable_items = paginator.get_page(page)
    
     return render(request,'redeemable_items_list.html',{'redeemable_items':redeemable_items})
+
 def search_redeemable_item(request):
     search_post = request.GET.get('search')
     if search_post:
@@ -462,4 +436,34 @@ def search_student_by_admin(request):
         message="Looks like the student doesn't exist. Try searching using the first name"
         return render (request,'reward.html',{'students':students,'message':message})
     return render (request,'reward.html',{'students':students,'results':results})
+
+def ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', True)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
+def deactivate_ajax_change_status(request):
+    activate_page = request.GET.get('activate_page', False)
+    # job_id = request.GET.get('job_id', False)
+    # first you get your Job model
+    job = RedeemableItem.objects.all()
+    try:
+        for i in job:
+            i.activate_page =activate_page
+            i.save()
+        return redirect(reverse('add-reward-item'))
+    except Exception as e:
+        print("did not change")
+        return False
+
+
 
