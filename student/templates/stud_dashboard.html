@@ -1,11 +1,13 @@
 {% load static %} {% include 'student_navbar.html' %} {% load notifications_tags %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'stud_dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'dash_student.css' %}">
     <title>Choin</title>
 </head>
+
 <body>
     <div id="profile_up">
         <div class="dropdown">
@@ -32,7 +34,7 @@
 </div>
     <div class="prof_detail">
     <img id="profile" src="/static/images/me-removebg-preview.png" />
-    <h1 id="choin_available">Available Choins:2000</h1>
+    <h1 id="choin_available">Choins:2000</h1>
 </div>
     </div>
     <h1>Hello {{user.username}} <br>Welcome</h1>
