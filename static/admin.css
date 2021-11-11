@@ -94,7 +94,7 @@ th, td {
     margin-left: 25%;
     width:56rem;
     border-radius: 8px;
-    height:40vh;
+    height:35vh;
     
     
 }
@@ -105,7 +105,7 @@ th, td {
 #codehive{
     background-color: white;
     margin-left: 2%;
-    margin-top: 3%;
+    margin-top: 2%;
     position: absolute;
     border-radius: 5px;
     width:290px;
@@ -127,14 +127,17 @@ th, td {
      padding-top: 2%;
   }
   #btn_full_list{
-    margin-top: 30%;
-    margin-left:83%;
+      font-size: 15px;
+    margin-top: 33%;
+    margin-left:87%;
     background-color:purple;
     border-radius: 5px;
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    color:white;
+    height: 35px;
     border-color: transparent;
     text-decoration: none;
+  
     
 }
 .csv_display{
@@ -170,6 +173,36 @@ th, td {
    .student-upload-form{
         margin-bottom: 2%;
     } 
+
+    /* styling the three cards in the admin dashboard */
+    #row-reward{
+        display: flex;
+        
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-left: 12%;
+        margin-top: 10%;
+        /* margin-bottom: 20px; */
+    
+    }
+    .card2{   
+       border: none;
+        border-radius: 20px;
+        background-color: #d8cbda; 
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+        height: 250px;
+        text-align: center;
+        width: 200px;
+        margin: 10px;
+       color: rgb(77, 74, 74);
+        
+    }
+    #image-reward{
+        width: 100%;
+        height: 150px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
     
 /* media queries */
 @media (max-width:875px){
