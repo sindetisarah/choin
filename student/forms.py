@@ -15,5 +15,5 @@ class UserProfileForm(forms.ModelForm):
         model = Student
         fields = (
             
-            'image',
+            'class_name',
         )
