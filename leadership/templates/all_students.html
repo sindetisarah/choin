@@ -1,0 +1,43 @@
+{% load static %} {% include 'leader_navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'leaderboard.css' %}">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <th> First Name</th>
+            <th> Last Name</th>
+            <th>Total Choins</th>
+        </tr>
+
+
+        <tr>
+
+            {% for student in students%}
+            
+
+            {%if student.owner.image%}
+                <td><img id="profile" src="{{student.owner.image.url}}"></td>
+            {%else%}
+                <td><img id="profile" src="/static/images/placeholderperson.jpg"></td>
+            {%endif%}
+          
+            <td>{{student.owner.first_name}}</td>
+            <td>{{student.owner.last_name}}</td>
+            <td>{{student.choinBalance}}</td>
+           
+        </tr>
+        {%endfor%}
+
+    </table>
+</body>
+</html>
