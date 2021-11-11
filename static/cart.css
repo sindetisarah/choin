@@ -15,10 +15,7 @@ body{
     flex-direction: column;
     margin-left: 80%;
 }
-.pool>p{
-    font-weight: bold;
-    color: #561278;
-}
+
 #profile-image{
     width: 30%;
     border-radius: 50%;
@@ -33,6 +30,10 @@ body{
     margin-top: -2.5%;
     color: #561278;
 }
+#heading{
+    color:#561278;
+    margin-left: 15%;
+}
 .cart-count{
     border: solid 1px #95899b;
     width: 85%;
@@ -44,14 +45,14 @@ body{
 table {
     border-collapse: collapse;
     margin-top: 1%;
-    width: 100%;
+    width: 90%;
     margin-left: 2%;
     
   }
 
   th{
     text-align: left;
-    /* padding-bottom: 20px; */
+    padding: 8px;
     color: #561278;
       /* font-size: 18px; */
   }
@@ -61,7 +62,7 @@ table {
   th>a{
       border: solid 1px transparent;
       background-color: #dd84e6;
-      padding: 10px;
+      padding: 8px;
       color: #561278;
       text-decoration: none;
       border-radius: 5px;
@@ -74,9 +75,11 @@ table {
       padding: 10px;
       border-radius: 5px;
       box-shadow: #95899b 2px 2px 2px;
-      background-color: #d7b7e7;
+      background-color: #d7b7e7;     
       
-      
+  }
+  .continue :focus{
+      color:#561278
   }
   .products>table {
     border-collapse: collapse;
@@ -85,6 +88,7 @@ table {
     box-shadow: gray 5px 5px 5px;
     border-radius: 5px;
     margin-top: 5%;
+    background-color: #eadbf1;
   }
 
   .products>table>th,.products>table>td {
@@ -97,10 +101,28 @@ table {
   }
   .products>table>td{
     height: 50px;
+    
   }
+  .top-row{
+      height: 40px;
+      background-color: #f2eff3;
+      border-bottom: solid 2px #d1b0e0;
+  }
+
+  .row {   
+      border-bottom: solid 2px #d1b0e0;
+      color: #716974;
+}
   #image-rewards{
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
+      padding: 5px;
+  }
+  .update-cart{
+      border: transparent;
+      background-color: rgb(100, 98, 98);
+      color: #fff;
+      border-radius: 2px;
   }
 @media (max-width:875px){
     body{
@@ -140,4 +162,8 @@ table {
         flex-direction: column;
        
     }
+    #heading{     
+        margin-left: 30%;
+    }
+   
 }
