@@ -81,7 +81,7 @@
         
 
     </table> -->
-        <div id="row-reward">
+        <div id="row-cards">
 
 
             <div class="card2" id="card-profile">
@@ -90,6 +90,9 @@
                 <p class="total-choins">
                     <i data-product={{item.id}} data-action="add" class="fas fa-gifts"></i>
                 </p>
+                <button id="btn_redeem"><a style="text-decoration:none;color:white;"
+                    href="{%url 'view_student_leaderboard'%}"> Redeem</a></button>
+    
             </div>
             <div class="card2" id="card-profile">
                 <h4>Metrics</h4>
@@ -97,6 +100,9 @@
                 <p class="total-choins">
                     <i data-product={{item.id}} data-action="add" class="fab fa-jedi-order"></i>
                 </p>
+                <button id="btn_metrics"><a style="text-decoration:none;color:white;"
+                    href="{%url 'view_student_leaderboard'%}"> Metrics</a></button>
+    
             </div>
             <div class="card2" id="card-profile">
                 <h4>Leaderboard</h4>
@@ -104,15 +110,16 @@
                 <p class="total-choins">
                     <i data-product={{item.id}} data-action="add" class="fas fa-user-graduate"></i>
                 </p>
+                <button id="btn_full_list"><a style="text-decoration:none;color:white;"
+                    href="{%url 'view_student_leaderboard'%}"> View Full List</a></button>
+    
             </div>
 
           
            
 
         </div>
-        <button id="btn_full_list"><a style="text-decoration:none;color:white;"
-                href="{%url 'view_student_leaderboard'%}"> View Full List</a></button>
-
+       
 
 </body>
 
