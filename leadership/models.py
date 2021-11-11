@@ -7,8 +7,9 @@ from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class User(AbstractUser):
-    username = models.CharField(('username'), unique=True,max_length=40)
+    username = models.CharField(('username'), unique=False,max_length=40)
     email = models.EmailField(('email address'), unique=True)
+    image = models.ImageField(upload_to='profile_image/', blank=True)
     is_previously_logged_in=models.BooleanField(default=False)
     is_superadmin = models.BooleanField(('is_superadmin'), default=False)
     is_active = models.BooleanField(('is_active'), default=True)
@@ -33,6 +34,11 @@ class User(AbstractUser):
     class Meta:
         verbose_name = ('user')
         verbose_name_plural = ('users')
+        permissions = (
+            ('is_student', 'Can view student app'),
+            ('is_trainer', 'Can view trainer app'),
+            ('is_leader', 'Can view leader app'),
+        )
 
     def __str__(self):
         """stirng representation"""
@@ -42,8 +48,8 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
 
 class Wallet(models.Model):
-    owner = models.ForeignKey(User,on_delete=CASCADE, null=True)
-    choinBalance = models.IntegerField(null=True)
+    owner = models.ForeignKey(User,on_delete=CASCADE, null=True,default=20)
+    choinBalance = models.IntegerField(null=True,default=20)
 
 
 class Metrics(models.Model):

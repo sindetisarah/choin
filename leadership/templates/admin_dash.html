@@ -9,6 +9,7 @@
 
 
     <title>Choin</title>
+
 </head>
 
 <body>
@@ -25,32 +26,32 @@
             {% endfor %}
             {% else %}
             {{order}}
-            
-            <form action="" method="POST" enctype="multipart/form-data">
 
+            <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
+                <div class="student_upload_form">
                 <label for="file1"> Upload Student file</label><br>
                 <input type="file" id="file1" name="file">
+                <button id="btn_upload" type="submit">UPLOAD</button>
+              
             </div>
-                <div class="csv_display">
+            </form>
 
-                    <small>Only accepts CSV files</small><br>
-
-                    <button id="btn_upload" type="submit">UPLOAD</button>
-                </div>
-        
-
-
-        </form>
-
+            <form action="{% url 'trainer-upload' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="trainer-upload-form">
+                <label for="file2"> Upload Trainer file</label><br>
+                <input type="file" id="file2" name="file" >
+                <button id="btn_upload" type="submit">UPLOAD</button>
+            
+        </div>
+            </form>
    
-
-
 
         {% endif %}
     </div>
-    <div class="leader_heading">
 
+    <div class="leader_heading">
         <h1 id="leader">Leaderboard</h1>
         <div class="search">
             <form method="get" action="{% url 'search_student' %}">
@@ -62,35 +63,28 @@
 
     <table>
         <tr>
-            <th>Image
-            </th>
-            <th> Name</th>
-            <th>Choins</th>
-
-
+            <th></th>
+            <th> First Name</th>
+            <th> Last Name</th>
+            <th>Total Choins</th>
         </tr>
 
 
         <tr>
+            {% for student in students%}
             <td><img id="Image" src="/static/images/me-removebg-preview.png" />
             </td>
-            <td>Eunice Atieno</td>
+            <td>{{student.username}}</td>
             <td>100</td>
+            {%endfor%}
 
 
 
         </tr>
-        <tr>
-            <td><img id="Image" src="/static/images/me-removebg-preview.png" />
-            </td>
-            <td>Hunter Achieng</td>
-            <td>98</td>
-
-
-        </tr>
+        
 
     </table>
-    <button id="btn_full_list" type="submit">View Full List</button>
+    <button id="btn_full_list"><a href="{%url 'view_student_leaderboard'%}"> View Full List</a></button>
 
 
 </body>

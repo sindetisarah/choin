@@ -1,0 +1,27 @@
+#profile{
+    width: 40px;
+    border-radius: 50%;
+}
+table {
+    width: 855px;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    border-collapse: collapse;
+    margin-right:100px;
+}
+th, td {
+    text-align: left;
+    padding-right: 50px;
+  }
+  th{
+      color: #561278;
+      font-size: 18px;
+  }
+  td{
+    height: 50px;
+  }
+  tr:nth-child(even) {background-color: #DCBEEB;}
+  .type_csv{
+    bottom: 10px;
+}
