@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+ 
+body{
+    margin: 0 0 0 20% ;    
+    font-family: 'Poppins', sans-serif;
+    
+}
+#mini-logo{
+    display: none !important;
+}
+.menu{
+    display: none !important;
+}
+.pool{
+    display: flex;
+    flex-direction: column;
+    margin-left: 80%;
+}
+.pool>p{
+    font-weight: bold;
+    color: #561278;
+}
+#profile-image{
+    width: 30%;
+    border-radius: 50%;
+    margin-left: 40%;
+}
+#redeem-inactive{
+    width: 50%;
+    margin-left: 25%;
+}
+h2{
+    color: #561278;
+    text-align: center;
+}
+@media (max-width:875px){
+    body{
+        margin: 0;
+    }
+    #mini-logo{
+        display: inline !important;
+        width: 30%;
+        margin: 2%;
+       
+    }
+    .menu{
+        display: inline !important;
+        color: #561278;
+        font-size: 20px;
+        padding-top: 10px;
+        cursor: pointer;
+    }
+    .mini-header{
+        margin: 0 5%;
+    }
+    .pool{
+        margin-left: 60%;
+        width: 50%;
+    }
+    #profile-image{
+       
+        margin-left: 70%;
+    }
+    .pool>p{
+        font-size: 13px;
+        margin-left: 15%;
+    }
+    #redeem-inactive{
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 40%;
+    }
+    h2{
+        color: #561278;
+        text-align: center;
+        font-size: 18px;
+        
+    }
+}

@@ -1,48 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
  
 body{
-    margin: 0 0 0 20% ; 
-   
+     
+    font-family: 'Poppins', sans-serif;
   
 }
-.pool{
-    display: flex;
-    flex-direction: column;
-    margin-left: 80%;
-}
-.metric-modal{
-    background-color: #561278;
-    color: #fff;
-    border-radius: 2px;
-    border: none;
-    width: 50%;
-    padding: 10px 10px;
-    margin-left: 20%;
-    margin-top: 2%;
-    cursor: pointer;
 
-}
-#profile-image{
-    width: 30%;
-    border-radius: 50%;
-    margin-left: 40%;
-}
-#mini-logo{
-    display: none !important;
-}
+
+
 .menu{
     display: none !important;
 }
 .add-metric{
     width: 40vw;
-    border: 1px solid #561278;
-    height: 40vh;
-    padding: 30px;
-    margin-left: 35vw;
-    border-radius: 20px;
+    border: 1px solid transparent;
+    height: 50vh;
+    padding: 20px;
+    margin-left: 30vw;
+    border-radius: 5px;
     margin-top: 5%;
     background-color: #fff;
     cursor: pointer;
+    box-shadow: rgb(37, 37, 37) 5px 5px 5px;
     
 }
 #close{
@@ -52,8 +31,8 @@ body{
     border-radius: 50%;
     background-color: #DCBEEB;
 }
-.add-metric-modal{
- 
+.metric-modal{
+   
  position: fixed; /* Stay in place */
   z-index: 1;
   left: 0;
@@ -72,26 +51,39 @@ body{
 }
 #metric-input{
     background-color: #DCBEEB;
-    width: 60%;
+    width: 90%;
     border: none;
-    margin-left: 4%;
-    padding: 10px 10px;
+    margin-left: 1%;
+    padding: 20px 10px;
+    box-shadow: rgb(37, 37, 37) 2px 2px 2px;
 }
 #metric-value{
     background-color: #DCBEEB;
-    width: 60%;
+    width: 90%;
     border: none;
-    margin-left: 5.5%;
-    padding: 10px 10px;
+    margin-left: 1%;
+    padding: 20px 10px;
+    box-shadow: rgb(37, 37, 37) 2px 2px 2px;
 }
-.add-metric >form >button{
-    width: 64%;
+#metric-value:focus{
+    outline: none;  
+}
+.add-metric >form>h3{
+    text-align:center;  
+    margin-top:-2%;
+    
+}
+#close-modal{
+    width: 94%;
     border: none;
-    padding: 10px 10px;
-    margin-left: 16.5%;
+    padding: 15px 10px;    
     background-color: #561278;
     color: #fff;
     border-radius: 2px;
+    margin-left: 1%;
+    font-size:18px;
+    box-shadow: rgb(37, 37, 37) 2px 2px 2px;
+
 
 }
 @media (max-width:875px){
@@ -115,12 +107,9 @@ body{
       margin-left: -10%;      
         padding: 10px;
     }
-    .add-metric >form >button{
-        width: 110%;
-        border: none;
-        padding: 10px 10px;
-        margin-left: 0.5%;
-        
+
+    #close-modal{
+        width: 110%;   
     
     }
 }

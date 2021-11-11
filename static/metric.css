@@ -2,7 +2,7 @@
  
 body{
     margin: 0 0 0 20% ; 
-   
+    /* font-family: 'Poppins', sans-serif; */
   
 }
 .pool{
@@ -35,15 +35,15 @@ body{
 }
 .add-metric{
     width: 40vw;
-    border: 1px solid #561278;
-    height: 40vh;
-    padding: 30px;
-    margin-left: 35vw;
-    border-radius: 20px;
+    border: 1px solid transparent;
+    height: 50vh;
+    padding: 20px;
+    margin-left: 30vw;
+    border-radius: 5px;
     margin-top: 5%;
     background-color: #fff;
     cursor: pointer;
-    
+    box-shadow: rgb(37, 37, 37) 5px 5px 5px;
 }
 #close{
     color: #561278;
@@ -51,6 +51,7 @@ body{
     padding: 7px;
     border-radius: 50%;
     background-color: #DCBEEB;
+    box-shadow: rgb(37, 37, 37) 2px 2px 2px;
 }
 .add-metric-modal{
  display: none ;
@@ -65,32 +66,51 @@ body{
   background-color: rgba(0,0,0,0.4); 
 }
 .add-metric >form{
-    color: rgb(97, 93, 93);
-    font-size: 18px;
-   
-    }
+color: rgb(97, 93, 93);
+font-size: 18px;
+
+}
+.add-metric >form>h3{
+    text-align:center;  
+    margin-top:-5%;
+    
+}
+
 #metric-input{
     background-color: #DCBEEB;
-    width: 60%;
+    width: 90%;
     border: none;
-    margin-left: 4%;
-    padding: 10px 10px;
+    margin-left: 1%;
+    padding: 20px 10px;
+    box-shadow: rgb(37, 37, 37) 2px 2px 2px;
+    border-radius: 5px;
+}
+#metric-input:focus{
+    outline: none;
+   
 }
 #metric-value{
     background-color: #DCBEEB;
-    width: 60%;
+    width: 90%;
     border: none;
-    margin-left: 5.5%;
-    padding: 10px 10px;
+    margin-left: 1%;
+    padding: 20px 10px;
+    box-shadow: rgb(37, 37, 37) 2px 2px 2px;
+    border-radius: 5px;
+}
+#metric-value:focus{
+    outline: none;  
 }
 .add-metric >form >button{
-    width: 64%;
+    width: 94%;
     border: none;
-    padding: 10px 10px;
-    margin-left: 16.5%;
+    padding: 15px 10px;    
     background-color: #561278;
     color: #fff;
     border-radius: 2px;
+    margin-left: 1%;
+    font-size:18px;
+    box-shadow: rgb(37, 37, 37) 2px 2px 2px;
 
 }
 table {
@@ -118,7 +138,8 @@ table {
     border-radius: 5px;
     border: 1px solid #b076ce;
     width: 40%;
-    padding: 5px 20px;
+    padding: 5px 10px;
+    text-align: center;
   }
    #edit:hover{
     background-color: #7c4797;
@@ -220,8 +241,10 @@ text-decoration: none;
         width: 110%;
         border: none;
         padding: 10px 10px;
-        margin-left: 0.5%;
+        margin-left: 0.5%; 
+    }
+    td{
         
-    
+        font-size: 16px;
     }
 }
