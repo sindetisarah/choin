@@ -233,7 +233,6 @@ def trainer_profile_upload(request):
         if not csv_file.name.endswith('.csv'):
             messages.error(request, 'THIS IS NOT A CSV FILE')
         trainer_data_set = csv_file.read().decode('UTF-8')
-        # setup a stream which is when we loop through each line we are able to handle a data in a stream
         io_string = io.StringIO(trainer_data_set)
         next(io_string)
 
@@ -247,8 +246,7 @@ def trainer_profile_upload(request):
             data.append(user)
             user.role=User.TRAINER
             user.save()
-        
-        # send the email to the recipent
+       
         users=User.objects.all().filter(role=2)
         
         for user in users:
