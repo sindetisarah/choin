@@ -37,13 +37,20 @@
     <table class="table ">
         <tr>
             
-            <th>Student Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Reward</th>
         </tr>
         {% for student in students %}
         <tr>
+            {%if student.image%}
+            <td><img id="profile" src="{{student.image.url}}"></td>
+        {%else%}
+            <td><img id="profile" src="/static/images/placeholderperson.jpg"></td>
+        {%endif%}
             
-            <td>{{ student.username }} </td>
+            <td>{{ student.first_name }} </td>
+            <td>{{ student.last_name }} </td>
             <td><button id="reward-student"><a href="{%url 'reward_confirm' student.id%}">Reward</a></button></td>
         </tr>
         {% endfor %}
@@ -59,7 +66,7 @@
                 <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ students.paginator.num_pages }}">Last Page</a>
             {% endif %}
         </span>
-
+</div>
 </body>
 <script src="{% static 'js/navbar.js' %}"></script>
 

@@ -25,13 +25,14 @@
 
            
             
-            <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
+            
             {% for b in bal %}
+            {%if b.owner.image%}
+            <img id="profile-image" src="{{b.owner.image.url}}">
+         {%else%}
+            <img id="profile-image" src="/static/images/placeholderperson.jpg">
+         {%endif%} 
      
-<<<<<<< HEAD
-
-=======
->>>>>>> cde403dafbda4e5fe39a1c1c1e56402e95f5cc43
             <h3 id="heading">Balance:{{ b.choinBalance }}</h3>
 
             {% endfor %}
