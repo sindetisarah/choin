@@ -6,25 +6,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="{% static 'redeem-succeed.css' %}">
+    <script src="https://kit.fontawesome.com/953e8760a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/akira-favicon.ico' %}">
+    <title>Choin</title>
 </head>
 
 <body>
-    <div class="card">
-        <i class="fa fa-check-circle" style="font-size:48px;color:purple"></i>
+    <div class="success-popup">
+    <div class="success">
+        <i class="fa fa-check-circle" ></i>
+
         <h2>Transaction successful</h2>
-        <div>You have successfully redeemed 
-            <ul>
-            {% for item in order %}
-            <li> {{ item.quantity }} {{item.reward.item_name}}</li>
-            {% endfor %}
-        </ul>
         
-             for {{ order.calculate_cart_total}}</div>
         <button id="close">Ok</button>
     </div>
-    <script src="{% static 'js/redeem.js' %}"></script>
+</div>
+    
+    <script src="{% static 'js/redeem-succeed.js' %}"></script>
 
 </body>
 
