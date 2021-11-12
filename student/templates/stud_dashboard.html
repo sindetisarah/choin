@@ -42,6 +42,10 @@
         </h3>
         <div class="column">
             <div class="card">
+<<<<<<< HEAD
+=======
+            
+>>>>>>> b65aefd98e52c64aa5b29bca4e1ec3ec01a415e9
             {%if user.image%}
                 <img id="img" src="{{user.image.url}}">
             {%else%}
@@ -53,6 +57,11 @@
                 {% for bal in choin_balance %}
                 {{ bal.choinBalance }}</p>
                 {% endfor %}
+<<<<<<< HEAD
+=======
+                
+                
+>>>>>>> b65aefd98e52c64aa5b29bca4e1ec3ec01a415e9
             </div>
         </div>
         <h3 id="title">Latest transactions
@@ -64,11 +73,19 @@
                 <th>CHOIN</th>
                 <th>TIME</th>
                 {% for trans in transactions %}
+<<<<<<< HEAD
+=======
+               
+>>>>>>> b65aefd98e52c64aa5b29bca4e1ec3ec01a415e9
                 <tr>
                     <td>{{ trans.sender}}</td>
                     <td>{{ trans.metric}}</td>
                     <td>{{ trans.value}}</td>
                     <td>{{ trans.time}}</td>
+<<<<<<< HEAD
+=======
+            
+>>>>>>> b65aefd98e52c64aa5b29bca4e1ec3ec01a415e9
                 </tr>
                 {% endfor %}
             </table>
@@ -105,14 +122,27 @@
                 </tr>
                 {%for student in students%}
                 <tr>
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> b65aefd98e52c64aa5b29bca4e1ec3ec01a415e9
                     {%if student.owner.image%}
                     <td><img id="images" src="{{student.owner.image.url}}" /></td>
                     {%else%}
                     <td><img id="images" src="/static/images/placeholderperson.jpg"/></td>
                     {%endif%}
+<<<<<<< HEAD
                     <td>{{student.owner.first_name}}</td>
                     <td>{{student.owner.last_name}}</td>
                     <td>{{ student.choinBalance }}</td>
+=======
+
+                    <td>{{student.owner.first_name}}</td>
+                    <td>{{student.owner.last_name}}</td>
+                    
+                    <td>{{ student.choinBalance }}</td>
+                    
+>>>>>>> b65aefd98e52c64aa5b29bca4e1ec3ec01a415e9
                 </tr>
                 {%endfor%}
             </table>
