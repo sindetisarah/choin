@@ -1,11 +1,13 @@
 {% load static %} {% include 'student_navbar.html' %} {% load notifications_tags %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'dash_student.css' %}">
     <title>Choin</title>
 </head>
+
 <body>
     <div class="prof_detail">
         {%if user.image%}
