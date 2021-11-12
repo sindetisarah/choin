@@ -43,16 +43,15 @@ tr:nth-child(even) {
 
 #profile {
     border-radius: 50%;
-    width: 30px;
-    margin-left: 190%;
+    width: 40px;
     background-color: #000;
-    margin-bottom: 30%;
+    margin-left: 50%;
 }
 
 #choin_available {
-    margin-left: 70%;
+    margin-left: 30%;
     margin-top: 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 h2 {
@@ -64,7 +63,7 @@ h1 {
     margin: 0;
 }
 
-* {
+.column {
     box-sizing: border-box;
 }
 
@@ -87,7 +86,7 @@ h1 {
     border-radius: 8px;
     opacity: 80%;
     margin-left: 10px;
-    height: 85%;
+    height: 95%;
 }
 
 #prof {
@@ -161,7 +160,8 @@ h1 {
 }
 
 .prof_detail {
-    margin-left: 820%;
+    margin-left: 770px;
+    margin-right: 30px;
 }
 
 .dropbtn {

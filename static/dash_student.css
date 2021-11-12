@@ -43,16 +43,15 @@ tr:nth-child(even) {
 
 #profile {
     border-radius: 50%;
-    width: 30px;
-    margin-left: 190%;
+    width: 4%;
+    margin-left: 90%;
     background-color: #000;
-    margin-bottom: 30%;
 }
 
 #choin_available {
-    margin-left: 70%;
+    margin-left: 75%;
     margin-top: 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 h2 {
@@ -64,15 +63,12 @@ h1 {
     margin: 0;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 .column {
     float: left;
     width: 50%;
     padding: 10px;
     height: 300px;
+    box-sizing: border-box;
 }
 
 .row:after {
@@ -98,9 +94,10 @@ h1 {
 
 #img {
     border-radius: 50%;
-    width: 19%;
+    width: 30%;
     margin-bottom: 0;
-    margin-left: 80px;
+    margin-left: 35%;
+    margin-top: 5%;
 }
 
 #proff {
@@ -119,11 +116,6 @@ h1 {
     font-size: 30px;
 }
 
-.dropdown-content {
-    width: 500%;
-    margin-left: 720%;
-}
-
 h4 {
     margin-left: 40%;
 }
@@ -134,7 +126,6 @@ h4 {
     border-radius: 10px;
     border: 3px solid white;
     background-color: white;
-    margin-left: 80px;
     padding-left: 23px;
     padding-right: 23px;
 }
@@ -147,6 +138,7 @@ h4 {
     border-radius: 10px;
     font-weight: bolder;
     margin-left: 50px;
+    margin-right: 30px;
 }
 
 h1 {
@@ -155,19 +147,47 @@ h1 {
 }
 
 #profile_up {
-    display: flex;
-    padding: 10px;
     border: 3p solid black;
+    display: flex;
 }
 
 .prof_detail {
-    margin-left: 820%;
+    padding-bottom: 0;
+    margin-right: 20%;
 }
 
 .dropbtn {
-    margin-left: 900%;
+    margin-left: 50%;
+    margin-right: 0;
 }
 
 #content {
     margin-left: 40px;
+}
+
+.dropdown {
+    display: flex;
+    margin-left: 60%;
+    padding: 0;
+}
+
+.dropdown-content {
+    margin-left: 60%;
+    width: 100%;
+    margin-top: 40%;
+}
+
+#choin_available {
+    margin-left: 210%;
+}
+
+#profile {
+    border-radius: 50%;
+    width: 40px;
+    background-color: #000;
+    margin-left: 290%;
+}
+#images{
+    width: 40px;
+    border-radius: 50%;
 }
