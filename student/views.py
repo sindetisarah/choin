@@ -163,6 +163,7 @@ def student_redeem(request):
     order = Redeem.objects.all().filter(student = std)
     the_balance=None
     item =RedeemableItem.objects.get(id =1)
+    
     for b in bal:
         for ord in order:
 
@@ -173,6 +174,8 @@ def student_redeem(request):
      
                 wallets=Wallet.objects.all().filter(owner=request.user)
                 the_balance =b.choinBalance - ord.calculate_cart_total
+               
+
                 red = Redeem.objects.all().filter(student = std)
                 i=Redeemed.objects.create (product = item ,quantity =ord.calculate_cart_items,total =ord.calculate_cart_total,student =std)
                 i.save()
