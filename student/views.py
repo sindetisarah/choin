@@ -51,7 +51,6 @@ def student_home(request):
 def redeem(request):
     if request.user.is_authenticated:
         student_customer = Student.objects.get(user = request.user)
-        # student_customer = Student.objects.get(id=request.user.id)
         order, created = Redeem.objects.get_or_create(student=student_customer, complete = False)
         items = order.rewardeditem_set.all()
         cartItems = order.calculate_cart_items
@@ -184,4 +183,16 @@ def student_redeem(request):
                 wallets.update(owner = request.user, choinBalance = the_balance)
 
     return render(request,'RedeemSucceed.html',{'the_balance':the_balance,'order':order})        
+
+
+
+
+
+
+
+
+
+
+
+
 
