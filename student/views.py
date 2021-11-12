@@ -11,10 +11,11 @@ from .models import  *
 from django.core.exceptions import ObjectDoesNotExist
 from leadership.models import RedeemableItem, Transaction, Wallet
 
+from django.contrib.auth.decorators import login_required
+from leadership.views import view_student_leaderboard
 
-# @login_required
 
-
+@login_required(login_url='login') 
 
 def student_profile(request):
     try:
@@ -33,7 +34,7 @@ def student_profile(request):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
-            return redirect('student-home')
+            return redirect('student_dashboard')
     else:
         profile_form = UserProfileForm(instance=request.user.userprofile)
         user_form = UpdateProfileForm(instance=request.user)
@@ -46,7 +47,7 @@ def student_profile(request):
 def student_home(request):
     return render(request,'student_home.html')
 
-    
+@login_required(login_url='login')   
 def redeem(request):
     if request.user.is_authenticated:
         student_customer = Student.objects.get(user = request.user)
@@ -65,11 +66,12 @@ def redeem(request):
             return render(request,'inactive_redeem.html',{'bal':bal, 'items':items})
     return render(request,'redeem.html',{'reward_items':reward_items,'bal':bal, 'items':items, 'cartItems':cartItems})
     
-
+@login_required(login_url='login') 
 def redeem_failed(request):
     bal = Wallet.objects.all().filter(owner = request.user)
     return render(request,'RedeemFailed.html',{'bal':bal})
 
+@login_required(login_url='login') 
 def redeem_success(request):
     if request.user.is_authenticated:
         student_customer = Student.objects.get(user = request.user)
@@ -81,6 +83,7 @@ def redeem_success(request):
     context = {'items':items, 'order':order}  
     return render(request,'RedeemSucceed.html',context)
 
+@login_required(login_url='login')
 def cart(request):
     bal = Wallet.objects.all().filter(owner = request.user)
     if request.user.is_authenticated:
@@ -101,16 +104,20 @@ def cart(request):
     context = {'items':items, 'order':order,'bal':bal}    
     return render(request,'cart.html', context)
     
-
+@login_required(login_url='login')
 def redeem_active(request):
     return render(request,'redeem_active.html')
 
+@login_required(login_url='login')
 def student_dashboard(request):
     student=Student.objects.get(user=request.user)
-    choin_balance=Wallet.objects.get(owner=request.user)
-    data={'student':student,'choin_balance':choin_balance}
-    return render(request,'stud_dashboard.html')
+    transactions = Transaction.objects.all().filter(receiver = request.user.username)
+    students=Wallet.objects.all().order_by('-choinBalance')
+    choin_balance=Wallet.objects.all().filter(owner=request.user)
+    data={'student':student,'choin_balance':choin_balance,'students':students,'transactions':transactions}
+    return render(request,'stud_dashboard.html',data)
 
+@login_required(login_url='login')
 def student_transactions(request):
     transact = Transaction.objects.all().filter(receiver = request.user.username)
     bal = Wallet.objects.all().filter(owner = request.user)
@@ -155,6 +162,7 @@ def update_item(request):
 
     return JsonResponse('Item was added', safe=False)
 
+@login_required(login_url='login')
 def student_redeem(request):
     bal = Wallet.objects.all().filter(owner = request.user)
     std = Student.objects.get(user = request.user)
@@ -176,24 +184,4 @@ def student_redeem(request):
                 wallets.update(owner = request.user, choinBalance = the_balance)
 
     return render(request,'RedeemSucceed.html',{'the_balance':the_balance,'order':order})        
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-# def mark_as_read(request,pk):
-    
-#     notifications = Notifications.objects.get(pk=pk)
-#     notifications.mark_as_read()
-#     return redirect(reverse('student-home'))
-
 
