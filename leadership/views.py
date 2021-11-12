@@ -2,7 +2,7 @@ import csv, io
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.core.paginator import Paginator
-from student.models import Student
+from student.models import Redeem, Redeemed, Student
 from trainer.models import Trainer
 from .models import *
 from leadership.forms import AddMetricsForm, RewardItemForm
@@ -331,7 +331,10 @@ def reward_confirm(request,id):
         
     
     transactions = Transaction.objects.all().filter(receiver = student.username)
-    choinBalance = sum(transactions.values_list('value', flat=True))
+    std = Student.objects.get(user = student)
+    redeems = Redeemed.objects.all().filter(student = std)
+    
+    choinBalance = sum(transactions.values_list('value', flat=True)) - sum(redeems.values_list('total',flat=True))
     print(choinBalance)
     print(student.id)
     wallet_owner=User.objects.get(id=student.id)
@@ -343,7 +346,7 @@ def reward_confirm(request,id):
     # notify.send (request.user, recipient = student, verb ='You have been awarded choins ')
 
 
-    return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met, 'wallets':wallets})
+    return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met, 'wallets':wallets,'val':val})
    
 
 def delete_metric(request,id):

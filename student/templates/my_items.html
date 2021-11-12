@@ -41,14 +41,16 @@
 <table>
     <th>PRODUCT</th>
     <th>QUANTITY</th>
+    <th>CHOINS</th>
    
-    {% for i in items %}
+    {% for i in redeems %}
    
     <tr>
       
 
         <td>{{ i.product}}</td>
         <td>{{ i.quantity}}</td>
+        <td>{{ i.total}}</td>
        
 
     </tr>
