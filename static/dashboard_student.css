@@ -43,17 +43,16 @@ tr:nth-child(even) {
 
 #profile {
     border-radius: 50%;
-    width: 4%;
-    bottom: 88%;
-    margin-left: 90%;
+    width: 30px;
+    margin-left: 190%;
     background-color: #000;
     margin-bottom: 30%;
 }
 
 #choin_available {
-    margin-left: 75%;
+    margin-left: 70%;
     margin-top: 0;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 h2 {
@@ -162,7 +161,7 @@ h1 {
 }
 
 .prof_detail {
-    margin-left: 160%;
+    margin-left: 820%;
 }
 
 .dropbtn {
