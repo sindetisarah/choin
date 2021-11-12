@@ -64,30 +64,7 @@ th, td {
   .type_csv{
     bottom: 10px;
 }
-.search{
-    width: 40%;
-}
-.search>form>input{
-    width: 100%;
-    padding: 8px 8px;
-    color: whitesmoke;
-    border-radius: 2px;
-    margin-left: 126%;
-    border: none;
-    background-color:white;
-    border:1px solid black;
-}
-  
-.search-button {
-    /* padding: 10px; */
-    min-width: 40px;
-    position:absolute;
-    right:3rem;
-    border:transparent;
-    background-color:transparent;
-   
-    padding-bottom: 20px;
-}
+
 .card{
     margin-top: 0.5%;
     background-color:rgba(181, 149, 211, 0.281);
@@ -343,7 +320,7 @@ th, td {
     border-radius: 2px;
     margin-left: 15%;
     border: none;
-    background-color:white;
+    background-color:rgb(165, 37, 177);
     border:1px solid black;
 }
 }
