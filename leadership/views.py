@@ -2,7 +2,7 @@ import csv, io
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.core.paginator import Paginator
-from student.models import Student
+from student.models import Redeem, Redeemed, Student
 from trainer.models import Trainer
 from .models import *
 from leadership.forms import AddMetricsForm, RewardItemForm
@@ -294,6 +294,7 @@ def trans(request):
 def reward_confirm(request,id):
     student = User.objects.get(id=id)
     metrics = Metrics.objects.all()
+    
 
     val = request.GET
     met =None
@@ -330,7 +331,10 @@ def reward_confirm(request,id):
         
     
     transactions = Transaction.objects.all().filter(receiver = student.username)
-    choinBalance = sum(transactions.values_list('value', flat=True))
+    std = Student.objects.get(user = student)
+    redeems = Redeemed.objects.all().filter(student = std)
+    
+    choinBalance = sum(transactions.values_list('value', flat=True)) - sum(redeems.values_list('total',flat=True))
     print(choinBalance)
     print(student.id)
     wallet_owner=User.objects.get(id=student.id)
@@ -342,7 +346,7 @@ def reward_confirm(request,id):
     # notify.send (request.user, recipient = student, verb ='You have been awarded choins ')
 
 
-    return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met})
+    return render(request,'reward_confirm.html',{'student':student,'metrics':metrics,'met':met, 'wallets':wallets,'val':val})
    
 
 def delete_metric(request,id):
@@ -423,6 +427,7 @@ def search_redeemable_item(request):
         message="Looks like the item doesn't exist. Try again "
         return render (request,'redeemable_items_list.html',{'items':items,'message':message})
     return render (request,'redeemable_items_list.html',{'items':items,'results':results})
+
 def search_student_by_admin(request):
     search_post = request.GET.get('search')
     if search_post:
@@ -462,32 +467,7 @@ def deactivate_ajax_change_status(request):
         print("did not change")
         return False
 
+def redeemed_items(request):
+    items= Redeemed.objects.all()
+    return render(request,'redeemed_items.html',{'items':items})
 
-
-def ajax_change_status(request):
-    activate_page = request.GET.get('activate_page', True)
-    # job_id = request.GET.get('job_id', False)
-    # first you get your Job model
-    job = RedeemableItem.objects.all()
-    try:
-        for i in job:
-            i.activate_page =activate_page
-            i.save()
-        return redirect(reverse('add-reward-item'))
-    except Exception as e:
-        print("did not change")
-        return False
-
-def deactivate_ajax_change_status(request):
-    activate_page = request.GET.get('activate_page', False)
-    # job_id = request.GET.get('job_id', False)
-    # first you get your Job model
-    job = RedeemableItem.objects.all()
-    try:
-        for i in job:
-            i.activate_page =activate_page
-            i.save()
-        return redirect(reverse('add-reward-item'))
-    except Exception as e:
-        print("did not change")
-        return False

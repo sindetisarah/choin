@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
  
 body{
-    margin: 0 0 0 20% ;    
+    margin: 0 0 0 20% ;   
+    background:linear-gradient(to right, #fff9fd, #f3dbf7); 
    
 }
 #mini-logo{
@@ -36,7 +37,10 @@ body{
 /* .heading-seperate{
     margin-top: -5%;
 } */
-
+/* .card-line{
+    border-color: black;
+   
+} */
 #row-reward{
     display: flex;
     
@@ -50,7 +54,7 @@ body{
 .card{   
    border: none;
     border-radius: 20px;
-    background-color: #eee5e9; 
+    background-color: #faf4f7; 
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
     height: 270px;
     text-align: center;

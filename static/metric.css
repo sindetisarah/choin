@@ -3,6 +3,7 @@
 body{
     margin: 0 0 0 20% ; 
     /* font-family: 'Poppins', sans-serif; */
+    background:linear-gradient(to right, #fff9fd, #f3dbf7); 
   
 }
 .pool{
@@ -36,7 +37,7 @@ body{
 .add-metric{
     width: 40vw;
     border: 1px solid transparent;
-    height: 50vh;
+    height: 50%;
     padding: 20px;
     margin-left: 30vw;
     border-radius: 5px;
@@ -119,6 +120,8 @@ table {
     margin-left: 5%;
     box-shadow: gray 5px 5px 5px;
     border-radius: 5px;
+    background-color: #fff;
+    margin-top: 2%;
   }
   th, td {
     text-align: left;

@@ -19,8 +19,14 @@
             <i class="fas fa-bars menu"></i>
         </div>
    <div class="pool">
-   <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image"/>
-   {% for b in bal %}   
+   
+   
+   {% for b in bal %} 
+   {%if b.owner.image%}
+   <img id="profile-image" src="{{b.owner.image.url}}">
+{%else%}
+   <img id="profile-image" src="/static/images/placeholderperson.jpg">
+{%endif%} 
     <p>Choin Balance : {{ b.choinBalance }}  </p>   
    {% endfor %}    
    </div>
@@ -39,10 +45,10 @@
 
 
 <table>
-    <th>SENDER</th>
-    <th>REASON</th>
-    <th>CHOIN</th>
-    <th>TIME</th>
+    <th>Sender</th>
+    <th>Reason</th>
+    <th>Choin</th>
+    <th>Time</th>
     {% for trans in transactions %}
    
     <tr>
@@ -59,19 +65,18 @@
 
 
 
-<!-- <span class="step-links"> -->
-    <!-- <div class="pagination">
-        <span class="step-links">
-            {% if transactions.has_previous %}
-                <a id="previous" class="btn btn-outline-dark mb-2 " href="?page=1">First Page</a>
-                <a id="previous" class="btn btn-outline-dark mb-2 " href="?page={{ transactions.previous_page_number }}"><i class="fas fa-backward"></i></a>
-            {% endif %}
-            {% if transactions.has_next %}
-                <a  id="last_page" class="btn btn-outline-dark mb-2" href="?page={{ transactions.next_page_number }}"><i class="fas fa-forward"></i></a>
-                <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ transactions.paginator.num_pages }}">Last Page</a>
-            {% endif %}
-        </span> -->
-      <!-- metric table -->
+<div class="pagination">
+    <span class="step-links">
+        {% if transactions.has_previous %}
+            <a id="previous" class="btn btn-outline-dark mb-2 " href="?page=1">First Page</a>
+            <a id="previous" class="btn btn-outline-dark mb-2 " href="?page={{ transactions.previous_page_number }}"><i class="fas fa-backward"></i></a>
+        {% endif %}
+        {% if transactions.has_next %}
+            <a  id="last_page" class="btn btn-outline-dark mb-2" href="?page={{ transactions.next_page_number }}"><i class="fas fa-forward"></i></a>
+            <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ transactions.paginator.num_pages }}">Last Page</a>
+        {% endif %}
+    </span>
+</div>
   
 </body>
 <script src="{% static 'js/navbar.js' %}"></script>
