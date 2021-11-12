@@ -61,7 +61,6 @@ class LoginView(FormView):
                 # return HttpResponseRedirect(reverse_lazy('change_password'))
                 if user.role==1:
                     print(user.role)
-
                     return HttpResponseRedirect(reverse_lazy('leadership-profile'))
                 elif user.role==2:
                     return HttpResponseRedirect(reverse_lazy('trainer-profile'))
