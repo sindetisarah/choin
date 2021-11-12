@@ -2,6 +2,7 @@
  
 body{
     margin: 0 0 0 20% ; 
+    background:linear-gradient(to right, #fff9fd, #f3dbf7);
    
     
 }
@@ -74,6 +75,7 @@ hr{
     width: 25%;
     height:20%;
     border-radius: 100%;
+    box-shadow: rgb(214, 193, 214) 3px 3px 3px;
 
 }
 .student-details> h2{
