@@ -8,6 +8,8 @@ body{
     width: 250px;
     height:90px;
     z-index:1;
+    background-color: #fff;
+    margin-top: -3.5%;
 }
 
 .sidebar{
@@ -16,8 +18,10 @@ body{
    top:0;
    left: 0;
    bottom: 0;
-   background-color:#f6ddfd;
+   background-color:#9918bd;
+   /* background-color:purple; */
    padding-top: 10px;
+   box-shadow: #4b1666 3px 3px 3px ;
    
    
 }
@@ -29,7 +33,7 @@ body{
    text-decoration: none;
    letter-spacing: 2px;
    font-weight: 400;
-   margin: 0;
+   margin: 0%;
    font-size: 25px;
    text-transform: uppercase;
 }
@@ -37,18 +41,20 @@ body{
 .sidebar .nav{
    display: block;
    padding: 20px 20px;
-   color: rgb(97, 93, 93);
+   /* color: rgb(97, 93, 93); */
+   color: #fff;
    text-decoration: none;
    font-family:'Montserrat', sans-serif;
    letter-spacing: 2px;
+   margin: 2% 0%;
 }
+
 
 .sidebar .nav:hover, .active{
    color: #fff; 
    width:210px;
-   height:15px;
-   padding-bottom: 10px;
-   background-color:#DCBEEB;
+   background-color:#4b1666;
+   transition: 0.8s ease-out;
 }
 .sidebar >.fa-times{
    margin-left: 90%;

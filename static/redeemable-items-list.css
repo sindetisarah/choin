@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
  
 body{
-    margin: 0 0 0 20% ;    
+    margin: 0 0 0 20% ;   
+    background:linear-gradient(to right, #fff9fd, #f3dbf7); 
    
 }
 #mini-logo{
@@ -83,6 +84,7 @@ table {
     margin-left: 5%;
     box-shadow: gray 5px 5px 5px;
     border-radius: 5px;
+    background-color: #fff;
   }
 
   th, td {
@@ -114,8 +116,10 @@ table {
     margin-top: 2%;
 }
 #item-image{
-    width: 90px;
+    width: 50px;
     height: 50px;
+    box-shadow: gray 2px 2px 2px;
+    border-radius: 5px;
 }
 
 @media (max-width:875px){

@@ -21,8 +21,13 @@
         </div>
         <div class="pool">
             
-            <img src="https://bit.ly/2Zh75Ex" alt="profile-image" id="profile-image" />
+            
             {% for b in bal %}
+            {%if b.owner.image%}
+            <img id="profile-image" src="{{b.owner.image.url}}">
+         {%else%}
+            <img id="profile-image" src="/static/images/placeholderperson.jpg">
+         {%endif%} 
      
             <h3 id="heading">Balance:{{ b.choinBalance }}</h3>
             
@@ -43,7 +48,7 @@
                 
                 <th>Items: <strong>{{ order.calculate_cart_items}}</strong></th>
                 <th>Total Choins: <strong>{{order.calculate_cart_total}}</strong></th>
-                <th><a href="{% url 'student_redeem' %}">Redeem</a></th>
+                <th><a  class="buy" href="{% url 'student_redeem' %}">Redeem</a></th>
             </tr>
             
             
@@ -80,6 +85,7 @@
    
     <script src="{% static 'js/redeem.js' %}"></script>
     <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/redeem-succeed.js' %}"></script>
    
 
 </body>

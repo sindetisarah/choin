@@ -53,4 +53,8 @@ class RewardedItem(models.Model):
     def calculate_total(self):
         total_price=self.reward.item_value * self.quantity
         return total_price
-
+class Redeemed(models.Model):
+    product = models.ForeignKey(RedeemableItem,on_delete=CASCADE, null=True,blank=False)
+    quantity = models.IntegerField(default=0)
+    total =  models.IntegerField(default=0)
+    student = models.ForeignKey(Student,on_delete=CASCADE,null=True)

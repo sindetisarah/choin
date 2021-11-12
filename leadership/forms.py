@@ -15,4 +15,4 @@ class AddMetricsForm(forms.ModelForm):
 class RewardItemForm(forms.ModelForm):
     class Meta:
         model=RedeemableItem
-        fields='__all__'
+        fields=["image", "item_name","item_value","quantity"]

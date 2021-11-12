@@ -11,6 +11,13 @@
     <title>Choin</title>
 </head>
 <body>
+    <div class="search">
+        <form method="get" action="{% url 'search_student' %}">
+            <button type='submit' class="search-button"><i class="fas fa-search"></i></button>
+            <input type="search" placeholder="Search student by first name" name="search" />
+            
+        </form>
+    </div>
     <table>
         <tr>
             <th></th>

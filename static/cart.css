@@ -2,6 +2,7 @@
  
 body{
     margin: 0 0 0 20% ;    
+    background:linear-gradient(to right, #fff9fd, #f3dbf7);
    
 }
 #mini-logo{
@@ -18,6 +19,7 @@ body{
 
 #profile-image{
     width: 30%;
+    height: 70px;
     border-radius: 50%;
     margin-left: 40%;
 }
@@ -35,19 +37,20 @@ body{
     margin-left: 15%;
 }
 .cart-count{
-    border: solid 1px #95899b;
+    border: solid 1px transparent;
     width: 85%;
     margin-left: 5%;
     padding: 20px;
     box-shadow: #95899b 2px 2px 2px;
     border-radius: 10px;
+    background-color: #fff;
 }
 table {
     border-collapse: collapse;
     margin-top: 1%;
     width: 90%;
     margin-left: 2%;
-    
+   
   }
 
   th{
@@ -59,7 +62,7 @@ table {
   th >strong{
       color: #8a7f8f;
   }
-  th>a{
+  .buy{
       border: solid 1px transparent;
       background-color: #dd84e6;
       padding: 8px;

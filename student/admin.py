@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(Student)
 admin.site.register(Redeem)
 admin.site.register(RewardedItem)
+admin.site.register(Redeemed)
