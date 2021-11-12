@@ -62,7 +62,7 @@ table {
   th >strong{
       color: #8a7f8f;
   }
-  th>a{
+  .buy{
       border: solid 1px transparent;
       background-color: #dd84e6;
       padding: 8px;

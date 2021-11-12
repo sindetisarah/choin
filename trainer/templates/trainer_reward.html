@@ -36,13 +36,23 @@
     </div>
     <table class="table ">
         <tr>
-            <th>Student Name</th>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Reward</th>
         </tr>
         {% for student in students %}
         <tr>
-            <td>{{ student.username }} </td>
-            <td><button id="reward-student"><a href="{%url 'trainer_reward_confirm' student.id%}">Reward</a></button></td>
+            {%if student.image%}
+            <td><img id="profile" src="{{student.image.url}}"></td>
+        {%else%}
+            <td><img id="profile" src="/static/images/placeholderperson.jpg"></td>
+        {%endif%}
+            
+            <td>{{ student.first_name }} </td>
+            <td>{{ student.last_name }} </td>
+            <td><button id="reward-student"><a href="{%url 'reward_confirm' student.id%}">Reward</a></button></td>
+            
         </tr>
         {% endfor %}
     </table>

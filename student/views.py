@@ -201,15 +201,3 @@ def my_items(request):
     redeems = Redeemed.objects.all().filter(student = std )
     return render(request,'my_items.html',{'redeems':redeems})          
 
-
-
-
-
-
-
-
-
-
-
-
-
