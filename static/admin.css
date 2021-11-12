@@ -9,7 +9,7 @@
 
 }
 #choin_available {
-    margin-left: 83%;
+    margin-left: 85%;
     color: purple;
     font-size: 15px;
     margin-top: 5.5%;
@@ -90,11 +90,11 @@ th, td {
 }
 .card{
     margin-top: 0.5%;
-    background-color:rgba(128, 128, 128, 0.281);
+    background-color:rgba(181, 149, 211, 0.281);
     margin-left: 25%;
     width:56rem;
     border-radius: 8px;
-    height:40vh;
+    height:35vh;
     
     
 }
@@ -105,11 +105,11 @@ th, td {
 #codehive{
     background-color: white;
     margin-left: 2%;
-    margin-top: 3%;
+    margin-top: 2%;
     position: absolute;
     border-radius: 5px;
     width:290px;
-    height:240px;
+    height:175px;
 
 }
 ::-webkit-file-upload-button {
@@ -127,13 +127,41 @@ th, td {
      padding-top: 2%;
   }
   #btn_full_list{
-    margin-top: 0.5%;
-    margin-left:83%;
-    background-color: #DCBEEB;
+      font-size: 15px;
+    margin-top: 14%;
+    margin-left:2%;
+    background-color:purple;
     border-radius: 5px;
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    color:white;
+    height: 35px;
     border-color: transparent;
+    text-decoration: none;
+  
+    
+}
+#btn_metrics{
+    border-radius: 5px;
+    width: 120px;
+    color:white;
+    height: 35px;
+    margin-top: 8%;
+    background-color:purple;
+    border-color: transparent;
+    font-size: 15px;
+
+
+}
+#btn_redeem{
+    border-radius: 5px;
+    width: 120px;
+    color:white;
+    height: 35px;
+    margin-top: 15%;
+    background-color:purple;
+    border-color: transparent;
+    font-size: 15px;
+
 }
 .csv_display{
     margin-left: 75%;
@@ -168,6 +196,33 @@ th, td {
    .student-upload-form{
         margin-bottom: 2%;
     } 
+
+    /* styling the three card3s in the admin dashboard */
+    #row-cards{
+        display: flex;
+        padding: 2px;
+        
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-left: 14%;
+        margin-top: 6%;
+    
+    }
+    .card2{   
+       border: none;
+       margin-left: 20px;
+        border-radius: 20px;
+        background-color:white; 
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+        height: 250px;
+        text-align: center;
+        width: 200px;
+        margin: 10px;
+       color: rgb(77, 74, 74);
+        
+    }
+    /* css trial */
+
     
 /* media queries */
 @media (max-width:875px){
@@ -183,7 +238,7 @@ th, td {
         width: 210px;
         height:150px;
      }
-      .card{ 
+      .card3{ 
          margin-top: 4%;
         background-color:rgba(128, 128, 128, 0.281);
         margin-left: 7%;
@@ -293,4 +348,3 @@ th, td {
 }
 }
     
-
