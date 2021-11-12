@@ -65,11 +65,11 @@ form{
   }
 .search-button{
     border: none;
-    background-color: transparent;
+   
    text-align: center;
-   margin-left: 10%;
+   margin-left: 90%;
    padding: 10px 10px;
-   background-color: #DCBEEB;
+   background-color: #6916f0;
    border-top-left-radius: 20px;
    border-bottom-left-radius: 20px;
    

@@ -198,7 +198,37 @@ th, td {
        color: rgb(77, 74, 74);
         
     }
-    /* css trial */
+    /* css search bar*/
+    .search>form>input{
+        width: 95%;
+        padding: 10px 10px;
+        color: #561278;
+        border-radius: 2px;
+        border: none;
+        background-color: #DCBEEB;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+       
+    }
+      form > input:focus{
+          outline: none;
+      }
+    .search-button{
+        border: none;
+        background-color: transparent;
+       text-align: center;
+       margin-left: 10%;
+       padding: 10px 10px;
+       background-color: #DCBEEB;
+       border-top-left-radius: 20px;
+       border-bottom-left-radius: 20px;
+       
+      
+        
+    }
+    .search-button>i{
+        text-decoration: none;
+    }
 
     
 /* media queries */
