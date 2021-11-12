@@ -245,10 +245,10 @@ th, td {
         width: 210px;
         height:150px;
      }
-      .card3{ 
+      .card{ 
          margin-top: 4%;
         background-color:rgba(128, 128, 128, 0.281);
-        margin-left: 7%;
+        margin-left: 5%;
         width: 225px;
         border-radius: 8px;
         height:20vh;
@@ -258,11 +258,11 @@ th, td {
     #profile{
         width: 5%;
         border-radius: 50%;
-        margin-left: 80%;
+        margin-left: 50%;
         margin-bottom: 20%;
     }
     #choin_available {
-        margin-left:55%;
+        margin-left:35%;
         color: purple;
         font-size: 10px;
         margin-top: 6.5%;
@@ -307,16 +307,7 @@ th, td {
             
              font-size: 15px;
           }
-          #btn_full_list{
-            margin-top: 2%;
-            margin-left:45%;
-            background-color: #DCBEEB;
-            border-radius: 5px;
-            width: 100px;
-            height: 30px;
-            border-color: transparent;
-            
-        }
+         
         #leader{
             font-size: 20px;
             padding-top:55% ;
@@ -352,6 +343,11 @@ th, td {
     border: none;
     background-color:rgb(165, 37, 177);
     border:1px solid black;
+}
+#row-cards{
+   
+    margin-left: 0%;
+  
 }
 }
     
