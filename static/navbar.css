@@ -48,9 +48,7 @@ body{
    letter-spacing: 2px;
    margin: 2% 0%;
 }
-hr{
-  display: none;
-}
+
 
 .sidebar .nav:hover, .active{
    color: #fff; 
