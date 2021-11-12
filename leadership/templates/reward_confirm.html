@@ -24,18 +24,25 @@
            
         </div>
     </div>
+    
     <div class="reward_confirm">
-        <p>Total Choins: 89</p>
+       
         <div class="student-details">
-            <img src="https://bit.ly/3belrZj" alt="student-image" id="student-image"/>
-                <h2>{{ student.username }}</h2>
+            {%if student.image%}
+                <img id="student-image" src="{{student.image.url}}">
+            {%else%}
+                <img id="student-image" src="/static/images/placeholderperson.jpg">
+            {%endif%}
+                <h2>{{ student.first_name }} {{ student.last_name }}</h2>
         </div>
         <div class="metric">
             <div class="metric-choice">
                 <form method="get" >
                     Metric
                     <select name='drop1' onchange="this.form.submit()">
-                        <option selected disabled="true">Select Metric</option>
+                        {% for v in val.values %}
+                        <option selected disabled="true">{{v}}</option>
+                        {% endfor %}
                         {% for q in metrics %}
                         <option id="metric" type="text" name="metric" value="{{ q }}">
                         {{ q }}
@@ -47,18 +54,31 @@
         </div>
             <div class="value">
            Choin <p id="choins">{{ met }}</p>
+            </div> 
+                    <button id="button">Proceed</button>
             </div>
-
-            <div class="submit">
-                <form action="{% url 'trans' %}">
-                    <button type="submit">Proceed</button>
-                </form>
-            </div>
-
-        </div>
 
     </div>
-    
+    <div class="reward-popup">
+        <div class="reward-details">
+            You are about to reward 
+            <strong>{{ student.first_name }} {{ student.last_name }}</strong>
+            
+            <strong>{{ met }}</strong> choins . 
+        
+         <h5>Proceed?</h5>
+         <div class="submit">
+            <button id="cancel">Cancel</button>
+            <form action="{% url 'trans' %}">
+                <button id="submit" type="submit">OK</button>
+            </form>
+           
+        </div>
+       
+
+        </div>
+    </div>
 </body>
 <script src="{% static 'js/navbar.js' %}"></script>
+<script src="{% static 'js/reward-confirm.js' %}"></script>
 </html>

@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+    background:linear-gradient(to right, #fff9fd, #f3dbf7);
+}
 #profile {
     border-radius: 50%;
     width: 4%;
@@ -64,30 +67,7 @@ th, td {
   .type_csv{
     bottom: 10px;
 }
-.search{
-    width: 40%;
-}
-.search>form>input{
-    width: 100%;
-    padding: 8px 8px;
-    color: whitesmoke;
-    border-radius: 2px;
-    margin-left: 126%;
-    border: none;
-    background-color:white;
-    border:1px solid black;
-}
-  
-.search-button {
-    /* padding: 10px; */
-    min-width: 40px;
-    position:absolute;
-    right:3rem;
-    border:transparent;
-    background-color:transparent;
-   
-    padding-bottom: 20px;
-}
+
 .card{
     margin-top: 0.5%;
     background-color:rgba(181, 149, 211, 0.281);
@@ -221,7 +201,37 @@ th, td {
        color: rgb(77, 74, 74);
         
     }
-    /* css trial */
+    /* css search bar*/
+    .search>form>input{
+        width: 95%;
+        padding: 10px 10px;
+        color: #561278;
+        border-radius: 2px;
+        border: none;
+        background-color: #DCBEEB;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+       
+    }
+      form > input:focus{
+          outline: none;
+      }
+    .search-button{
+        border: none;
+        background-color: transparent;
+       text-align: center;
+       margin-left: 10%;
+       padding: 10px 10px;
+       background-color: #DCBEEB;
+       border-top-left-radius: 20px;
+       border-bottom-left-radius: 20px;
+       
+      
+        
+    }
+    .search-button>i{
+        text-decoration: none;
+    }
 
     
 /* media queries */
@@ -238,10 +248,10 @@ th, td {
         width: 210px;
         height:150px;
      }
-      .card3{ 
+      .card{ 
          margin-top: 4%;
         background-color:rgba(128, 128, 128, 0.281);
-        margin-left: 7%;
+        margin-left: 5%;
         width: 225px;
         border-radius: 8px;
         height:20vh;
@@ -251,11 +261,11 @@ th, td {
     #profile{
         width: 5%;
         border-radius: 50%;
-        margin-left: 80%;
+        margin-left: 50%;
         margin-bottom: 20%;
     }
     #choin_available {
-        margin-left:55%;
+        margin-left:35%;
         color: purple;
         font-size: 10px;
         margin-top: 6.5%;
@@ -300,16 +310,7 @@ th, td {
             
              font-size: 15px;
           }
-          #btn_full_list{
-            margin-top: 2%;
-            margin-left:45%;
-            background-color: #DCBEEB;
-            border-radius: 5px;
-            width: 100px;
-            height: 30px;
-            border-color: transparent;
-            
-        }
+         
         #leader{
             font-size: 20px;
             padding-top:55% ;
@@ -343,9 +344,13 @@ th, td {
     border-radius: 2px;
     margin-left: 15%;
     border: none;
-    background-color:white;
+    background-color:rgb(165, 37, 177);
     border:1px solid black;
+}
+#row-cards{
+   
+    margin-left: 0%;
+  
 }
 }
     
-

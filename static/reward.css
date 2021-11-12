@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
  
 body{
-    margin: 0 0 0 20% ;    
+    margin: 0 0 0 20% ; 
+    background:linear-gradient(to right, #fff9fd, #f3dbf7);
+    
    
 }
 #mini-logo{
@@ -34,9 +36,15 @@ body{
     color: #561278;
 }
 .search{
-    width: 40%;
+    width: 40%; 
     
-    
+}
+#profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: gray 2px 2px 2px;
+    object-fit: cover;
 }
 form{
     display: flex;
@@ -57,9 +65,9 @@ form{
   }
 .search-button{
     border: none;
-    background-color: transparent;
+   
    text-align: center;
-   margin-left: 10%;
+  
    padding: 10px 10px;
    background-color: #DCBEEB;
    border-top-left-radius: 20px;
@@ -83,6 +91,7 @@ table {
     margin-left: 5%;
     box-shadow: gray 5px 5px 5px;
     border-radius: 5px;
+    background-color: #fff;
   }
 
   th, td {
@@ -171,6 +180,7 @@ box-shadow: #7c4797 5px 5px 5px;
         width: 100%;
         
     }
+   
     form{
         margin-left: -10%;
     }
@@ -179,7 +189,7 @@ box-shadow: #7c4797 5px 5px 5px;
         margin-top: 5%;
     }
     #reward-student{
-        width: 60%;
+        width: 100%;
         padding: 10px;
       }
      
