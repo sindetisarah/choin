@@ -142,4 +142,138 @@
     <script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
     {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
 </body>
+</html>% load static %} {% include 'student_navbar.html' %} {% load notifications_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'dash_student.css' %}">
+    <title>Choin</title>
+</head>
+
+<body>
+    <div id="profile_up">
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">
+            <i class="fas fa-bell"id="bell"></i>
+            {% live_notify_badge badge_class="badge" %}
+            <i class="fa fa-caret-down"></i>
+        </button>
+            <div id="myDropdown" class="dropdown-content">
+                {% for notification in user.notifications.unread %}
+                <h4>Notifications</h4>
+                <div class="btns">
+                    <button id="read">Mark all as read</button>
+                    <button id="delete">Delete all</button>
+                </div>
+                <div id="content">
+                    <p>You have a new message from <b>{{ notification.actor.username }}
+                <a href="{% url 'notifications:mark_as_read' notification.slug %} " class="fas fa-times-circle">
+                </a>
+                <span class="text-muted">{{ notification.timesince }} ago</span></p><br> {{ notification.description |linebreaksbr }}
+            <hr> {% endfor %}
+        </div>
+    </div>
+</div>
+    <div class="prof_detail">
+    <img id="profile" src="/static/images/me-removebg-preview.png" />
+    <!-- <h1 id="choin_available">Choins:2000</h1> -->
+</div>
+    </div>
+    <h1>Hello {{user.username}} </h1>
+    <hr>
+    <div class="row">
+        <h3 id="proff">Profile
+        </h3>
+        <div class="column">
+            <div class="card">
+            
+            {%if user.image%}
+                <img id="img" src="{{user.image.url}}">
+            {%else%}
+                <img id="img" src="/static/images/placeholderperson.jpg">
+            {%endif%}
+                <!-- <img src="/static/images/me-removebg-preview.png" id="img" alt=""> -->
+                <p id="prof">{{user.first_name}} {{user.last_name}}</p>
+                <p id="prof">My Account:
+                {% for bal in choin_balance %}
+                {{ bal.choinBalance }}</p>
+                {% endfor %}
+                
+                
+            </div>
+        </div>
+        <h3 id="title">Latest transactions
+        </h3>
+        <div class="column">
+            <table>
+                <th>SENDER</th>
+                <th>REASON</th>
+                <th>CHOIN</th>
+                <th>TIME</th>
+                {% for trans in transactions %}
+               
+                <tr>
+                    <td>{{ trans.sender}}</td>
+                    <td>{{ trans.metric}}</td>
+                    <td>{{ trans.value}}</td>
+                    <td>{{ trans.time}}</td>
+            
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <h3 id="proff">Latest redeem
+        </h3>
+        <div class="column">
+            <div class="card">
+                {%for item in reward_items%}
+                <div class="row">
+                    <div class="column">
+                        <img id="image-reward" alt="redeemable-item" src="{{item.image.url}}">
+                        <h3>{{item.item_name}}</h3>
+                    </div>
+                    <div class="column">
+                        <img id="image-reward" alt="redeemable-item" src="{{item.image.url}}">
+                        <h3>{{item.item_name}}</h3>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        <h3 id="title">Leaderboard
+        </h3>
+        <div class="column">
+            <table>
+                <tr>
+                    <th></th>
+                    <th> First Name</th>
+                    <th> Last Name</th>
+                    <th>Choins</th>
+                </tr>
+                {%for student in students%}
+                <tr>
+                    
+                    {%if student.owner.image%}
+                    <td><img id="images" src="{{student.owner.image.url}}" /></td>
+                    {%else%}
+                    <td><img id="images" src="/static/images/placeholderperson.jpg"/></td>
+                    {%endif%}
+
+                    <td>{{student.owner.first_name}}</td>
+                    <td>{{student.owner.last_name}}</td>
+                    
+                    <td>{{ student.choinBalance }}</td>
+                    
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+    <script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
+    {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
+</body>
 </html>
