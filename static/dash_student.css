@@ -2,17 +2,9 @@
 body {
     margin: 0 0 0 20%;
 }
-<<<<<<< HEAD
 #mini-logo {
     display: none !important;
 }
-=======
-
-#mini-logo {
-    display: none !important;
-}
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 table {
     border-collapse: collapse;
     width: 100%;
@@ -20,85 +12,45 @@ table {
     box-shadow: gray 5px 5px 5px;
     border-radius: 5px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 th,
 td {
     text-align: left;
     padding: 8px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 th {
     color: #561278;
     font-size: 18px;
 }
-<<<<<<< HEAD
 td {
     height: 50px;
 }
 tr:nth-child(even) {
     background-color: #DCBEEB;
 }
-=======
-
-td {
-    height: 50px;
-}
-
-tr:nth-child(even) {
-    background-color: #DCBEEB;
-}
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #Image {
     border-radius: 50%;
     width: 4%;
     margin-bottom: 0;
     margin-top: 20px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #profile {
     border-radius: 50%;
     width: 4%;
     margin-left: 90%;
     background-color: #000;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #choin_available {
     margin-left: 75%;
     margin-top: 0;
     font-size: 20px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 h2 {
     margin-left: 20px;
     margin-bottom: 0;
 }
-<<<<<<< HEAD
 h1 {
     margin: 0;
 }
-=======
-
-h1 {
-    margin: 0;
-}
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 .column {
     float: left;
     width: 50%;
@@ -106,19 +58,11 @@ h1 {
     height: 300px;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 .card {
     background-color: #DCBEEB;
     width: 50%;
@@ -127,16 +71,11 @@ h1 {
     margin-left: 10px;
     height: 85%;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #prof {
     margin-left: 60px;
     margin-top: 0;
     padding: 8px;
 }
-<<<<<<< HEAD
 #img {
     border-radius: 50%;
     width: 30%;
@@ -144,48 +83,22 @@ h1 {
     margin-left: 35%;
     margin-top: 5%;
 }
-=======
-
-#img {
-    border-radius: 50%;
-    width: 19%;
-    margin-bottom: 0;
-    margin-left: 80px;
-}
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #proff {
     margin-left: 30px;
     margin-bottom: 0;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #title {
     margin-bottom: 0;
     margin-top: -20px;
     margin-left: 10px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #bell {
     color: purple;
     font-size: 30px;
 }
-<<<<<<< HEAD
 h4 {
     margin-left: 40%;
 }
-=======
-
-h4 {
-    margin-left: 40%;
-}
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #delete {
     font-weight: bolder;
     padding: 4px;
@@ -195,10 +108,6 @@ h4 {
     padding-left: 23px;
     padding-right: 23px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #read {
     background-color: purple;
     color: white;
@@ -209,85 +118,45 @@ h4 {
     margin-left: 50px;
     margin-right: 30px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 h1 {
     font-size: 20px;
     margin-left: 30px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #profile_up {
     border: 3p solid black;
     display: flex;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 .prof_detail {
     padding-bottom: 0;
     margin-right: 20%;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 .dropbtn {
     margin-left: 50%;
     margin-right: 0;
 }
-<<<<<<< HEAD
 #content {
     margin-left: 40px;
 }
-=======
-
-#content {
-    margin-left: 40px;
-}
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 .dropdown {
     display: flex;
     margin-left: 60%;
     padding: 0;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 .dropdown-content {
     margin-left: 60%;
     width: 100%;
     margin-top: 40%;
 }
-<<<<<<< HEAD
 #choin_available {
     margin-left: 210%;
 }
-=======
-
-#choin_available {
-    margin-left: 210%;
-}
-
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
 #profile {
     border-radius: 50%;
     width: 40px;
     background-color: #000;
     margin-left: 290%;
-<<<<<<< HEAD
 }
 #images{
     width: 40px;
     border-radius: 50%;
 }
-=======
-}
->>>>>>> 1bd5540dcf9a13369632270c05629e82ee207310
