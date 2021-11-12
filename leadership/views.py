@@ -467,4 +467,7 @@ def deactivate_ajax_change_status(request):
         print("did not change")
         return False
 
+def redeemed_items(request):
+    items= Redeemed.objects.all()
+    return render(request,'redeemed_items.html',{'items':items})
 
