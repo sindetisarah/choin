@@ -32,17 +32,7 @@ from .forms import UpdateProfileForm
 from django.contrib.auth.models import Group, Permission
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
-# def group_required(Leadership):
-#     """Requires user membership in at least one of the groups passed in."""
-#     def in_groups(u):
-#         if u.is_authenticated:
-#             if u.groups.filter(name='Leadership').exists() :
-#                 print("is a leader")
-#                 return True
-#             else:
-#                 return False
-#         return redirect('login')
-#     return user_passes_test(in_groups)
+
 
 def group_required(Leadership):
     """Requires user membership in at least one of the groups passed in."""
