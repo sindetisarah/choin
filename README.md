@@ -10,8 +10,8 @@
 ## Description
 
 This project is a Reward System that leverages blockchain technology.
-It was built and Inspired by Akirachix Software Engineering students based on the problem students face at Akirachix of lack of a proper Reward system.
-Students who are not outspoken were leftout in the crowd because they did not know how to speak for themselves or rather the Best in Academics were the ones heard or seen.
+It was built and Inspired by Akirachix Software Engineering students based on the problem students face at AkiraChix of lack of a proper Reward system.
+Students who are not outspoken were leftout in the crowd because they did not know how to speak for themselves or rather the best in academics were the ones heard or seen.
 
 The aim of Choin is to ensure that all students are rewarded and perform at their full potential in all aspects.
 Be it Academics,Sports,Music or any other co-curricular activity.
